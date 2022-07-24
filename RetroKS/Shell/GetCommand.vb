@@ -442,10 +442,6 @@ Module GetCommand
                 'Disco system, in monochrome
                 DiscoSystem(True)
 
-            ElseIf (requestedCommand = "hwprobe") Then
-
-                HardwareProbe.ProbeHW()
-
             ElseIf (requestedCommand.Substring(0, index) = "ls" Or requestedCommand.Substring(0, index) = "list") Then
 
                 'Lists folders and files
@@ -470,14 +466,10 @@ Module GetCommand
                             Wln("Directory {0} not found", "neutralText", args(0))
                         End If
                     Else
-                        Wln("Usage: ls/list [oneDirectory]" + vbNewLine + _
+                        Wln("Usage: ls/list [oneDirectory]" + vbNewLine +
                             "       ls/list: to get current directory.", "neutralText")
                     End If
                 End If
-
-            ElseIf (requestedCommand = "lsdrivers") Then
-
-                HardwareProbe.ListDrivers()
 
             ElseIf (requestedCommand = "lsnet") Then
 

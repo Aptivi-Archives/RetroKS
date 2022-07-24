@@ -28,7 +28,7 @@ Module FileContents
 
         ElseIf (filename = "hdpack") Then
 
-            Hddinfo(False, False)
+            Wln("System", "neutralText")
 
         ElseIf (filename = "libuesh.elb") Then
 
@@ -36,22 +36,22 @@ Module FileContents
 
         ElseIf (filename = "kernel") Then
 
-            Wln("Kernel process PID: 1" + vbNewLine + _
-                                     "Priority: High" + vbNewLine + _
-                                     "Importance: High, and shouldn't be killed.", "neutralText")
+            Wln("Kernel process PID: 1" + vbNewLine +
+                "Priority: High" + vbNewLine +
+                "Importance: High, and shouldn't be killed.", "neutralText")
 
         ElseIf (filename = "login") Then
 
-            Wln("Login process PID: 2" + vbNewLine + _
-                                     "Priority: Normal" + vbNewLine + _
-                                     "Importance: High, and shouldn't be killed.", "neutralText")
+            Wln("Login process PID: 2" + vbNewLine +
+                "Priority: Normal" + vbNewLine +
+                "Importance: High, and shouldn't be killed.", "neutralText")
 
         ElseIf (filename = "uesh") Then
 
-            Wln("UESH process PID: 3" + vbNewLine + _
-                                     "Priority: Normal" + vbNewLine + _
-                                     "Importance: Normal." + vbNewLine + _
-                                     "Short For: Unified Eofla SHell", "neutralText")
+            Wln("UESH process PID: 3" + vbNewLine +
+                "Priority: Normal" + vbNewLine +
+                "Importance: Normal." + vbNewLine +
+                "Short For: Unified Eofla SHell", "neutralText")
 
         End If
 

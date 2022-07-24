@@ -96,22 +96,19 @@ Module Kernel
             Wdbg("Kernel initialized, version {0}.", True, KernelVersion)
             If (Quiet = True Or quietProbe = True) Then
                 'Continue the kernel, and don't print messages
-                'Phase 1: Probe hardware and BIOS if nohwprobe is not passed
-                HardwareProbe.ProbeHW(True, CChar("K"))
-
-                'Phase 2: Username management
+                'Phase 1: Username management
                 UserManagement.initializeMainUsers()
                 If (enableDemo = True) Then
                     UserManagement.addUser("demo")
                 End If
                 LoginFlag = True
 
-                'Phase 3: Check for pre-user making
+                'Phase 2: Check for pre-user making
                 If (CruserFlag = True) Then
                     adduser(arguser, argword)
                 End If
 
-                'Phase 4: Free unused RAM and log-in
+                'Phase 3: Free unused RAM and log-in
                 DisposeExit.DisposeAll()
                 If (LoginFlag = True And maintenance = False) Then
                     Login.LoginPrompt()
@@ -123,22 +120,19 @@ Module Kernel
                 End If
             Else
                 'Continue the kernel
-                'Phase 1: Probe hardware if nohwprobe is not passed
-                HardwareProbe.ProbeHW(False, CChar("K"))
-
-                'Phase 2: Username management
+                'Phase 1: Username management
                 UserManagement.initializeMainUsers()
                 If (enableDemo = True) Then
                     UserManagement.addUser("demo")
                 End If
                 LoginFlag = True
 
-                'Phase 3: Check for pre-user making
+                'Phase 2: Check for pre-user making
                 If (CruserFlag = True) Then
                     adduser(arguser, argword)
                 End If
 
-                'Phase 4: Free unused RAM and log-in if the kernel isn't on maintenance mode
+                'Phase 3: Free unused RAM and log-in if the kernel isn't on maintenance mode
                 DisposeExit.DisposeAll()
                 If (LoginFlag = True And maintenance = False) Then
                     Login.LoginPrompt()

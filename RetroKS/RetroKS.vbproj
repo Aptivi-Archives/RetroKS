@@ -149,7 +149,6 @@
     <Compile Include="Misc\Writers\TextWriterColor.vb" />
     <Compile Include="Network\NetworkTools.vb" />
     <Compile Include="Shell\GetCommand.vb" />
-    <Compile Include="Hardware\HardwareProbe.vb" />
     <Compile Include="Kernel\Kernel.vb" />
     <Compile Include="Login\Groups.vb" />
     <Compile Include="Login\Login.vb" />
