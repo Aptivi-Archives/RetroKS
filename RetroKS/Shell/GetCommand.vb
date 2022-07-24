@@ -119,7 +119,7 @@ Module GetCommand
                     If (args.Count - 1 = 0) Then
                         HelpSystem.ShowHelp(args(0))
                     Else
-                        Wln("Usage: help [command]" + vbNewLine + _
+                        Wln("Usage: help [command]" + vbNewLine +
                             "       help: to get all commands", "neutralText")
                     End If
                 End If
@@ -128,7 +128,7 @@ Module GetCommand
 
                 If (requestedCommand = "adduser") Then
                     UserManagement.addUser()
-                    Wln("Tip: You can add permissions to new users by using 'addperm' and then writing their username." + vbNewLine + _
+                    Wln("Tip: You can add permissions to new users by using 'addperm' and then writing their username." + vbNewLine +
                         "     You can also edit permissions for existing usernames by using 'editperm'.", "neutralText")
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -143,7 +143,7 @@ Module GetCommand
                     ElseIf (args.Count - 1 = 2) Then
                         adduser(args(0), args(1))
                     Else
-                        Wln("Usage: adduser <userName> [password] [confirm]" + vbNewLine + _
+                        Wln("Usage: adduser <userName> [password] [confirm]" + vbNewLine +
                             "       adduser: to be prompted about new username and password", "neutralText")
                     End If
                 End If
@@ -164,7 +164,7 @@ Module GetCommand
                     If (args.Count - 1 = 1) Then
                         Beep.Beep(CInt(args(0)), CDbl(args(1)))
                     Else
-                        Wln("Usage: annoying-sound/beep <Frequency:Hz> <Time:Seconds>" + vbNewLine + _
+                        Wln("Usage: annoying-sound/beep <Frequency:Hz> <Time:Seconds>" + vbNewLine +
                             "       annoying-sound/beep: to be prompted about beeping.", "neutralText")
                     End If
                 End If
@@ -188,7 +188,7 @@ Module GetCommand
                         argsInjected = True
                         Wln("Injected arguments, {0}, will be scheduled to run at next reboot.", "neutralText", answerargs)
                     Else
-                        Wln("Usage: arginj [Arguments sep. by commas]" + vbNewLine + _
+                        Wln("Usage: arginj [Arguments sep. by commas]" + vbNewLine +
                             "       arginj: to be prompted about boot arguments.", "neutralText")
                     End If
                 End If
@@ -246,19 +246,19 @@ Module GetCommand
                     Dim newhost As String = requestedCommand.Substring(11)
                     If (newhost = "") Then
                         Wln("Blank host name.", "neutralText")
-                        Wln("Usage: chhostname <HostName>" + vbNewLine + _
+                        Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
                     ElseIf (newhost.Length <= 3) Then
                         Wln("The host name length must be at least 4 characters.", "neutralText")
-                        Wln("Usage: chhostname <HostName>" + vbNewLine + _
+                        Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
                     ElseIf InStr(newhost, " ") > 0 Then
                         Wln("Spaces are not allowed.", "neutralText")
-                        Wln("Usage: chhostname <HostName>" + vbNewLine + _
+                        Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
                     ElseIf (newhost.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
                         Wln("Special characters are not allowed.", "neutralText")
-                        Wln("Usage: chhostname <HostName>" + vbNewLine + _
+                        Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
                     ElseIf (newhost = "q") Then
                         Wln("Host name changing has been cancelled.", "neutralText")
@@ -338,7 +338,7 @@ Module GetCommand
                             End If
                         Next
                     Else
-                        Wln("Usage: choice <Question> <sets>" + vbNewLine + _
+                        Wln("Usage: choice <Question> <sets>" + vbNewLine +
                             "       choice: to be prompted about choices.", "neutralText")
                     End If
                 End If
@@ -382,7 +382,7 @@ Module GetCommand
                             changePassword()
                         End If
                     Else
-                        Wln("Usage: chusrname <oldUserName> <newUserName>" + vbNewLine + _
+                        Wln("Usage: chusrname <oldUserName> <newUserName>" + vbNewLine +
                             "       chusrname: to be prompted about changing usernames.", "neutralText")
                     End If
                 End If
@@ -432,7 +432,7 @@ Module GetCommand
                     If (args.Count - 1 >= 0) Then
                         Wln(String.Join(" ", args), "neutralText")
                     Else
-                        Wln("Usage: echo <text>" + vbNewLine + _
+                        Wln("Usage: echo <text>" + vbNewLine +
                             "       echo: to be prompted about text printing.", "neutralText")
                     End If
                 End If
@@ -532,7 +532,7 @@ Module GetCommand
                         ElseIf (args(1) = "D") Then
                             KernelError(CChar(args(1)), True, 5, args(0))
                         Else
-                            Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine + _
+                            Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine +
                                 "       panicsim: to be prompted about panic simulator options.", "neutralText")
                         End If
                     ElseIf (args.Count - 1 = 2) Then
@@ -543,11 +543,11 @@ Module GetCommand
                         ElseIf (CDbl(args(2)) <= 5 And args(1) = "D") Then
                             KernelError(CChar(args(1)), True, CLng(args(2)), args(0))
                         Else
-                            Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine + _
+                            Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine +
                                 "       panicsim: to be prompted about panic simulator options.", "neutralText")
                         End If
                     Else
-                        Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine + _
+                        Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine +
                             "       panicsim: to be prompted about panic simulator options.", "neutralText")
                     End If
                 End If
@@ -567,7 +567,7 @@ Module GetCommand
                     If (args.Count - 1 = 2) Then
                         permission(args(1), args(0), args(2))
                     Else
-                        Wln("Usage: perm <userName> <Admin/Disabled> <Allow/Disallow>" + vbNewLine + _
+                        Wln("Usage: perm <userName> <Admin/Disabled> <Allow/Disallow>" + vbNewLine +
                             "       perm: to be prompted about permission setting.", "neutralText")
                     End If
                 End If
@@ -589,7 +589,7 @@ Module GetCommand
                     ElseIf (args.Count - 1 = 1) Then
                         Network.PingTarget(args(0), args(1))
                     Else
-                        Wln("Usage: ping <Address> [repeatTimes]" + vbNewLine + _
+                        Wln("Usage: ping <Address> [repeatTimes]" + vbNewLine +
                             "       ping: to get prompted about writing address.", "neutralText")
                     End If
                 End If
@@ -623,7 +623,7 @@ Module GetCommand
                             Wln("{0} is not found.", "neutralText", args(0))
                         End If
                     Else
-                        Wln("Usage: read <file>" + vbNewLine + _
+                        Wln("Usage: read <file>" + vbNewLine +
                             "       read: to get prompted about reading file contents.", "neutralText")
                     End If
                 End If
@@ -683,7 +683,7 @@ Module GetCommand
                     If (args.Count - 1 = 0) Then
                         UserManagement.removeUserFromDatabase(args(0))
                     Else
-                        Wln("Usage: rmuser <Username>" + vbNewLine + _
+                        Wln("Usage: rmuser <Username>" + vbNewLine +
                             "       rmuser: to get prompted about removing usernames.", "neutralText")
                     End If
                 End If
@@ -703,18 +703,18 @@ Module GetCommand
                     ElseIf ((args(0) = "sqrt" Or args(0) = "tan" Or args(0) = "sin" Or args(0) = "cos" Or args(0) = "floor" Or args(0) = "ceiling" Or args(0) = "abs") And args.Count - 1 = 1) Then
                         sciCalc.expressionCalculate(True, args)
                     Else
-                        Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine + _
+                        Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine +
                             "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
                     End If
                 Else
-                    Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine + _
+                    Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine +
                         "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
                 End If
 
             ElseIf (requestedCommand.Substring(0, index) = "setcolors") Then
 
                 If (requestedCommand = "setcolors") Then
-                    Wln("Available Colors: {0}" + vbNewLine + _
+                    Wln("Available Colors: {0}" + vbNewLine +
                         "Press ENTER only on questions and defaults will be used.", "neutralText", String.Join(", ", availableColors))
                     ColorSet.SetColorSteps()
                 Else
@@ -726,8 +726,8 @@ Module GetCommand
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
                     If (args.Count - 1 = 7) Then
-                        If (availableColors.Contains(args(0)) And availableColors.Contains(args(1)) And availableColors.Contains(args(2)) And _
-                            availableColors.Contains(args(3)) And availableColors.Contains(args(4)) And availableColors.Contains(args(5)) And _
+                        If (availableColors.Contains(args(0)) And availableColors.Contains(args(1)) And availableColors.Contains(args(2)) And
+                            availableColors.Contains(args(3)) And availableColors.Contains(args(4)) And availableColors.Contains(args(5)) And
                             availableColors.Contains(args(6)) And availableColors.Contains(args(7))) Then
                             inputColor = CType([Enum].Parse(GetType(ConsoleColor), args(0)), ConsoleColor)
                             licenseColor = CType([Enum].Parse(GetType(ConsoleColor), args(1)), ConsoleColor)
@@ -772,8 +772,8 @@ Module GetCommand
                             Wln("One or more of the colors is invalid.", "neutralText")
                         End If
                     Else
-                        Wln("Usage: setcolors <inputColor/def> <licenseColor/def> <contKernelErrorColor/def> <uncontKernelErrorColor/def> <hostNameShellColor/def> <userNameShellColor/def> <backgroundColor/def> <neutralTextColor/def>" + vbNewLine + _
-                            "       setcolors: to get prompted about setting colors." + vbNewLine + _
+                        Wln("Usage: setcolors <inputColor/def> <licenseColor/def> <contKernelErrorColor/def> <uncontKernelErrorColor/def> <hostNameShellColor/def> <userNameShellColor/def> <backgroundColor/def> <neutralTextColor/def>" + vbNewLine +
+                            "       setcolors: to get prompted about setting colors." + vbNewLine +
                             "       Friends of setcolors: setthemes", "neutralText")
                     End If
                 End If
@@ -793,8 +793,8 @@ Module GetCommand
                     If (args.Count - 1 = 0) Then
                         TemplateSet.templateSet(args(0))
                     Else
-                        Wln("Usage: setthemes <Theme>" + vbNewLine + _
-                            "       setthemes: to get prompted about setting themes." + vbNewLine + _
+                        Wln("Usage: setthemes <Theme>" + vbNewLine +
+                            "       setthemes: to get prompted about setting themes." + vbNewLine +
                             "       Friends of setthemes: setcolors", "neutralText")
                     End If
                 End If
@@ -822,8 +822,8 @@ Module GetCommand
             ElseIf (requestedCommand = "sysinfo") Then
 
                 'Shows system information
-                Wln("Kernel Version: {0}" + vbNewLine + _
-                    "Shell (uesh) version: {1}" + vbNewLine + vbNewLine + _
+                Wln("Kernel Version: {0}" + vbNewLine +
+                    "Shell (uesh) version: {1}" + vbNewLine + vbNewLine +
                     "Look at hardware information using 'lsdrivers'", "neutralText", KernelVersion, ueshversion)
 
             ElseIf (requestedCommand.Substring(0, index) = "unitconv") Then
@@ -839,17 +839,17 @@ Module GetCommand
                     If (args.Count - 1 = 2) Then
                         unitConv.Converter(args(0), args(1), args(2))
                     Else
-                        Wln("Usage: unitconv <sourceUnit> <targetUnit> <value>" + vbNewLine + _
-                            "Units: B, KB, MB, GB, TB, Bits, Octal, Binary, Decimal, Hexadecimal, mm, cm, m, km, Fahrenheit, Celsius, Kelvin, " + _
-                            "j, kj, m/s, km/h, cm/ms, Kilograms, Grams, Tons, Kilotons, Megatons, kn, n, Hz, kHz, MHz, GHz, Number (source only), " + _
-                            "Money (target only), Percent (target only), Centivolts, Volts, Kilovolts, Watts, Kilowatts, Milliliters, Liters, " + _
+                        Wln("Usage: unitconv <sourceUnit> <targetUnit> <value>" + vbNewLine +
+                            "Units: B, KB, MB, GB, TB, Bits, Octal, Binary, Decimal, Hexadecimal, mm, cm, m, km, Fahrenheit, Celsius, Kelvin, " +
+                            "j, kj, m/s, km/h, cm/ms, Kilograms, Grams, Tons, Kilotons, Megatons, kn, n, Hz, kHz, MHz, GHz, Number (source only), " +
+                            "Money (target only), Percent (target only), Centivolts, Volts, Kilovolts, Watts, Kilowatts, Milliliters, Liters, " +
                             "Kiloliters, Gallons, Ounces, Feet, Inches, Yards and Miles.", "neutralText")
                     End If
                 Else
-                    Wln("Usage: unitconv <sourceUnit> <targetUnit> <value>" + vbNewLine + _
-                            "Units: B, KB, MB, GB, TB, Bits, Octal, Binary, Decimal, Hexadecimal, mm, cm, m, km, Fahrenheit, Celsius, Kelvin, " + _
-                            "j, kj, m/s, km/h, cm/ms, Kilograms, Grams, Tons, Kilotons, Megatons, kn, n, Hz, kHz, MHz, GHz, Number (source only), " + _
-                            "Money (target only), Percent (target only), Centivolts, Volts, Kilovolts, Watts, Kilowatts, Milliliters, Liters, " + _
+                    Wln("Usage: unitconv <sourceUnit> <targetUnit> <value>" + vbNewLine +
+                            "Units: B, KB, MB, GB, TB, Bits, Octal, Binary, Decimal, Hexadecimal, mm, cm, m, km, Fahrenheit, Celsius, Kelvin, " +
+                            "j, kj, m/s, km/h, cm/ms, Kilograms, Grams, Tons, Kilotons, Megatons, kn, n, Hz, kHz, MHz, GHz, Number (source only), " +
+                            "Money (target only), Percent (target only), Centivolts, Volts, Kilovolts, Watts, Kilowatts, Milliliters, Liters, " +
                             "Kiloliters, Gallons, Ounces, Feet, Inches, Yards and Miles.", "neutralText")
                 End If
 
@@ -861,7 +861,7 @@ Module GetCommand
             End If
         Catch ex As Exception
             If (DebugMode = True) Then
-                Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText", _
+                Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else

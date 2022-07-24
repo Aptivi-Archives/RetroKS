@@ -47,15 +47,15 @@ Module Shell
 
     Sub commandPromptWrite()
 
-            If adminList(signedinusrnm) = True Then
-                W("[", "def") : W("{0}", "userName", signedinusrnm)
-                W("@", "def") : W("{0}", "hostName", My.Settings.HostName)
-                W("]{0} # ", "def", currDir)
-            Else
-                W("[", "def") : W("{0}", "userName", signedinusrnm)
-                W("@", "def") : W("{0}", "hostName", My.Settings.HostName)
-                W("]{0} $ ", "def", currDir)
-            End If
+        If adminList(signedinusrnm) = True Then
+            W("[", "def") : W("{0}", "userName", signedinusrnm)
+            W("@", "def") : W("{0}", "hostName", My.Settings.HostName)
+            W("]{0} # ", "def", currDir)
+        Else
+            W("[", "def") : W("{0}", "userName", signedinusrnm)
+            W("@", "def") : W("{0}", "hostName", My.Settings.HostName)
+            W("]{0} $ ", "def", currDir)
+        End If
 
     End Sub
 
@@ -124,7 +124,7 @@ Module Shell
             End If
         Catch ex As Exception
             If (DebugMode = True) Then
-                Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText", _
+                Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
