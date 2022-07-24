@@ -18,10 +18,34 @@
 
 Module InitializeDirectoryFile
 
+    ''' <summary>
+    ''' Platform-dependent home path
+    ''' </summary>
+    Public ReadOnly Property HomePath As String
+        Get
+            If IsOnUnix() Then
+                Return Environment.GetEnvironmentVariable("HOME")
+            Else
+                Return Environment.GetEnvironmentVariable("USERPROFILE").Replace("\", "/")
+            End If
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Platform-dependent application data path
+    ''' </summary>
+    Public ReadOnly Property AppDataPath As String
+        Get
+            If IsOnUnix() Then
+                Return Environment.GetEnvironmentVariable("HOME") + "/.config/retroks/"
+            Else
+                Return (Environment.GetEnvironmentVariable("LOCALAPPDATA") + "/RetroKS/").Replace("\", "/")
+            End If
+        End Get
+    End Property
+
     Sub Init()
-
         AvailableDirs.AddRange({"boot", "bin", "dev", "etc", "lib", "proc", "usr", "var"})
-
     End Sub
 
 End Module

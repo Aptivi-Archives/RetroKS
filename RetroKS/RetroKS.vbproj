@@ -142,6 +142,7 @@
     <Compile Include="Misc\Calculator\unitConv.vb" />
     <Compile Include="Misc\ChangeMOTD.vb" />
     <Compile Include="Misc\Config.vb" />
+    <Compile Include="Misc\Platform\PlatformDetector.vb" />
     <Compile Include="Misc\Writers\DebugWriter.vb" />
     <Compile Include="Misc\DisposeExit.vb" />
     <Compile Include="Misc\PanicSim.vb" />

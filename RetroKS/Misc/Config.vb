@@ -22,7 +22,7 @@ Module Config
 
     Sub createConfig(ByVal CmdArg As Boolean)
         Try
-            Dim writer As New StreamWriter(Environ("USERPROFILE") + "\kernelConfig.ini")
+            Dim writer As New StreamWriter(AppDataPath + "\kernelConfig.ini")
             writer.WriteLine("Kernel Version = {0}" + vbNewLine + _
                              "Customized Colors on Boot = False" + vbNewLine + _
                              "User Name Shell Color = {1}" + vbNewLine + _
@@ -68,12 +68,12 @@ Module Config
 
     Sub checkForUpgrade()
         Try
-            Dim lns() As String = IO.File.ReadAllLines(Environ("USERPROFILE") + "\kernelConfig.ini")
+            Dim lns() As String = IO.File.ReadAllLines(AppDataPath + "\kernelConfig.ini")
             If (lns(0).Contains("Kernel Version = ") And lns(0).Replace("Kernel Version = ", "") <> KernelVersion) Then
                 If (lns.Length > 0) AndAlso (lns(0).StartsWith("Kernel Version = ")) Then
                     Wln("An upgrade from {0} to {1} was detected. Updating configuration file...", "neutralText", lns(0).Replace("Kernel Version = ", ""), KernelVersion)
                     lns(0) = "Kernel Version = " + KernelVersion
-                    IO.File.WriteAllLines(Environ("USERPROFILE") + "\kernelConfig.ini", lns)
+                    IO.File.WriteAllLines(AppDataPath + "\kernelConfig.ini", lns)
                 End If
             End If
         Catch ex As Exception

@@ -395,7 +395,7 @@ Module GetCommand
 
                 If (DebugMode = True) Then
                     Dim line As String
-                    Using dbglog = File.Open(Environ("USERPROFILE") + "\kernelDbg.log", FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite), reader As New StreamReader(dbglog)
+                    Using dbglog = File.Open(AppDataPath + "\kernelDbg.log", FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite), reader As New StreamReader(dbglog)
                         line = reader.ReadLine()
                         Do While (reader.EndOfStream <> True)
                             Wln(line, "neutralText")
@@ -639,11 +639,11 @@ Module GetCommand
             ElseIf (requestedCommand = "reloadconfig") Then
 
                 'Reload configuration
-                If (File.Exists(Environ("USERPROFILE") + "\kernelConfig.ini") = True) Then
-                    configReader = My.Computer.FileSystem.OpenTextFileReader(Environ("USERPROFILE") + "\kernelConfig.ini")
+                If (File.Exists(AppDataPath + "\kernelConfig.ini") = True) Then
+                    configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
                 Else
                     Config.createConfig(False)
-                    configReader = My.Computer.FileSystem.OpenTextFileReader(Environ("USERPROFILE") + "\kernelConfig.ini")
+                    configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
                 End If
                 Config.readConfig()
                 Wln("Configuration reloaded. You might need to reboot the kernel for some changes to take effect.", "neutralText")

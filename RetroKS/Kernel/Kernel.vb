@@ -55,13 +55,16 @@ Module Kernel
                 CommandLineArgsParse.parseCMDArguments(argu)
             Next
 
+            'Make an app data folder
+            If Not Directory.Exists(AppDataPath) Then Directory.CreateDirectory(AppDataPath)
+
             'Create config file and then read it
             Config.checkForUpgrade()
-            If (File.Exists(Environ("USERPROFILE") + "\kernelConfig.ini") = True) Then
-                configReader = My.Computer.FileSystem.OpenTextFileReader(Environ("USERPROFILE") + "\kernelConfig.ini")
+            If (File.Exists(AppDataPath + "\kernelConfig.ini") = True) Then
+                configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
             Else
                 Config.createConfig(False)
-                configReader = My.Computer.FileSystem.OpenTextFileReader(Environ("USERPROFILE") + "\kernelConfig.ini")
+                configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
             End If
             Config.readConfig()
 

@@ -20,7 +20,7 @@ Imports System.IO
 
 Module DebugWriter
 
-    Public dbgWriter As New StreamWriter(Environ("USERPROFILE") + "\kernelDbg.log")
+    Public dbgWriter As New StreamWriter(AppDataPath + "\kernelDbg.log")
 
     Sub Wdbg(ByVal text As String, ByVal line As Boolean, ByVal ParamArray vars() As Object)
 
