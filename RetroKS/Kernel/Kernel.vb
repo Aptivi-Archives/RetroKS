@@ -70,7 +70,7 @@ Module Kernel
 
             'Show introduction. Don't remove license.
             Wln("|--+---> Welcome to the kernel, version {0} <---+--|", "neutralText", KernelVersion)
-            Wln(vbNewLine + "    Kernel Simulator  Copyright (C) 2018  EoflaOE" + vbNewLine +
+            Wln(vbNewLine + "    RetroKS  Copyright (C) 2022  EoflaOE" + vbNewLine +
                             "    This program comes with ABSOLUTELY NO WARRANTY, not even " + vbNewLine +
                             "    MERCHANTABILITY or FITNESS for particular purposes." + vbNewLine +
                             "    This is free software, and you are welcome to redistribute it" + vbNewLine +

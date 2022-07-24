@@ -1,5 +1,5 @@
 ﻿
-'    Kernel Simulator  Copyright (C) 2018  EoflaOE
+'    RetroKS  Copyright (C) 2022  EoflaOE
 '
 '    This file is part of Kernel Simulator
 '
