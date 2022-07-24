@@ -44,7 +44,7 @@ Module Kernel
     Public configReader As StreamReader                                                 'Configuration file
     Declare Sub Sleep Lib "kernel32" (ByVal milliseconds As Integer)                    'Enable sleep (Mandatory, don't remove)
 
-    Sub Main()
+    Sub KernelMain()
 
         'A title
         Console.Title = "Kernel Simulator version " & KernelVersion
@@ -70,10 +70,10 @@ Module Kernel
 
             'Show introduction. Don't remove license.
             Wln("|--+---> Welcome to the kernel, version {0} <---+--|", "neutralText", KernelVersion)
-            Wln(vbNewLine + "    Kernel Simulator  Copyright (C) 2018  EoflaOE" + vbNewLine + _
-                            "    This program comes with ABSOLUTELY NO WARRANTY, not even " + vbNewLine + _
-                            "    MERCHANTABILITY or FITNESS for particular purposes." + vbNewLine + _
-                            "    This is free software, and you are welcome to redistribute it" + vbNewLine + _
+            Wln(vbNewLine + "    Kernel Simulator  Copyright (C) 2018  EoflaOE" + vbNewLine +
+                            "    This program comes with ABSOLUTELY NO WARRANTY, not even " + vbNewLine +
+                            "    MERCHANTABILITY or FITNESS for particular purposes." + vbNewLine +
+                            "    This is free software, and you are welcome to redistribute it" + vbNewLine +
                             "    under certain conditions; See COPYING file in source code." + vbNewLine, "license")
 
             'Phase 0: Initialize time and files, and check for quietness
@@ -99,7 +99,7 @@ Module Kernel
                 'Phase 1: Username management
                 UserManagement.initializeMainUsers()
                 If (enableDemo = True) Then
-                    UserManagement.addUser("demo")
+                    UserManagement.adduser("demo")
                 End If
                 LoginFlag = True
 
@@ -123,7 +123,7 @@ Module Kernel
                 'Phase 1: Username management
                 UserManagement.initializeMainUsers()
                 If (enableDemo = True) Then
-                    UserManagement.addUser("demo")
+                    UserManagement.adduser("demo")
                 End If
                 LoginFlag = True
 
