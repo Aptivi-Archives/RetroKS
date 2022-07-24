@@ -817,7 +817,7 @@ Module GetCommand
                 dbgWriter.Close()
                 dbgWriter.Dispose()
                 System.Console.Clear()
-                Environment.Exit(0)
+                ShuttingDown = True
 
             ElseIf (requestedCommand = "sysinfo") Then
 

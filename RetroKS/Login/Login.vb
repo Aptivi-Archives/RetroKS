@@ -100,6 +100,7 @@ Module Login
                 Wln("User is disabled.", "neutralText")
                 LoginPrompt()
             End If
+            If ShuttingDown Then Exit Sub
         Next
         If DoneFlag = False Then
             Wln(vbNewLine + "Wrong username.", "neutralText")

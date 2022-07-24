@@ -43,5 +43,6 @@ Module Flags
     Public simHelp As Boolean = False                           'Simplified Help Command
     Public slotProbe As Boolean = True                          'Probe slots
     Public quietProbe As Boolean = False                        'Probe quietly
+    Public ShuttingDown As Boolean = False                      'Shutting down
 
 End Module

@@ -65,7 +65,7 @@ Module Shell
         Try
             If ArgsMode = False Then
                 If (strcommand = Nothing Or strcommand.StartsWith(" ") = True) Then
-                    initializeShell()
+                    If Not ShuttingDown Then initializeShell()
                 Else
                     Dim groupCmds() As String = strcommand.Split({":"c}, StringSplitOptions.RemoveEmptyEntries)
                     For Each cmd In groupCmds
@@ -88,7 +88,7 @@ Module Shell
                             Wln("Shell message: The requested command {0} is not found. See 'help' for available commands.", "neutralText", cmd.Substring(0, indexCmd))
                         End If
                     Next
-                    initializeShell()
+                    If Not ShuttingDown Then initializeShell()
                 End If
             ElseIf (ArgsMode = True And CommandFlag = True) Then
                 CommandFlag = False
