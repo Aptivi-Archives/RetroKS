@@ -1,14 +1,14 @@
 ﻿
 '    RetroKS  Copyright (C) 2022  EoflaOE
 '
-'    This file is part of Kernel Simulator
+'    This file is part of RetroKS
 '
-'    Kernel Simulator is free software: you can redistribute it and/or modify
+'    RetroKS is free software: you can redistribute it and/or modify
 '    it under the terms of the GNU General Public License as published by
 '    the Free Software Foundation, either version 3 of the License, or
 '    (at your option) any later version.
 '
-'    Kernel Simulator is distributed in the hope that it will be useful,
+'    RetroKS is distributed in the hope that it will be useful,
 '    but WITHOUT ANY WARRANTY; without even the implied warranty of
 '    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 '    GNU General Public License for more details.
@@ -26,7 +26,7 @@ Module KernelTools
     ''' <param name="RebootTime">Optional. Specifies seconds before reboot. 0 is instant. Negative numbers not allowed.</param>
     ''' <param name="Description">Optional. Explanation of what happened when it errored.</param>
     ''' <remarks></remarks>
-    Sub KernelError(ByVal ErrorType As Char, Optional ByVal Reboot As Boolean = True, Optional ByVal RebootTime As Long = 30, Optional ByVal Description As String = "General kernel error.")
+    Sub KernelError(ErrorType As Char, Optional Reboot As Boolean = True, Optional RebootTime As Long = 30, Optional Description As String = "General kernel error.")
         Try
             'Check error types and its capabilities
             If (ErrorType = "S" Or ErrorType = "F" Or ErrorType = "U" Or ErrorType = "D" Or ErrorType = "C") Then

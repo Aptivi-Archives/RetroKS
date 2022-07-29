@@ -1,14 +1,14 @@
 ﻿
 '    RetroKS  Copyright (C) 2022  EoflaOE
 '
-'    This file is part of Kernel Simulator
+'    This file is part of RetroKS
 '
-'    Kernel Simulator is free software: you can redistribute it and/or modify
+'    RetroKS is free software: you can redistribute it and/or modify
 '    it under the terms of the GNU General Public License as published by
 '    the Free Software Foundation, either version 3 of the License, or
 '    (at your option) any later version.
 '
-'    Kernel Simulator is distributed in the hope that it will be useful,
+'    RetroKS is distributed in the hope that it will be useful,
 '    but WITHOUT ANY WARRANTY; without even the implied warranty of
 '    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 '    GNU General Public License for more details.
@@ -32,7 +32,7 @@ Module GetCommand
     Public answerecho As String                                                                             'Input for printing string
     Public WithEvents backgroundWorker2 As New System.ComponentModel.BackgroundWorker                       '16-bit Colored Disco
 
-    Sub backgroundWorker2_DoWork(ByVal sender As System.Object, ByVal e As DoWorkEventArgs) Handles backgroundWorker2.DoWork
+    Sub backgroundWorker2_DoWork(sender As System.Object, e As DoWorkEventArgs) Handles backgroundWorker2.DoWork
 
         Dim ColorConsole As String = "Black"
         Do While True
@@ -58,7 +58,7 @@ Module GetCommand
 
     End Sub
 
-    Sub backgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As DoWorkEventArgs) Handles backgroundWorker1.DoWork
+    Sub backgroundWorker1_DoWork(sender As System.Object, e As DoWorkEventArgs) Handles backgroundWorker1.DoWork
 
         Do While True
             For Each color In colors
@@ -79,7 +79,7 @@ Module GetCommand
 
     End Sub
 
-    Sub DiscoSystem(Optional ByVal BlackWhite As Boolean = False)
+    Sub DiscoSystem(Optional BlackWhite As Boolean = False)
 
         If (BlackWhite = False) Then
             backgroundWorker1.WorkerSupportsCancellation = True
@@ -97,7 +97,7 @@ Module GetCommand
 
     End Sub
 
-    Sub ExecuteCommand(ByVal requestedCommand As String)
+    Sub ExecuteCommand(requestedCommand As String)
 
         Try
             Dim index As Integer = requestedCommand.IndexOf(" ")

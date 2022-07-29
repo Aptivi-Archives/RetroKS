@@ -1,14 +1,14 @@
 ﻿
 '    RetroKS  Copyright (C) 2022  EoflaOE
 '
-'    This file is part of Kernel Simulator
+'    This file is part of RetroKS
 '
-'    Kernel Simulator is free software: you can redistribute it and/or modify
+'    RetroKS is free software: you can redistribute it and/or modify
 '    it under the terms of the GNU General Public License as published by
 '    the Free Software Foundation, either version 3 of the License, or
 '    (at your option) any later version.
 '
-'    Kernel Simulator is distributed in the hope that it will be useful,
+'    RetroKS is distributed in the hope that it will be useful,
 '    but WITHOUT ANY WARRANTY; without even the implied warranty of
 '    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 '    GNU General Public License for more details.
@@ -20,7 +20,7 @@ Module FileContents
 
     Public AvailableFiles() As String = {"loader", "hdpack", "libuesh.elb", "kernel", "login", "uesh"}
 
-    Sub readContents(ByVal filename As String)
+    Sub readContents(filename As String)
 
         If (filename = "loader") Then
 

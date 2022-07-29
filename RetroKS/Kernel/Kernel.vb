@@ -1,12 +1,12 @@
 ﻿
-'    This file is part of Kernel Simulator
+'    This file is part of RetroKS
 '
-'    Kernel Simulator is free software: you can redistribute it and/or modify
+'    RetroKS is free software: you can redistribute it and/or modify
 '    it under the terms of the GNU General Public License as published by
 '    the Free Software Foundation, either version 3 of the License, or
 '    (at your option) any later version.
 '
-'    Kernel Simulator is distributed in the hope that it will be useful,
+'    RetroKS is distributed in the hope that it will be useful,
 '    but WITHOUT ANY WARRANTY; without even the implied warranty of
 '    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 '    GNU General Public License for more details.
@@ -42,12 +42,12 @@ Module Kernel
     Public Capacities() As String                                                       'Capacity (in MB)
     Public totalSlots As Integer                                                        'Total slots
     Public configReader As StreamReader                                                 'Configuration file
-    Declare Sub Sleep Lib "kernel32" (ByVal milliseconds As Integer)                    'Enable sleep (Mandatory, don't remove)
+    Declare Sub Sleep Lib "kernel32" (milliseconds As Integer)                    'Enable sleep (Mandatory, don't remove)
 
     Sub KernelMain()
 
         'A title
-        Console.Title = "Kernel Simulator version " & KernelVersion
+        Console.Title = "RetroKS version " & KernelVersion
 
         Try
             'Parse real command-line arguments

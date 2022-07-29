@@ -1,14 +1,14 @@
 ﻿
 '    RetroKS  Copyright (C) 2022  EoflaOE
 '
-'    This file is part of Kernel Simulator
+'    This file is part of RetroKS
 '
-'    Kernel Simulator is free software: you can redistribute it and/or modify
+'    RetroKS is free software: you can redistribute it and/or modify
 '    it under the terms of the GNU General Public License as published by
 '    the Free Software Foundation, either version 3 of the License, or
 '    (at your option) any later version.
 '
-'    Kernel Simulator is distributed in the hope that it will be useful,
+'    RetroKS is distributed in the hope that it will be useful,
 '    but WITHOUT ANY WARRANTY; without even the implied warranty of
 '    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 '    GNU General Public License for more details.
@@ -52,7 +52,7 @@ Module Network
 
     End Sub
 
-    Sub PingTargetKernel(ByVal Address As String)
+    Sub PingTargetKernel(Address As String)
 
         On Error GoTo PingError
         If My.Computer.Network.Ping(Address) Then
@@ -64,7 +64,7 @@ PingError:
 
     End Sub
 
-    Sub PingTarget(ByVal Address As String, Optional ByVal repeatTimes As Int16 = 3)
+    Sub PingTarget(Address As String, Optional repeatTimes As Int16 = 3)
 
         On Error GoTo PingError1
         Dim s As New Stopwatch

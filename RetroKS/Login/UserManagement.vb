@@ -1,14 +1,14 @@
 ﻿
 '    RetroKS  Copyright (C) 2022  EoflaOE
 '
-'    This file is part of Kernel Simulator
+'    This file is part of RetroKS
 '
-'    Kernel Simulator is free software: you can redistribute it and/or modify
+'    RetroKS is free software: you can redistribute it and/or modify
 '    it under the terms of the GNU General Public License as published by
 '    the Free Software Foundation, either version 3 of the License, or
 '    (at your option) any later version.
 '
-'    Kernel Simulator is distributed in the hope that it will be useful,
+'    RetroKS is distributed in the hope that it will be useful,
 '    but WITHOUT ANY WARRANTY; without even the implied warranty of
 '    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 '    GNU General Public License for more details.
@@ -47,7 +47,7 @@ Module UserManagement
 
     End Sub
 
-    Sub initializeUser(ByVal uninitUser As String, Optional ByVal unpassword As String = "")
+    Sub initializeUser(uninitUser As String, Optional unpassword As String = "")
 
         'Do not confuse with initializeUsers. It initializes user.
         Try
@@ -67,7 +67,7 @@ Module UserManagement
 
     End Sub
 
-    Sub adduser(ByVal newUser As String, Optional ByVal newPassword As String = "")
+    Sub adduser(newUser As String, Optional newPassword As String = "")
 
         'Adds users
         If (Quiet = False) Then
@@ -198,7 +198,7 @@ Module UserManagement
 
     End Sub
 
-    Sub changePasswordPrompt(ByVal usernamerequestedChange As String)
+    Sub changePasswordPrompt(usernamerequestedChange As String)
 
         'Prompts user to enter new password
         W("New password: ", "input")
@@ -242,7 +242,7 @@ Module UserManagement
     End Sub
 
     'This sub is an accomplice of in-shell command arguments.
-    Friend Sub removeUserFromDatabase(ByVal user As String)
+    Friend Sub removeUserFromDatabase(user As String)
 
         Try
             Dim DoneFlag As String = "No"
@@ -330,7 +330,7 @@ Module UserManagement
 
     End Sub
 
-    Sub newPassword(ByVal user As String)
+    Sub newPassword(user As String)
 
         W("Write password: ", "input")
         answerpassword = System.Console.ReadLine()
