@@ -10,17 +10,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Kernel Simulator")> 
-<Assembly: AssemblyDescription("Simulates a kernel in console. Big Release!")> 
-<Assembly: AssemblyCompany("EoflaOE... Linux, MC, and more...")> 
-<Assembly: AssemblyProduct("Kernel Simulator")> 
-<Assembly: AssemblyCopyright("Copyright © EoflaOE 2018")> 
+<Assembly: AssemblyTitle("RetroKS")>
+<Assembly: AssemblyDescription("Simulates a kernel in console.")>
+<Assembly: AssemblyCompany("EoflaOE")>
+<Assembly: AssemblyProduct("RetroKS")>
+<Assembly: AssemblyCopyright("Copyright © EoflaOE 2022")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)> 
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("d2feb7cd-1e12-493a-998a-6366898f6aae")> 
+<Assembly: Guid("d2feb7cd-1e12-493a-998a-6366898f6aae")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.0.4.1")> 
-<Assembly: AssemblyFileVersion("1.0.4.1")> 
+<Assembly: AssemblyVersion("0.0.4.2")>
+<Assembly: AssemblyFileVersion("1.0.4.2")>
 
 <Assembly: NeutralResourcesLanguageAttribute("en-US")> 
