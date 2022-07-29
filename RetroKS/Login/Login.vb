@@ -28,10 +28,10 @@ Module Login
     Sub LoginPrompt()
 
         'Prompts user to log-in
-        If (clsOnLogin = True) Then
+        If clsOnLogin = True Then
             Console.Clear()
         End If
-        If (showMOTD = False) Then
+        If showMOTD = False Then
             W(vbNewLine + "Username: ", "input")
         Else
             W(vbNewLine + My.Settings.MOTD + vbNewLine + vbNewLine + "Username: ", "input")
@@ -40,7 +40,7 @@ Module Login
         If InStr(CStr(answeruser), " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
             LoginPrompt()
-        ElseIf (answeruser.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
+        ElseIf answeruser.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
             Wln("Special characters are not allowed.", "neutralText")
             LoginPrompt()
         Else
@@ -62,19 +62,19 @@ Module Login
                 DoneFlag = True
                 password = userword.Item(usernamerequested)
                 'Check if there's the password
-                If Not (password = Nothing) Then
+                If Not password = Nothing Then
                     W("{0}'s password: ", "input", usernamerequested)
                     answerpass = Console.ReadLine()
                     If InStr(CStr(answerpass), " ") > 0 Then
                         Wln("Spaces are not allowed.", "neutralText")
-                        If (maintenance = False) Then
+                        If maintenance = False Then
                             LoginPrompt()
                         Else
                             showPasswordPrompt(usernamerequested)
                         End If
-                    ElseIf (answerpass.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
+                    ElseIf answerpass.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
                         Wln("Special characters are not allowed.", "neutralText")
-                        If (maintenance = False) Then
+                        If maintenance = False Then
                             LoginPrompt()
                         Else
                             showPasswordPrompt(usernamerequested)
@@ -85,7 +85,7 @@ Module Login
                             signIn(usernamerequested)
                         Else
                             Wln(vbNewLine + "Wrong password.", "neutralText")
-                            If (maintenance = False) Then
+                            If maintenance = False Then
                                 LoginPrompt()
                             Else
                                 showPasswordPrompt(usernamerequested)
@@ -96,7 +96,7 @@ Module Login
                     'Log-in instantly
                     signIn(usernamerequested)
                 End If
-            ElseIf (availableUsers = answeruser And disabledList(availableUsers) = True) Then
+            ElseIf availableUsers = answeruser And disabledList(availableUsers) = True Then
                 Wln("User is disabled.", "neutralText")
                 LoginPrompt()
             End If

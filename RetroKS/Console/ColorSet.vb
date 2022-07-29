@@ -29,21 +29,21 @@ Module ColorSet
 
     Sub UseDefaults()
         'Use default settings in current step.
-        If (i = 0) Then
+        If i = 0 Then
             answersColor(i) = "White"
-        ElseIf (i = 1) Then
+        ElseIf i = 1 Then
             answersColor(i) = "White"
-        ElseIf (i = 2) Then
+        ElseIf i = 2 Then
             answersColor(i) = "Yellow"
-        ElseIf (i = 3) Then
+        ElseIf i = 3 Then
             answersColor(i) = "Red"
-        ElseIf (i = 4) Then
+        ElseIf i = 4 Then
             answersColor(i) = "DarkGreen"
-        ElseIf (i = 5) Then
+        ElseIf i = 5 Then
             answersColor(i) = "Green"
-        ElseIf (i = 6) Then
+        ElseIf i = 6 Then
             answersColor(i) = "Black"
-        ElseIf (i = 7) Then
+        ElseIf i = 7 Then
             answersColor(i) = "Gray"
         End If
     End Sub
@@ -56,7 +56,7 @@ Module ColorSet
 
         'Actual code
         For i As Integer = 0 To 8
-            If (i = 8) Then
+            If i = 8 Then
                 'Print summary of what is being changed, and evaluate "Live Mode"
                 inputColor = CType([Enum].Parse(GetType(ConsoleColor), answersColor(0)), ConsoleColor)
                 licenseColor = CType([Enum].Parse(GetType(ConsoleColor), answersColor(1)), ConsoleColor)
@@ -79,36 +79,36 @@ Module ColorSet
 
             'Checks the user input if colors exist, and then try to put it into a temporary array. 
             'TODO: "Live Mode" will come in the future.
-            If (i <> 8) Then
-                If (answerColor = "RESET") Then
+            If i <> 8 Then
+                If answerColor = "RESET" Then
                     'Give a signal to the command that the colors are resetting. 
                     W("Are you sure that you want to reset your colors to the defaults? <y/n> ", "input")
                     Dim answerreset As String = Console.ReadKey.KeyChar
-                    If (answerreset = "y") Then
+                    If answerreset = "y" Then
                         Console.WriteLine()
                         ResetFlag = True
                         Exit For
-                    ElseIf (answerreset = "n") Then
+                    ElseIf answerreset = "n" Then
                         Console.WriteLine()
-                    ElseIf (answerreset = "q") Then
+                    ElseIf answerreset = "q" Then
                         Wln(vbNewLine + "Color changing has been cancelled.", "neutralText")
                         Exit Sub
                     End If
-                ElseIf (answerColor = "THEME") Then
+                ElseIf answerColor = "THEME" Then
                     TemplatePrompt()
-                    If (templateSetExitFlag = True) Then
+                    If templateSetExitFlag = True Then
                         Wln("Theme changed.", "neutralText")
                         Exit Sub
                     Else
                         Exit For
                     End If
-                ElseIf (answerColor = "q") Then
+                ElseIf answerColor = "q" Then
                     Wln("Color changing has been cancelled.", "neutralText")
                     Exit Sub
-                ElseIf (availableColors.Contains(answerColor)) Then
+                ElseIf availableColors.Contains(answerColor) Then
                     answersColor(i) = answerColor
                     advanceStep()
-                ElseIf (answerColor = "") Then
+                ElseIf answerColor = "" Then
                     'Nothing written, use defaults.
                     UseDefaults()
                     advanceStep()
@@ -117,7 +117,7 @@ Module ColorSet
                     UseDefaults()
                     advanceStep()
                 End If
-            ElseIf (i = 8) Then
+            ElseIf i = 8 Then
                 If answerColor = "y" Then
                     DoneFlag = True
                     Wln("Colors changed.", "neutralText")
@@ -132,9 +132,9 @@ Module ColorSet
                 End If
             End If
         Next
-        If (ResetFlag = False And DoneFlag = False) Then
+        If ResetFlag = False And DoneFlag = False Then
             SetColorSteps()
-        ElseIf (ResetFlag = True) Then
+        ElseIf ResetFlag = True Then
             'Reset every color to their default settings and exit.
             ResetColors()
             Wln("Everything is reset to normal settings.", "neutralText")
@@ -148,21 +148,21 @@ Module ColorSet
 
         'Advance a step
         stepCurrent = stepCurrent + 1
-        If (stepCurrent = 1) Then
+        If stepCurrent = 1 Then
             currentStepMessage = "Color for license: "
-        ElseIf (stepCurrent = 2) Then
+        ElseIf stepCurrent = 2 Then
             currentStepMessage = "Color for continuable kernel error: "
-        ElseIf (stepCurrent = 3) Then
+        ElseIf stepCurrent = 3 Then
             currentStepMessage = "Color for uncontinuable kernel error: "
-        ElseIf (stepCurrent = 4) Then
+        ElseIf stepCurrent = 4 Then
             currentStepMessage = "Color for hostname on shell prompt: "
-        ElseIf (stepCurrent = 5) Then
+        ElseIf stepCurrent = 5 Then
             currentStepMessage = "Color for username on shell prompt: "
-        ElseIf (stepCurrent = 6) Then
+        ElseIf stepCurrent = 6 Then
             currentStepMessage = "Color for background: "
-        ElseIf (stepCurrent = 7) Then
+        ElseIf stepCurrent = 7 Then
             currentStepMessage = "Color for texts: "
-        ElseIf (stepCurrent = 8) Then
+        ElseIf stepCurrent = 8 Then
             currentStepMessage = "Is this information correct? <y/n> "
         End If
 

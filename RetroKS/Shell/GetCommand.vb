@@ -37,7 +37,7 @@ Module GetCommand
         Dim ColorConsole As String = "Black"
         Do While True
             Sleep(50)
-            If (backgroundWorker2.CancellationPending = True) Then
+            If backgroundWorker2.CancellationPending = True Then
                 e.Cancel = True
                 Console.ResetColor()
                 Console.Clear()
@@ -45,11 +45,11 @@ Module GetCommand
                 Console.ForegroundColor = CType(inputColor, ConsoleColor)
                 Exit Do
             End If
-            If (ColorConsole = "White") Then
+            If ColorConsole = "White" Then
                 Console.BackgroundColor = ConsoleColor.Black
                 ColorConsole = "Black"
                 Console.Clear()
-            ElseIf (ColorConsole = "Black") Then
+            ElseIf ColorConsole = "Black" Then
                 Console.BackgroundColor = ConsoleColor.White
                 ColorConsole = "White"
                 Console.Clear()
@@ -63,7 +63,7 @@ Module GetCommand
         Do While True
             For Each color In colors
                 Sleep(250)
-                If (backgroundWorker1.CancellationPending = True) Then
+                If backgroundWorker1.CancellationPending = True Then
                     e.Cancel = True
                     Console.ResetColor()
                     Console.Clear()
@@ -81,16 +81,16 @@ Module GetCommand
 
     Sub DiscoSystem(Optional BlackWhite As Boolean = False)
 
-        If (BlackWhite = False) Then
+        If BlackWhite = False Then
             backgroundWorker1.WorkerSupportsCancellation = True
             backgroundWorker1.RunWorkerAsync()
-            If (Console.ReadKey(True).Key = ConsoleKey.Enter) Then
+            If Console.ReadKey(True).Key = ConsoleKey.Enter Then
                 backgroundWorker1.CancelAsync()
             End If
-        ElseIf (BlackWhite = True) Then
+        ElseIf BlackWhite = True Then
             backgroundWorker2.WorkerSupportsCancellation = True
             backgroundWorker2.RunWorkerAsync()
-            If (Console.ReadKey(True).Key = ConsoleKey.Enter) Then
+            If Console.ReadKey(True).Key = ConsoleKey.Enter Then
                 backgroundWorker2.CancelAsync()
             End If
         End If
@@ -101,12 +101,12 @@ Module GetCommand
 
         Try
             Dim index As Integer = requestedCommand.IndexOf(" ")
-            If (index = -1) Then
+            If index = -1 Then
                 index = requestedCommand.Length
             End If
-            If (requestedCommand.Substring(0, index) = "help") Then
+            If requestedCommand.Substring(0, index) = "help" Then
 
-                If (requestedCommand = "help") Then
+                If requestedCommand = "help" Then
                     ShowHelp()
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -116,7 +116,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         ShowHelp(args(0))
                     Else
                         Wln("Usage: help [command]" + vbNewLine +
@@ -124,9 +124,9 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "adduser") Then
+            ElseIf requestedCommand.Substring(0, index) = "adduser" Then
 
-                If (requestedCommand = "adduser") Then
+                If requestedCommand = "adduser" Then
                     addUser()
                     Wln("Tip: You can add permissions to new users by using 'addperm' and then writing their username." + vbNewLine +
                         "     You can also edit permissions for existing usernames by using 'editperm'.", "neutralText")
@@ -138,9 +138,9 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         newPassword(args(0))
-                    ElseIf (args.Count - 1 = 2) Then
+                    ElseIf args.Count - 1 = 2 Then
                         adduser(args(0), args(1))
                     Else
                         Wln("Usage: adduser <userName> [password] [confirm]" + vbNewLine +
@@ -148,10 +148,10 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "annoying-sound" Or requestedCommand.Substring(0, index) = "beep") Then
+            ElseIf requestedCommand.Substring(0, index) = "annoying-sound" Or requestedCommand.Substring(0, index) = "beep" Then
 
                 'Beep system initialization
-                If (requestedCommand = "annoying-sound" Or requestedCommand = "beep") Then
+                If requestedCommand = "annoying-sound" Or requestedCommand = "beep" Then
                     BeepFreq()
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -161,7 +161,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 1) Then
+                    If args.Count - 1 = 1 Then
                         Beep.Beep(CInt(args(0)), CDbl(args(1)))
                     Else
                         Wln("Usage: annoying-sound/beep <Frequency:Hz> <Time:Seconds>" + vbNewLine +
@@ -169,10 +169,10 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "arginj") Then
+            ElseIf requestedCommand.Substring(0, index) = "arginj" Then
 
                 'Argument Injection
-                If (requestedCommand = "arginj") Then
+                If requestedCommand = "arginj" Then
                     answerargs = ""
                     PromptArgs(True)
                 Else
@@ -183,7 +183,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" ") + 1, c - 1)
                     Dim args() As String = strArgs.Split({","c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 >= 0) Then
+                    If args.Count - 1 >= 0 Then
                         answerargs = String.Join(",", args)
                         argsInjected = True
                         Wln("Injected arguments, {0}, will be scheduled to run at next reboot.", "neutralText", answerargs)
@@ -193,9 +193,9 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "calc") Then
+            ElseIf requestedCommand.Substring(0, index) = "calc" Then
 
-                If (requestedCommand <> "calc") Then
+                If requestedCommand <> "calc" Then
                     Dim words = requestedCommand.Split({" "c})
                     Dim c As Integer
                     For arg = 1 To words.Count - 1
@@ -203,7 +203,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 > 1) Then
+                    If args.Count - 1 > 1 Then
                         stdCalc.expressionCalculate(args)
                     Else
                         Wln("Usage: calc <expression> ...", "neutralText")
@@ -212,12 +212,12 @@ Module GetCommand
                     Wln("Usage: calc <expression> ...", "neutralText")
                 End If
 
-            ElseIf (requestedCommand = "cdir" Or requestedCommand = "currentdir") Then
+            ElseIf requestedCommand = "cdir" Or requestedCommand = "currentdir" Then
 
                 'Current directory
                 Wln("Current directory: {0}", "neutralText", currDir)
 
-            ElseIf (requestedCommand.Substring(0, index) = "cd" Or requestedCommand.Substring(0, index) = "chdir" Or requestedCommand.Substring(0, index) = "changedir") Then
+            ElseIf requestedCommand.Substring(0, index) = "cd" Or requestedCommand.Substring(0, index) = "chdir" Or requestedCommand.Substring(0, index) = "changedir" Then
 
                 Dim words = requestedCommand.Split({" "c})
                 Dim c As Integer
@@ -226,10 +226,10 @@ Module GetCommand
                 Next
                 Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                 Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                If (args.Count - 1 = 0) Then
-                    If (AvailableDirs.Contains(args(0)) And currDir = "/") Then
+                If args.Count - 1 = 0 Then
+                    If AvailableDirs.Contains(args(0)) And currDir = "/" Then
                         setCurrDir(args(0))
-                    ElseIf (args(0) = "..") Then
+                    ElseIf args(0) = ".." Then
                         setCurrDir("")
                     Else
                         Wln("Directory {0} not found", "neutralText", args(0))
@@ -238,17 +238,17 @@ Module GetCommand
                     Wln("Usage: chdir/changedir/cd <directory> OR ..", "neutralText")
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "chhostname") Then
+            ElseIf requestedCommand.Substring(0, index) = "chhostname" Then
 
-                If (requestedCommand = "chhostname") Then
+                If requestedCommand = "chhostname" Then
                     ChangeHostName()
                 Else
                     Dim newhost As String = requestedCommand.Substring(11)
-                    If (newhost = "") Then
+                    If newhost = "" Then
                         Wln("Blank host name.", "neutralText")
                         Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
-                    ElseIf (newhost.Length <= 3) Then
+                    ElseIf newhost.Length <= 3 Then
                         Wln("The host name length must be at least 4 characters.", "neutralText")
                         Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
@@ -256,11 +256,11 @@ Module GetCommand
                         Wln("Spaces are not allowed.", "neutralText")
                         Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
-                    ElseIf (newhost.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
+                    ElseIf newhost.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
                         Wln("Special characters are not allowed.", "neutralText")
                         Wln("Usage: chhostname <HostName>" + vbNewLine +
                             "       chhostname: to be prompted about changing host name.", "neutralText")
-                    ElseIf (newhost = "q") Then
+                    ElseIf newhost = "q" Then
                         Wln("Host name changing has been cancelled.", "neutralText")
                     Else
                         Wln("Changing from: {0} to {1}...", "neutralText", My.Settings.HostName, newhost)
@@ -268,15 +268,15 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "chmotd") Then
+            ElseIf requestedCommand.Substring(0, index) = "chmotd" Then
 
-                If (requestedCommand = "chmotd") Then
+                If requestedCommand = "chmotd" Then
                     ChangeMessage()
                 Else
                     Dim newmotd = requestedCommand.Substring(7)
-                    If (newmotd = "") Then
+                    If newmotd = "" Then
                         Wln("Blank message of the day.", "neutralText")
-                    ElseIf (newmotd = "q") Then
+                    ElseIf newmotd = "q" Then
                         Wln("MOTD changing has been cancelled.", "neutralText")
                     Else
                         W("Changing MOTD...", "neutralText")
@@ -285,34 +285,34 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "choice") Then
+            ElseIf requestedCommand.Substring(0, index) = "choice" Then
 
-                If (requestedCommand = "choice") Then
+                If requestedCommand = "choice" Then
                     W("Write a question: ", "input")
                     Dim question As String = Console.ReadLine()
-                    If (question = "") Then
+                    If question = "" Then
                         Wln("Blank question. Try again.", "neutralText")
-                    ElseIf (question = "q") Then
+                    ElseIf question = "q" Then
                         Wln("Choice creation has been cancelled.", "neutralText")
                     Else
                         W("Write choice sets, Ex. Y/N/M/D/F/...: ", "input")
                         Dim sets As String = Console.ReadLine()
-                        If (sets = "") Then
+                        If sets = "" Then
                             Wln("Blank choice sets. Try again.", "neutralText")
-                        ElseIf Not (sets.Contains("/")) And Not (sets.Length - 1 = 0) Then
+                        ElseIf Not sets.Contains("/") And Not sets.Length - 1 = 0 Then
                             Wln("Cease using choice sets that is, Ex. YNMDF, Y,N,M,D,F, etc.", "neutralText")
-                        ElseIf (sets.Length - 1 = 0) Then
+                        ElseIf sets.Length - 1 = 0 Then
                             Wln("One choice set. Try again.", "neutralText")
-                        ElseIf (sets = "q") Then
+                        ElseIf sets = "q" Then
                             Wln("Choice creation has been cancelled.", "neutralText")
                         Else
                             W("{0} <{1}> ", "input", question, sets)
                             Dim answerchoice As String = Console.ReadKey.KeyChar
                             Dim answerchoices() As String = sets.Split(CChar("/"))
                             For Each choiceset In answerchoices
-                                If (answerchoice = choiceset) Then
+                                If answerchoice = choiceset Then
                                     Wln(vbNewLine + "Choice {0} selected.", "neutralText", answerchoice)
-                                ElseIf (answerchoice = "q") Then
+                                ElseIf answerchoice = "q" Then
                                     Wln(vbNewLine + "Choice has been cancelled.", "neutralText")
                                 End If
                             Next
@@ -326,14 +326,14 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 1) Then
+                    If args.Count - 1 = 1 Then
                         W("{0} <{1}> ", "input", args(0), args(1))
                         Dim answerchoice As String = Console.ReadKey.KeyChar
                         Dim answerchoices() As String = args(1).Split(CChar("/"))
                         For Each choiceset In answerchoices
-                            If (answerchoice = choiceset) Then
+                            If answerchoice = choiceset Then
                                 Wln(vbNewLine + "Choice {0} selected.", "neutralText", answerchoice)
-                            ElseIf (answerchoice = "q") Then
+                            ElseIf answerchoice = "q" Then
                                 Wln(vbNewLine + "Choice has been cancelled.", "neutralText")
                             End If
                         Next
@@ -343,13 +343,13 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand = "chpwd") Then
+            ElseIf requestedCommand = "chpwd" Then
 
                 changePassword()
 
-            ElseIf (requestedCommand.Substring(0, index) = "chusrname") Then
+            ElseIf requestedCommand.Substring(0, index) = "chusrname" Then
 
-                If (requestedCommand = "chusrname") Then
+                If requestedCommand = "chusrname" Then
                     changeName()
                 Else
                     Dim DoneFlag As Boolean = False
@@ -360,16 +360,16 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 1) Then
-                        If (userword.ContainsKey(args(0)) = True) Then
-                            If Not (userword.ContainsKey(args(1)) = True) Then
+                    If args.Count - 1 = 1 Then
+                        If userword.ContainsKey(args(0)) = True Then
+                            If Not userword.ContainsKey(args(1)) = True Then
                                 DoneFlag = True
                                 Dim temporary As String = userword(args(0))
                                 userword.Remove(args(0))
                                 userword.Add(args(1), temporary)
                                 permissionEditForNewUser(args(0), args(1))
                                 Wln("Username has been changed to {0}!", "neutralText", args(1))
-                                If (args(0) = signedinusrnm) Then
+                                If args(0) = signedinusrnm Then
                                     LoginPrompt()
                                 End If
                             Else
@@ -377,7 +377,7 @@ Module GetCommand
                                 Exit Sub
                             End If
                         End If
-                        If (DoneFlag = False) Then
+                        If DoneFlag = False Then
                             Wln("User {0} not found.", "neutralText", args(0))
                             changePassword()
                         End If
@@ -387,17 +387,17 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand = "cls") Then
+            ElseIf requestedCommand = "cls" Then
 
                 Console.Clear()
 
-            ElseIf (requestedCommand = "debuglog") Then
+            ElseIf requestedCommand = "debuglog" Then
 
-                If (DebugMode = True) Then
+                If DebugMode = True Then
                     Dim line As String
                     Using dbglog = File.Open(AppDataPath + "\kernelDbg.log", FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite), reader As New StreamReader(dbglog)
                         line = reader.ReadLine()
-                        Do While (reader.EndOfStream <> True)
+                        Do While reader.EndOfStream <> True
                             Wln(line, "neutralText")
                             line = reader.ReadLine
                         Loop
@@ -406,17 +406,17 @@ Module GetCommand
                     Wln("Debugging not enabled.", "neutralText")
                 End If
 
-            ElseIf (requestedCommand = "disco") Then
+            ElseIf requestedCommand = "disco" Then
 
                 'The disco system.
                 DiscoSystem()
 
-            ElseIf (requestedCommand.Substring(0, index) = "echo") Then
+            ElseIf requestedCommand.Substring(0, index) = "echo" Then
 
-                If (requestedCommand = "echo") Then
+                If requestedCommand = "echo" Then
                     W("Write any text: ", "input")
                     answerecho = Console.ReadLine()
-                    If (answerecho = "q") Then
+                    If answerecho = "q" Then
                         Wln("Text printing has been cancelled.", "neutralText")
                     Else
                         Wln(answerecho, "neutralText")
@@ -429,7 +429,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 >= 0) Then
+                    If args.Count - 1 >= 0 Then
                         Wln(String.Join(" ", args), "neutralText")
                     Else
                         Wln("Usage: echo <text>" + vbNewLine +
@@ -437,16 +437,16 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand = "future-eyes-destroyer" Or requestedCommand = "fed") Then
+            ElseIf requestedCommand = "future-eyes-destroyer" Or requestedCommand = "fed" Then
 
                 'Disco system, in monochrome
                 DiscoSystem(True)
 
-            ElseIf (requestedCommand.Substring(0, index) = "ls" Or requestedCommand.Substring(0, index) = "list") Then
+            ElseIf requestedCommand.Substring(0, index) = "ls" Or requestedCommand.Substring(0, index) = "list" Then
 
                 'Lists folders and files
-                If (requestedCommand = "ls" Or requestedCommand = "list") Then
-                    If (currDir = "/") Then
+                If requestedCommand = "ls" Or requestedCommand = "list" Then
+                    If currDir = "/" Then
                         Wln(String.Join(", ", AvailableDirs), "neutralText")
                     Else
                         list(currDir.Substring(1))
@@ -459,8 +459,8 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
-                        If (AvailableDirs.Contains(args(0)) Or args(0) = ".." Or args(0) = "/" Or (AvailableDirs.Contains(args(0).Substring(1)) And (args(0).StartsWith("/") Or args(0).StartsWith("..")))) Then
+                    If args.Count - 1 = 0 Then
+                        If AvailableDirs.Contains(args(0)) Or args(0) = ".." Or args(0) = "/" Or (AvailableDirs.Contains(args(0).Substring(1)) And (args(0).StartsWith("/") Or args(0).StartsWith(".."))) Then
                             list(args(0))
                         Else
                             Wln("Directory {0} not found", "neutralText", args(0))
@@ -471,28 +471,28 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand = "lsnet") Then
+            ElseIf requestedCommand = "lsnet" Then
 
                 GetNetworkComputers()
                 ListHostsInNetwork()
 
-            ElseIf (requestedCommand = "lsnettree") Then
+            ElseIf requestedCommand = "lsnettree" Then
 
                 GetNetworkComputers()
                 ListHostsInTree()
 
-            ElseIf (requestedCommand = "logout") Then
+            ElseIf requestedCommand = "logout" Then
 
                 'Logs out of the user
                 LoginPrompt()
 
-            ElseIf (requestedCommand = "netinfo") Then
+            ElseIf requestedCommand = "netinfo" Then
 
                 getProperties()
 
-            ElseIf (requestedCommand.Substring(0, index) = "mkdir" Or requestedCommand.Substring(0, index) = "md") Then
+            ElseIf requestedCommand.Substring(0, index) = "mkdir" Or requestedCommand.Substring(0, index) = "md" Then
 
-                If (requestedCommand <> "mkdir" Or requestedCommand <> "md") Then
+                If requestedCommand <> "mkdir" Or requestedCommand <> "md" Then
                     Dim words = requestedCommand.Split({" "c})
                     Dim c As Integer
                     For arg = 1 To words.Count - 1
@@ -500,7 +500,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         AvailableDirs.Add(args(0))
                     Else
                         Wln("Usage: md/mkdir <anything>", "neutralText")
@@ -509,10 +509,10 @@ Module GetCommand
                     Wln("Usage: md/mkdir <anything>", "neutralText")
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "panicsim") Then
+            ElseIf requestedCommand.Substring(0, index) = "panicsim" Then
 
                 'Kernel panic simulator
-                If (requestedCommand = "panicsim") Then
+                If requestedCommand = "panicsim" Then
                     panicPrompt()
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -522,25 +522,25 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         KernelError(CChar("C"), False, 0, args(0))
-                    ElseIf (args.Count - 1 = 1) Then
-                        If (args(1) <> "C") Then
+                    ElseIf args.Count - 1 = 1 Then
+                        If args(1) <> "C" Then
                             KernelError(CChar(args(1)), True, 30, args(0))
-                        ElseIf (args(1) = "C") Then
+                        ElseIf args(1) = "C" Then
                             KernelError(CChar(args(1)), False, 0, args(0))
-                        ElseIf (args(1) = "D") Then
+                        ElseIf args(1) = "D" Then
                             KernelError(CChar(args(1)), True, 5, args(0))
                         Else
                             Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine +
                                 "       panicsim: to be prompted about panic simulator options.", "neutralText")
                         End If
-                    ElseIf (args.Count - 1 = 2) Then
-                        If (CDbl(args(2)) <= 3600 And (args(1) <> "C" Or args(1) <> "D")) Then
+                    ElseIf args.Count - 1 = 2 Then
+                        If CDbl(args(2)) <= 3600 And (args(1) <> "C" Or args(1) <> "D") Then
                             KernelError(CChar(args(1)), True, CLng(args(2)), args(0))
                         ElseIf (CDbl(args(2)) <= 3600 And args(1) = "C") Or (CDbl(args(2)) <= 0 And args(1) = "C") Then
                             KernelError(CChar(args(1)), False, 0, args(0))
-                        ElseIf (CDbl(args(2)) <= 5 And args(1) = "D") Then
+                        ElseIf CDbl(args(2)) <= 5 And args(1) = "D" Then
                             KernelError(CChar(args(1)), True, CLng(args(2)), args(0))
                         Else
                             Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine +
@@ -552,9 +552,9 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "perm") Then
+            ElseIf requestedCommand.Substring(0, index) = "perm" Then
 
-                If (requestedCommand = "perm") Then
+                If requestedCommand = "perm" Then
                     permissionPrompt()
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -564,7 +564,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 2) Then
+                    If args.Count - 1 = 2 Then
                         permission(args(1), args(0), args(2))
                     Else
                         Wln("Usage: perm <userName> <Admin/Disabled> <Allow/Disallow>" + vbNewLine +
@@ -572,9 +572,9 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "ping") Then
+            ElseIf requestedCommand.Substring(0, index) = "ping" Then
 
-                If (requestedCommand = "ping") Then
+                If requestedCommand = "ping" Then
                     CheckNetworkCommand()
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -584,9 +584,9 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         PingTarget(args(0), 1)
-                    ElseIf (args.Count - 1 = 1) Then
+                    ElseIf args.Count - 1 = 1 Then
                         PingTarget(args(0), args(1))
                     Else
                         Wln("Usage: ping <Address> [repeatTimes]" + vbNewLine +
@@ -594,16 +594,16 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "read") Then
+            ElseIf requestedCommand.Substring(0, index) = "read" Then
 
-                If (requestedCommand = "read") Then
+                If requestedCommand = "read" Then
                     W("Write a file (directories will be scanned): ", "input")
                     Dim readfile As String = Console.ReadLine()
-                    If (readfile = "") Then
+                    If readfile = "" Then
                         Wln(String.Join(", ", AvailableDirs), "neutralText")
-                    ElseIf (readfile = "q") Then
+                    ElseIf readfile = "q" Then
                         Wln("Listing has been cancelled.", "neutralText")
-                    ElseIf (AvailableFiles.Contains(readfile)) Then
+                    ElseIf AvailableFiles.Contains(readfile) Then
                         readContents(readfile)
                     Else
                         Wln("{0} is not found.", "neutralText", readfile)
@@ -616,8 +616,8 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
-                        If (AvailableFiles.Contains(args(0))) Then
+                    If args.Count - 1 = 0 Then
+                        If AvailableFiles.Contains(args(0)) Then
                             readContents(args(0))
                         Else
                             Wln("{0} is not found.", "neutralText", args(0))
@@ -628,10 +628,10 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand = "reloadconfig") Then
+            ElseIf requestedCommand = "reloadconfig" Then
 
                 'Reload configuration
-                If (File.Exists(AppDataPath + "\kernelConfig.ini") = True) Then
+                If File.Exists(AppDataPath + "\kernelConfig.ini") = True Then
                     configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
                 Else
                     createConfig(False)
@@ -640,7 +640,7 @@ Module GetCommand
                 readConfig()
                 Wln("Configuration reloaded. You might need to reboot the kernel for some changes to take effect.", "neutralText")
 
-            ElseIf (requestedCommand = "reboot") Then
+            ElseIf requestedCommand = "reboot" Then
 
                 'Reboot the simulated system
                 Wln("Rebooting...", "neutralText")
@@ -649,9 +649,9 @@ Module GetCommand
                 Console.Clear()
                 Main()
 
-            ElseIf (requestedCommand.Substring(0, index) = "rmdir" Or requestedCommand.Substring(0, index) = "rd") Then
+            ElseIf requestedCommand.Substring(0, index) = "rmdir" Or requestedCommand.Substring(0, index) = "rd" Then
 
-                If (requestedCommand <> "rmdir" Or requestedCommand <> "rd") Then
+                If requestedCommand <> "rmdir" Or requestedCommand <> "rd" Then
                     Dim words = requestedCommand.Split({" "c})
                     Dim c As Integer
                     For arg = 1 To words.Count - 1
@@ -659,7 +659,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         AvailableDirs.Remove(args(0))
                     Else
                         Wln("Usage: rd/rmdir <directory>", "neutralText")
@@ -668,9 +668,9 @@ Module GetCommand
                     Wln("Usage: rd/rmdir <directory>", "neutralText")
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "rmuser") Then
+            ElseIf requestedCommand.Substring(0, index) = "rmuser" Then
 
-                If (requestedCommand = "rmuser") Then
+                If requestedCommand = "rmuser" Then
                     removeUser()
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -680,7 +680,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         removeUserFromDatabase(args(0))
                     Else
                         Wln("Usage: rmuser <Username>" + vbNewLine +
@@ -688,9 +688,9 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "scical") Then
+            ElseIf requestedCommand.Substring(0, index) = "scical" Then
 
-                If (requestedCommand <> "scical") Then
+                If requestedCommand <> "scical" Then
                     Dim words = requestedCommand.Split({" "c})
                     Dim c As Integer
                     For arg = 1 To words.Count - 1
@@ -698,9 +698,9 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If ((args(0) <> "sqrt" And args(0) <> "tan" And args(0) <> "sin" And args(0) <> "cos" And args(0) <> "floor" And args(0) <> "ceiling" And args(0) <> "abs") And args.Count - 1 > 1) Then
+                    If args(0) <> "sqrt" And args(0) <> "tan" And args(0) <> "sin" And args(0) <> "cos" And args(0) <> "floor" And args(0) <> "ceiling" And args(0) <> "abs" And args.Count - 1 > 1 Then
                         sciCalc.expressionCalculate(False, args)
-                    ElseIf ((args(0) = "sqrt" Or args(0) = "tan" Or args(0) = "sin" Or args(0) = "cos" Or args(0) = "floor" Or args(0) = "ceiling" Or args(0) = "abs") And args.Count - 1 = 1) Then
+                    ElseIf (args(0) = "sqrt" Or args(0) = "tan" Or args(0) = "sin" Or args(0) = "cos" Or args(0) = "floor" Or args(0) = "ceiling" Or args(0) = "abs") And args.Count - 1 = 1 Then
                         sciCalc.expressionCalculate(True, args)
                     Else
                         Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine +
@@ -711,9 +711,9 @@ Module GetCommand
                         "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "setcolors") Then
+            ElseIf requestedCommand.Substring(0, index) = "setcolors" Then
 
-                If (requestedCommand = "setcolors") Then
+                If requestedCommand = "setcolors" Then
                     Wln("Available Colors: {0}" + vbNewLine +
                         "Press ENTER only on questions and defaults will be used.", "neutralText", String.Join(", ", availableColors))
                     SetColorSteps()
@@ -725,10 +725,10 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 7) Then
-                        If (availableColors.Contains(args(0)) And availableColors.Contains(args(1)) And availableColors.Contains(args(2)) And
+                    If args.Count - 1 = 7 Then
+                        If availableColors.Contains(args(0)) And availableColors.Contains(args(1)) And availableColors.Contains(args(2)) And
                             availableColors.Contains(args(3)) And availableColors.Contains(args(4)) And availableColors.Contains(args(5)) And
-                            availableColors.Contains(args(6)) And availableColors.Contains(args(7))) Then
+                            availableColors.Contains(args(6)) And availableColors.Contains(args(7)) Then
                             inputColor = CType([Enum].Parse(GetType(ConsoleColor), args(0)), ConsoleColor)
                             licenseColor = CType([Enum].Parse(GetType(ConsoleColor), args(1)), ConsoleColor)
                             contKernelErrorColor = CType([Enum].Parse(GetType(ConsoleColor), args(2)), ConsoleColor)
@@ -738,34 +738,34 @@ Module GetCommand
                             backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), args(6)), ConsoleColor)
                             neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), args(7)), ConsoleColor)
                             Load()
-                        ElseIf (args.Contains("def")) Then
-                            If (Array.IndexOf(args, "") = 0) Then
+                        ElseIf args.Contains("def") Then
+                            If Array.IndexOf(args, "") = 0 Then
                                 args(0) = "White"
                                 inputColor = CType([Enum].Parse(GetType(ConsoleColor), args(0)), ConsoleColor)
-                            ElseIf (Array.IndexOf(args, "") = 1) Then
+                            ElseIf Array.IndexOf(args, "") = 1 Then
                                 args(1) = "White"
                                 licenseColor = CType([Enum].Parse(GetType(ConsoleColor), args(1)), ConsoleColor)
-                            ElseIf (Array.IndexOf(args, "") = 2) Then
+                            ElseIf Array.IndexOf(args, "") = 2 Then
                                 args(2) = "Yellow"
                                 contKernelErrorColor = CType([Enum].Parse(GetType(ConsoleColor), args(2)), ConsoleColor)
-                            ElseIf (Array.IndexOf(args, "") = 3) Then
+                            ElseIf Array.IndexOf(args, "") = 3 Then
                                 args(3) = "Red"
                                 uncontKernelErrorColor = CType([Enum].Parse(GetType(ConsoleColor), args(3)), ConsoleColor)
-                            ElseIf (Array.IndexOf(args, "") = 4) Then
+                            ElseIf Array.IndexOf(args, "") = 4 Then
                                 args(4) = "DarkGreen"
                                 hostNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), args(4)), ConsoleColor)
-                            ElseIf (Array.IndexOf(args, "") = 5) Then
+                            ElseIf Array.IndexOf(args, "") = 5 Then
                                 args(5) = "Green"
                                 userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), args(5)), ConsoleColor)
-                            ElseIf (Array.IndexOf(args, "") = 6) Then
+                            ElseIf Array.IndexOf(args, "") = 6 Then
                                 args(6) = "Black"
                                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), args(6)), ConsoleColor)
                                 Load()
-                            ElseIf (Array.IndexOf(args, "") = 7) Then
+                            ElseIf Array.IndexOf(args, "") = 7 Then
                                 args(7) = "Gray"
                                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), args(7)), ConsoleColor)
                             End If
-                        ElseIf (args.Contains("RESET")) Then
+                        ElseIf args.Contains("RESET") Then
                             ResetColors()
                             Wln("Everything is reset to normal settings.", "neutralText")
                         Else
@@ -778,9 +778,9 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand.Substring(0, index) = "setthemes") Then
+            ElseIf requestedCommand.Substring(0, index) = "setthemes" Then
 
-                If (requestedCommand = "setthemes") Then
+                If requestedCommand = "setthemes" Then
                     TemplatePrompt()
                 Else
                     Dim words = requestedCommand.Split({" "c})
@@ -790,7 +790,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 0) Then
+                    If args.Count - 1 = 0 Then
                         TemplateSet.templateSet(args(0))
                     Else
                         Wln("Usage: setthemes <Theme>" + vbNewLine +
@@ -799,16 +799,16 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf (requestedCommand = "showtd") Then
+            ElseIf requestedCommand = "showtd" Then
 
                 ShowTime()
 
-            ElseIf (requestedCommand = "showmotd") Then
+            ElseIf requestedCommand = "showmotd" Then
 
                 'Show changes to MOTD, or current
                 Wln(My.Settings.MOTD, "neutralText")
 
-            ElseIf (requestedCommand = "shutdown") Then
+            ElseIf requestedCommand = "shutdown" Then
 
                 'Shuts down the simulated system
                 Wln("Shutting down...", "neutralText")
@@ -819,16 +819,16 @@ Module GetCommand
                 Console.Clear()
                 ShuttingDown = True
 
-            ElseIf (requestedCommand = "sysinfo") Then
+            ElseIf requestedCommand = "sysinfo" Then
 
                 'Shows system information
                 Wln("Kernel Version: {0}" + vbNewLine +
                     "Shell (uesh) version: {1}" + vbNewLine + vbNewLine +
                     "Look at hardware information using 'lsdrivers'", "neutralText", KernelVersion, ueshversion)
 
-            ElseIf (requestedCommand.Substring(0, index) = "unitconv") Then
+            ElseIf requestedCommand.Substring(0, index) = "unitconv" Then
 
-                If (requestedCommand <> "unitconv") Then
+                If requestedCommand <> "unitconv" Then
                     Dim words = requestedCommand.Split({" "c})
                     Dim c As Integer
                     For arg = 1 To words.Count - 1
@@ -836,7 +836,7 @@ Module GetCommand
                     Next
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                    If (args.Count - 1 = 2) Then
+                    If args.Count - 1 = 2 Then
                         Converter(args(0), args(1), args(2))
                     Else
                         Wln("Usage: unitconv <sourceUnit> <targetUnit> <value>" + vbNewLine +
@@ -853,14 +853,14 @@ Module GetCommand
                             "Kiloliters, Gallons, Ounces, Feet, Inches, Yards and Miles.", "neutralText")
                 End If
 
-            ElseIf (requestedCommand = "version") Then
+            ElseIf requestedCommand = "version" Then
 
                 'Shows current kernel version
                 Wln("Version: {0}", "neutralText", KernelVersion)
 
             End If
         Catch ex As Exception
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)

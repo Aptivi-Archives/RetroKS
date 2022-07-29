@@ -23,9 +23,9 @@ Module CurrentDir
 
     Sub setCurrDir(dir As String)
 
-        If (AvailableDirs.Contains(dir)) Then
+        If AvailableDirs.Contains(dir) Then
             currDir = "/" + dir
-        ElseIf (dir = "") Then
+        ElseIf dir = "" Then
             currDir = "/"
         Else
             Wln("Cannot change directory to /{0} because that directory leads nowhere.", "neutralText", dir)

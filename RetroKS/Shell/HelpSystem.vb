@@ -20,10 +20,10 @@ Module HelpSystem
 
     Sub ShowHelp(Optional command As String = "")
 
-        If (command = "") Then
+        If command = "" Then
 
             'TODO: Convert (All Commands) help system from plain text to dictionaries
-            If (simHelp = False) Then
+            If simHelp = False Then
                 Wln("Help commands:" + vbNewLine + vbNewLine + _
                                                      "adduser: Adds users (Only admins can access this command)" + vbNewLine + _
                                                      "annoying-sound (Alias: beep): Console will beep in Hz and time in milliseconds" + vbNewLine + _
@@ -71,185 +71,185 @@ Module HelpSystem
                 Wln(String.Join(", ", availableCommands), "neutralText")
             End If
 
-        ElseIf (command.Contains("adduser")) Then
+        ElseIf command.Contains("adduser") Then
 
             Wln("Usage: adduser <userName> [password] [confirm]" + vbNewLine + _
                 "       adduser: to be prompted about new username and password", "neutralText")
 
-        ElseIf (command.Contains("annoying-sound") Or command.Contains("beep")) Then
+        ElseIf command.Contains("annoying-sound") Or command.Contains("beep") Then
 
             Wln("Usage: annoying-sound/beep <Frequency:Hz> <Time:Seconds>" + vbNewLine + _
                 "       annoying-sound/beep: to be prompted about beeping.", "neutralText")
 
-        ElseIf (command.Contains("arginj")) Then
+        ElseIf command.Contains("arginj") Then
 
             Wln("Usage: arginj [Arguments separated by commas]" + vbNewLine + _
                 "       arginj: to be prompted about boot arguments.", "neutralText")
 
-        ElseIf (command.Contains("calc")) Then
+        ElseIf command.Contains("calc") Then
 
             Wln("Usage: calc <expression> ...", "neutralText")
 
-        ElseIf (command.Contains("cdir") Or command.Contains("currentdir")) Then
+        ElseIf command.Contains("cdir") Or command.Contains("currentdir") Then
 
             Wln("Usage: cdir/currentdir: to get current directory", "neutralText")
 
-        ElseIf (command.Contains("changedir") Or command.Contains("chdir") Or command.StartsWith("cd")) Then
+        ElseIf command.Contains("changedir") Or command.Contains("chdir") Or command.StartsWith("cd") Then
 
             Wln("Usage: chdir/changedir/cd <directory> OR ..", "neutralText")
 
-        ElseIf (command.Contains("chhostname")) Then
+        ElseIf command.Contains("chhostname") Then
 
             Wln("Usage: chhostname <HostName>" + vbNewLine + _
                 "       chhostname: to be prompted about changing host name.", "neutralText")
 
-        ElseIf (command.Contains("chmotd")) Then
+        ElseIf command.Contains("chmotd") Then
 
             Wln("Usage: chmotd <Message>", "neutralText")
 
-        ElseIf (command.Contains("choice")) Then
+        ElseIf command.Contains("choice") Then
 
             Wln("Usage: choice <Question> <sets>" + vbNewLine + _
                 "       choice: to be prompted about choices.", "neutralText")
 
-        ElseIf (command.Contains("chpwd")) Then
+        ElseIf command.Contains("chpwd") Then
 
             Wln("Usage: chpwd: to be prompted about changing passwords.", "neutralText")
 
-        ElseIf (command.Contains("chusrname")) Then
+        ElseIf command.Contains("chusrname") Then
 
             Wln("Usage: chusrname <oldUserName> <newUserName>" + vbNewLine + _
                 "       chusrname: to be prompted about changing usernames.", "neutralText")
 
-        ElseIf (command.Contains("cls")) Then
+        ElseIf command.Contains("cls") Then
 
             Wln("Usage: cls: to clear screen.", "neutralText")
 
-        ElseIf (command.Contains("debuglog")) Then
+        ElseIf command.Contains("debuglog") Then
 
             Wln("Usage: debuglog: Shows you debug logs so you can send the log to us.", "neutralText")
 
-        ElseIf (command.Contains("disco")) Then
+        ElseIf command.Contains("disco") Then
 
             Wln("Usage: disco: to get a disco effect on the console. True color support will come with GUI console.", "neutralText")
 
-        ElseIf (command.Contains("echo")) Then
+        ElseIf command.Contains("echo") Then
 
             Wln("Usage: echo <text>" + vbNewLine + _
                 "       echo: to be prompted about text printing.", "neutralText")
 
-        ElseIf (command.Contains("fed") Or command.Contains("future-eyes-destroyer")) Then
+        ElseIf command.Contains("fed") Or command.Contains("future-eyes-destroyer") Then
 
             Wln("Usage: fed/future-eyes-destroyer: It will be removed in the future. Simulates a monochrome disco.", "neutralText")
 
-        ElseIf (command.Contains("hwprobe")) Then
+        ElseIf command.Contains("hwprobe") Then
 
             Wln("Usage: hwprobe: Probes hardware (Only works when the hardware is not probed and hwprobe is not executed).", "neutralText")
 
-        ElseIf (command.Contains("ls") Or command.Contains("list")) Then
+        ElseIf command.Contains("ls") Or command.Contains("list") Then
 
-            If (command = "ls" Or command = "list") Then
+            If command = "ls" Or command = "list" Then
                 Wln("Usage: ls/list [oneDirectory]" + vbNewLine + _
                     "       ls/list: to get current directory.", "neutralText")
-            ElseIf (command = "lsdrivers") Then
+            ElseIf command = "lsdrivers" Then
                 Wln("Usage: lsdrivers: Lists probed drivers." + vbNewLine + _
                     "       Friends of lsdrivers: sysinfo, version", "neutralText")
-            ElseIf (command = "lsnet") Then
+            ElseIf command = "lsnet" Then
                 Wln("Usage: lsnet: Lists network information, as well as every computer connected to a network." + vbNewLine + _
                     "       Friends of lsnet: lsnettree", "neutralText")
-            ElseIf (command = "lsnettree") Then
+            ElseIf command = "lsnettree" Then
                 Wln("Usage: lsnettree: Lists network information, as well as every computer connected to a network, in a tree form." + vbNewLine + _
                     "       Friends of lsnettree: lsnet", "neutralText")
             End If
 
-        ElseIf (command.Contains("logout")) Then
+        ElseIf command.Contains("logout") Then
 
             Wln("Usage: logout: Logs you out of the user." + vbNewLine + _
                 "       Friends of logout: reboot, shutdown", "neutralText")
 
-        ElseIf (command.Contains("mkdir") Or command.Contains("md")) Then
+        ElseIf command.Contains("mkdir") Or command.Contains("md") Then
 
             Wln("Usage: md/mkdir <anything>", "neutralText")
 
-        ElseIf (command.Contains("netinfo")) Then
+        ElseIf command.Contains("netinfo") Then
 
             Wln("Usage: netinfo: Get every network information", "neutralText")
 
-        ElseIf (command.Contains("panicsim")) Then
+        ElseIf command.Contains("panicsim") Then
 
             Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + vbNewLine + _
                 "       panicsim: to be prompted about panic simulator options.", "neutralText")
 
-        ElseIf (command.Contains("perm")) Then
+        ElseIf command.Contains("perm") Then
 
             Wln("Usage: perm <userName> <Admin/Disabled> <Allow/Disallow>" + vbNewLine + _
                 "       perm: to be prompted about permission setting.", "neutralText")
 
-        ElseIf (command.Contains("ping")) Then
+        ElseIf command.Contains("ping") Then
 
             Wln("Usage: ping <Address> [repeatTimes]" + vbNewLine + _
                 "       ping: to get prompted about writing address.", "neutralText")
 
-        ElseIf (command.Contains("rmdir") Or command.Contains("rd")) Then
+        ElseIf command.Contains("rmdir") Or command.Contains("rd") Then
 
             Wln("Usage: rd/rmdir <directory>", "neutralText")
 
-        ElseIf (command.Contains("read")) Then
+        ElseIf command.Contains("read") Then
 
             Wln("Usage: read <file>" + vbNewLine + _
                 "       read: to get prompted about reading file contents.", "neutralText")
 
-        ElseIf (command.Contains("reboot")) Then
+        ElseIf command.Contains("reboot") Then
 
             Wln("Usage: reboot: Restarts your simulated computer." + vbNewLine + _
                 "       Friends of reboot: shutdown, logout", "neutralText")
 
-        ElseIf (command.Contains("reloadconfig")) Then
+        ElseIf command.Contains("reloadconfig") Then
 
             Wln("Usage: reloadconfig: Reloads the configuration that is changed by the end-user or by tool." + vbNewLine + _
                 "       Colors doesn't require a restart, but most of the settings require you to restart.", "neutralText")
 
-        ElseIf (command.Contains("rmuser")) Then
+        ElseIf command.Contains("rmuser") Then
 
             Wln("Usage: rmuser <Username>" + vbNewLine + _
                 "       rmuser: to get prompted about removing usernames.", "neutralText")
 
-        ElseIf (command.Contains("scical")) Then
+        ElseIf command.Contains("scical") Then
 
             Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine + _
                 "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
 
-        ElseIf (command.Contains("setcolors")) Then
+        ElseIf command.Contains("setcolors") Then
 
             Wln("Usage: setcolors <inputColor/def> <licenseColor/def> <contKernelErrorColor/def> <uncontKernelErrorColor/def> <hostNameShellColor/def> <userNameShellColor/def> <backgroundColor/def> <neutralTextColor/def>" + vbNewLine + _
                 "       setcolors: to get prompted about setting colors." + vbNewLine + _
                 "       Friends of setcolors: setthemes", "neutralText")
 
-        ElseIf (command.Contains("setthemes")) Then
+        ElseIf command.Contains("setthemes") Then
 
             Wln("Usage: setthemes <Theme>" + vbNewLine + _
                 "       setthemes: to get prompted about setting themes." + vbNewLine + _
                 "       Friends of setthemes: setcolors", "neutralText")
 
-        ElseIf (command.Contains("showmotd")) Then
+        ElseIf command.Contains("showmotd") Then
 
             Wln("Usage: showmotd: Shows your current Message Of The Day.", "neutralText")
 
-        ElseIf (command.Contains("showtd")) Then
+        ElseIf command.Contains("showtd") Then
 
             Wln("Usage: showtd: Shows the date and time.", "neutralText")
 
-        ElseIf (command.Contains("shutdown")) Then
+        ElseIf command.Contains("shutdown") Then
 
             Wln("Usage: shutdown: Shuts down your simulated computer." + vbNewLine + _
                 "       Friends of shutdown: reboot, logout", "neutralText")
 
-        ElseIf (command.Contains("sysinfo")) Then
+        ElseIf command.Contains("sysinfo") Then
 
             Wln("Usage: sysinfo: Shows system information and versions." + vbNewLine + _
                 "       Friends of sysinfo: lsdrivers, version", "neutralText")
 
-        ElseIf (command.Contains("unitconv")) Then
+        ElseIf command.Contains("unitconv") Then
 
             Wln("Usage: unitconv <sourceUnit> <targetUnit> <value>" + vbNewLine + _
                 "Units: B, KB, MB, GB, TB, Bits, Octal, Binary, Decimal, Hexadecimal, mm, cm, m, km, Fahrenheit, Celsius, Kelvin, " + _
@@ -257,7 +257,7 @@ Module HelpSystem
                 "Money (target only), Percent (target only), Centivolts, Volts, Kilovolts, Watts, Kilowatts, Milliliters, Liters, " + _
                 "Kiloliters, Gallons, Ounces, Feet, Inches, Yards and Miles.", "neutralText")
 
-        ElseIf (command.Contains("version")) Then
+        ElseIf command.Contains("version") Then
 
             Wln("Usage: version: Shows kernel version." + vbNewLine + _
                 "       Friends of version: lsdrivers, sysinfo", "neutralText")

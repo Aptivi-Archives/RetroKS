@@ -22,31 +22,31 @@ Module FileContents
 
     Sub readContents(filename As String)
 
-        If (filename = "loader") Then
+        If filename = "loader" Then
 
             Wln("Boot_Version = {0}", "neutralText", KernelVersion)
 
-        ElseIf (filename = "hdpack") Then
+        ElseIf filename = "hdpack" Then
 
             Wln("System", "neutralText")
 
-        ElseIf (filename = "libuesh.elb") Then
+        ElseIf filename = "libuesh.elb" Then
 
             Wln("[startelb]=ueshlib-<UESH Library Version 0.0.3>-", "neutralText")
 
-        ElseIf (filename = "kernel") Then
+        ElseIf filename = "kernel" Then
 
             Wln("Kernel process PID: 1" + vbNewLine +
                 "Priority: High" + vbNewLine +
                 "Importance: High, and shouldn't be killed.", "neutralText")
 
-        ElseIf (filename = "login") Then
+        ElseIf filename = "login" Then
 
             Wln("Login process PID: 2" + vbNewLine +
                 "Priority: Normal" + vbNewLine +
                 "Importance: High, and shouldn't be killed.", "neutralText")
 
-        ElseIf (filename = "uesh") Then
+        ElseIf filename = "uesh" Then
 
             Wln("UESH process PID: 3" + vbNewLine +
                 "Priority: Normal" + vbNewLine +

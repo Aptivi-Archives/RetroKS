@@ -22,39 +22,39 @@ Module ListFolders
 
     Sub list(folder As String)
 
-        If (folder = "bin" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "bin") Then
+        If folder = "bin" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "bin" Then
 
             Wln(String.Join("* ", availableCommands) + "*", "neutralText")
 
-        ElseIf (folder = "boot" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "boot") Then
+        ElseIf folder = "boot" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "boot" Then
 
             Wln("loader~", "neutralText")
 
-        ElseIf (folder = "dev" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "dev") Then
+        ElseIf folder = "dev" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "dev" Then
 
             Wln("{0}hdpack", "neutralText", slotsUsedName)
 
-        ElseIf (folder = "etc" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "etc") Then
+        ElseIf folder = "etc" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "etc" Then
 
             Wln("There is nothing.", "neutralText")
 
-        ElseIf (folder = "lib" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "lib") Then
+        ElseIf folder = "lib" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "lib" Then
 
             Wln("libuesh.elb", "neutralText")
 
-        ElseIf (folder = "proc" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "proc") Then
+        ElseIf folder = "proc" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "proc" Then
 
             Wln("kernel~ login~ uesh~", "neutralText")
 
-        ElseIf (folder = "usr" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "usr") Then
+        ElseIf folder = "usr" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "usr" Then
 
             Wln("There is nothing.", "neutralText")
 
-        ElseIf (folder = "var" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "var") Then
+        ElseIf folder = "var" Or (folder.StartsWith("/") Or folder.StartsWith("..")) And folder.Substring(1) = "var" Then
 
             Wln("There is nothing.", "neutralText")
 
-        ElseIf (folder = ".." Or folder = "/") Then
+        ElseIf folder = ".." Or folder = "/" Then
 
             Wln(String.Join(", ", AvailableDirs), "neutralText")
 

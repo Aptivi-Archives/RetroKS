@@ -25,7 +25,7 @@ Module Network
                                  "net: Checking for connectivity..." + vbNewLine + _
                                  "net: Write address, or URL: ", "input")
             Dim AnswerPing As String = Console.ReadLine()
-            If (AnswerPing <> "q") Then
+            If AnswerPing <> "q" Then
                 PingTargetKernel(AnswerPing)
             Else
                 Wln("Network checking has been cancelled.", "neutralText")
@@ -41,7 +41,7 @@ Module Network
         If Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
             W("net: Write address, or URL: ", "input")
             Dim AnswerPing As String = Console.ReadLine()
-            If (AnswerPing <> "q") Then
+            If AnswerPing <> "q" Then
                 PingTarget(AnswerPing)
             Else
                 Wln("Network checking has been cancelled.", "neutralText")
@@ -68,7 +68,7 @@ PingError:
 
         On Error GoTo PingError1
         Dim s As New Stopwatch
-        If (repeatTimes <> 1) And Not (repeatTimes < 0) Then
+        If (repeatTimes <> 1) And Not repeatTimes < 0 Then
             For i As Int16 = 1 To repeatTimes
                 s.Start()
                 If My.Computer.Network.Ping(Address) Then
@@ -76,7 +76,7 @@ PingError:
                 End If
                 s.Reset()
             Next
-        ElseIf (repeatTimes = 1) Then
+        ElseIf repeatTimes = 1 Then
             s.Start()
             If My.Computer.Network.Ping(Address) Then
                 Wln("net: Got response from {0} in {1} ms", "neutralText", Address, s.ElapsedMilliseconds.ToString)

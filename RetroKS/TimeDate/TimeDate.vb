@@ -29,7 +29,7 @@ Module TimeDate
 
         Do While True
 
-            If (TimeDateChange.CancellationPending = True) Then
+            If TimeDateChange.CancellationPending = True Then
                 e.Cancel = True
                 Exit Do
             Else
@@ -61,7 +61,7 @@ Module TimeDate
 
     Sub ShowTimeQuiet()
 
-        If (Quiet = False) Then
+        If Quiet = False Then
             ShowTime()
         End If
 

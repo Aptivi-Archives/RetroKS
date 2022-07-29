@@ -60,7 +60,7 @@ Module Kernel
 
             'Create config file and then read it
             checkForUpgrade()
-            If (File.Exists(AppDataPath + "\kernelConfig.ini") = True) Then
+            If File.Exists(AppDataPath + "\kernelConfig.ini") = True Then
                 configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
             Else
                 createConfig(False)
@@ -77,42 +77,42 @@ Module Kernel
                             "    under certain conditions; See COPYING file in source code." + vbNewLine, "license")
 
             'Phase 0: Initialize time and files, and check for quietness
-            If (argsOnBoot = True) Then
+            If argsOnBoot = True Then
                 PromptArgs()
-                If (argsFlag = True) Then
+                If argsFlag = True Then
                     ParseArguments()
                 End If
             End If
-            If (argsInjected = True) Then
+            If argsInjected = True Then
                 ParseArguments()
                 answerargs = ""
                 argsInjected = False
             End If
-            If (TimeDateIsSet = False) Then
+            If TimeDateIsSet = False Then
                 InitializeTimeDate()
                 TimeDateIsSet = True
             End If
             Init()
             Wdbg("Kernel initialized, version {0}.", True, KernelVersion)
-            If (Quiet = True Or quietProbe = True) Then
+            If Quiet = True Or quietProbe = True Then
                 'Continue the kernel, and don't print messages
                 'Phase 1: Username management
                 initializeMainUsers()
-                If (enableDemo = True) Then
+                If enableDemo = True Then
                     adduser("demo")
                 End If
                 LoginFlag = True
 
                 'Phase 2: Check for pre-user making
-                If (CruserFlag = True) Then
+                If CruserFlag = True Then
                     adduser(arguser, argword)
                 End If
 
                 'Phase 3: Free unused RAM and log-in
                 DisposeAll()
-                If (LoginFlag = True And maintenance = False) Then
+                If LoginFlag = True And maintenance = False Then
                     LoginPrompt()
-                ElseIf (LoginFlag = True And maintenance = True) Then
+                ElseIf LoginFlag = True And maintenance = True Then
                     LoginFlag = False
                     Wln("Enter the admin password for maintenance.", "neutralText")
                     answeruser = "root"
@@ -122,21 +122,21 @@ Module Kernel
                 'Continue the kernel
                 'Phase 1: Username management
                 initializeMainUsers()
-                If (enableDemo = True) Then
+                If enableDemo = True Then
                     adduser("demo")
                 End If
                 LoginFlag = True
 
                 'Phase 2: Check for pre-user making
-                If (CruserFlag = True) Then
+                If CruserFlag = True Then
                     adduser(arguser, argword)
                 End If
 
                 'Phase 3: Free unused RAM and log-in if the kernel isn't on maintenance mode
                 DisposeAll()
-                If (LoginFlag = True And maintenance = False) Then
+                If LoginFlag = True And maintenance = False Then
                     LoginPrompt()
-                ElseIf (LoginFlag = True And maintenance = True) Then
+                ElseIf LoginFlag = True And maintenance = True Then
                     LoginFlag = False
                     Wln("Enter the admin password for maintenance.", "neutralText")
                     answeruser = "root"
@@ -144,7 +144,7 @@ Module Kernel
                 End If
             End If
         Catch ex As Exception
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wln(ex.StackTrace, "uncontError") : Wdbg(ex.StackTrace, True)
             End If
             KernelError(CChar("U"), True, 5, "Kernel Error while booting: " + Err.Description)

@@ -64,23 +64,23 @@ Module Shell
         'Reads command written by user
         Try
             If ArgsMode = False Then
-                If (strcommand = Nothing Or strcommand.StartsWith(" ") = True) Then
+                If strcommand = Nothing Or strcommand.StartsWith(" ") = True Then
                     If Not ShuttingDown Then initializeShell()
                 Else
                     Dim groupCmds() As String = strcommand.Split({":"c}, StringSplitOptions.RemoveEmptyEntries)
                     For Each cmd In groupCmds
                         Dim indexCmd As Integer = cmd.IndexOf(" ")
-                        If (indexCmd = -1) Then
+                        If indexCmd = -1 Then
                             indexCmd = cmd.Count
                             cmd = cmd.Substring(0, indexCmd)
                         End If
-                        If (adminList(signedinusrnm) = False And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Then
+                        If adminList(signedinusrnm) = False And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True Then
                             Wdbg("Cmd exec {0} failed: adminList.ASSERT(signedinusrnm) = False, strictCmds.Cont({0}.Substr(0, {1})) = True", True, cmd.Substring(0, indexCmd), indexCmd)
                             Wln("You don't have permission to use {0}", "neutralText", cmd.Substring(0, indexCmd))
-                        ElseIf (maintenance = True And cmd.Contains("logout")) Then
+                        ElseIf maintenance = True And cmd.Contains("logout") Then
                             Wdbg("Cmd exec {0} failed: maintenance = True && input.Cont(""logout"") = True", True, cmd.Substring(0, indexCmd), indexCmd)
                             Wln("Shell message: The requested command {0} is not allowed to run in maintenance mode.", "neutralText", cmd.Substring(0, indexCmd))
-                        ElseIf (adminList(signedinusrnm) = True And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Or (availableCommands.Contains(cmd.Substring(0, indexCmd))) Then
+                        ElseIf (adminList(signedinusrnm) = True And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Or availableCommands.Contains(cmd.Substring(0, indexCmd)) Then
                             Wdbg("Cmd exec: {0}", True, cmd.Substring(0, indexCmd))
                             ExecuteCommand(cmd)
                         Else
@@ -90,25 +90,25 @@ Module Shell
                     Next
                     If Not ShuttingDown Then initializeShell()
                 End If
-            ElseIf (ArgsMode = True And CommandFlag = True) Then
+            ElseIf ArgsMode = True And CommandFlag = True Then
                 CommandFlag = False
                 For Each cmd In argcmds
                     Dim indexCmd As Integer = cmd.IndexOf(" ")
-                    If (indexCmd = -1) Then
+                    If indexCmd = -1 Then
                         indexCmd = cmd.Count
                         cmd = cmd.Substring(0, indexCmd)
                     End If
-                    If (availableCommands.Contains(cmd.Substring(0, indexCmd))) Then
-                        If (cmd = Nothing Or cmd.StartsWith(" ") = True) Then
+                    If availableCommands.Contains(cmd.Substring(0, indexCmd)) Then
+                        If cmd = Nothing Or cmd.StartsWith(" ") = True Then
                             initializeShell()
                         Else
-                            If (adminList(signedinusrnm) = True And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Then
+                            If adminList(signedinusrnm) = True And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True Then
                                 Wdbg("Cmd exec: {0}", True, cmd.Substring(0, indexCmd))
                                 ExecuteCommand(cmd)
-                            ElseIf (adminList(signedinusrnm) = False And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Then
+                            ElseIf adminList(signedinusrnm) = False And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True Then
                                 Wdbg("Cmd exec {0} failed: adminList.ASSERT(signedinusrnm) = False, strictCmds.Cont({0}.Substr(0, {1})) = True", True, cmd.Substring(0, indexCmd), indexCmd)
                                 Wln("You don't have permission to use {0}", "neutralText", cmd.Substring(0, indexCmd))
-                            ElseIf (cmd = "logout" Or cmd = "shutdown" Or cmd = "reboot") Then
+                            ElseIf cmd = "logout" Or cmd = "shutdown" Or cmd = "reboot" Then
                                 Wdbg("Cmd exec {0} failed: {0} = (""logout"" | ""shutdown"" | ""reboot"") = True", True, cmd.Substring(0, indexCmd))
                                 Wln("Shell message: Command {0} is not allowed to run on log in.", "neutralText", cmd)
                             Else
@@ -123,7 +123,7 @@ Module Shell
                 Next
             End If
         Catch ex As Exception
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)

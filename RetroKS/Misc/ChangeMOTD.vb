@@ -23,9 +23,9 @@ Module ChangeMOTD
         'New message of the day
         W("Write a new Message Of The Day: ", "input")
         Dim newmotd As String = Console.ReadLine()
-        If (newmotd = "") Then
+        If newmotd = "" Then
             Wln("Blank message of the day.", "neutralText")
-        ElseIf (newmotd = "q") Then
+        ElseIf newmotd = "q" Then
             Wln("MOTD changing has been cancelled.", "neutralText")
         Else
             W("Changing MOTD...", "neutralText")

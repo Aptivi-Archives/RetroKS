@@ -48,18 +48,18 @@ Module Config
                                                 uncontKernelErrorColor, neutralTextColor, licenseColor, backgroundColor, inputColor)
             writer.Close()
             writer.Dispose()
-            If (CmdArg = True) Then
+            If CmdArg = True Then
                 DisposeAll()
                 Environment.Exit(0)
             End If
         Catch ex As Exception
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wdbg(ex.StackTrace, True)
                 Wln("There is an error trying to create configuration: {0}." + vbNewLine + ex.StackTrace, "neutralText", Err.Description)
             Else
                 Wln("There is an error trying to create configuration.", "neutralText")
             End If
-            If (CmdArg = True) Then
+            If CmdArg = True Then
                 DisposeAll()
                 Environment.Exit(2)
             End If
@@ -69,15 +69,15 @@ Module Config
     Sub checkForUpgrade()
         Try
             Dim lns() As String = File.ReadAllLines(AppDataPath + "\kernelConfig.ini")
-            If (lns(0).Contains("Kernel Version = ") And lns(0).Replace("Kernel Version = ", "") <> KernelVersion) Then
-                If (lns.Length > 0) AndAlso (lns(0).StartsWith("Kernel Version = ")) Then
+            If lns(0).Contains("Kernel Version = ") And lns(0).Replace("Kernel Version = ", "") <> KernelVersion Then
+                If (lns.Length > 0) AndAlso lns(0).StartsWith("Kernel Version = ") Then
                     Wln("An upgrade from {0} to {1} was detected. Updating configuration file...", "neutralText", lns(0).Replace("Kernel Version = ", ""), KernelVersion)
                     lns(0) = "Kernel Version = " + KernelVersion
                     File.WriteAllLines(AppDataPath + "\kernelConfig.ini", lns)
                 End If
             End If
         Catch ex As Exception
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wdbg(ex.StackTrace, True)
                 Wln("There is an error trying to update configuration: {0}." + vbNewLine + ex.StackTrace, "neutralText", Err.Description)
             Else
@@ -90,95 +90,95 @@ Module Config
         Try
             Dim line As String = configReader.ReadLine
             Do While line <> ""
-                If (line.Contains("Customized Colors on Boot = ")) Then
-                    If (line.Replace("Customized Colors on Boot = ", "") = "True") Then
+                If line.Contains("Customized Colors on Boot = ") Then
+                    If line.Replace("Customized Colors on Boot = ", "") = "True" Then
                         customColor = True
                     Else
                         customColor = False
                     End If
-                ElseIf (line.Contains("User Name Shell Color = ")) Then
+                ElseIf line.Contains("User Name Shell Color = ") Then
                     userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("User Name Shell Color = ", "")), ConsoleColor)
-                ElseIf (line.Contains("Host Name Shell Color = ")) Then
+                ElseIf line.Contains("Host Name Shell Color = ") Then
                     hostNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Host Name Shell Color = ", "")), ConsoleColor)
-                ElseIf (line.Contains("Continuable Kernel Error Color = ")) Then
+                ElseIf line.Contains("Continuable Kernel Error Color = ") Then
                     contKernelErrorColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Continuable Kernel Error Color = ", "")), ConsoleColor)
-                ElseIf (line.Contains("Uncontinuable Kernel Error Color = ")) Then
+                ElseIf line.Contains("Uncontinuable Kernel Error Color = ") Then
                     uncontKernelErrorColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Uncontinuable Kernel Error Color = ", "")), ConsoleColor)
-                ElseIf (line.Contains("Text Color = ")) Then
+                ElseIf line.Contains("Text Color = ") Then
                     neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Text Color = ", "")), ConsoleColor)
-                ElseIf (line.Contains("License Color = ")) Then
+                ElseIf line.Contains("License Color = ") Then
                     licenseColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("License Color = ", "")), ConsoleColor)
-                ElseIf (line.Contains("Background Color = ")) Then
+                ElseIf line.Contains("Background Color = ") Then
                     backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Background Color = ", "")), ConsoleColor)
                     Load()
-                ElseIf (line.Contains("Input Color = ")) Then
+                ElseIf line.Contains("Input Color = ") Then
                     inputColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Input Color = ", "")), ConsoleColor)
-                ElseIf (line.Contains("Create Demo Account = ")) Then
-                    If (line.Replace("Create Demo Account = ", "") = "True") Then
+                ElseIf line.Contains("Create Demo Account = ") Then
+                    If line.Replace("Create Demo Account = ", "") = "True" Then
                         enableDemo = True
-                    ElseIf (line.Replace("Create Demo Account = ", "") = "False") Then
+                    ElseIf line.Replace("Create Demo Account = ", "") = "False" Then
                         enableDemo = False
                     End If
-                ElseIf (line.Contains("Change Root Password = ")) Then
-                    If (line.Replace("Change Root Password = ", "") = "True") Then
+                ElseIf line.Contains("Change Root Password = ") Then
+                    If line.Replace("Change Root Password = ", "") = "True" Then
                         setRootPasswd = True
-                    ElseIf (line.Replace("Change Root Password = ", "") = "False") Then
+                    ElseIf line.Replace("Change Root Password = ", "") = "False" Then
                         setRootPasswd = False
                     End If
-                ElseIf (line.Contains("Set Root Password to = ")) Then
-                    If (setRootPasswd = True) Then
+                ElseIf line.Contains("Set Root Password to = ") Then
+                    If setRootPasswd = True Then
                         RootPasswd = line.Replace("Set Root Password to = ", "")
                     End If
-                ElseIf (line.Contains("Maintenance Mode = ")) Then
-                    If (line.Replace("Maintenance Mode = ", "") = "True") Then
+                ElseIf line.Contains("Maintenance Mode = ") Then
+                    If line.Replace("Maintenance Mode = ", "") = "True" Then
                         maintenance = True
-                    ElseIf (line.Replace("Maintenance Mode = ", "") = "False") Then
+                    ElseIf line.Replace("Maintenance Mode = ", "") = "False" Then
                         maintenance = False
                     End If
-                ElseIf (line.Contains("Prompt for Arguments on Boot = ")) Then
-                    If (line.Replace("Prompt for Arguments on Boot = ", "") = "True") Then
+                ElseIf line.Contains("Prompt for Arguments on Boot = ") Then
+                    If line.Replace("Prompt for Arguments on Boot = ", "") = "True" Then
                         argsOnBoot = True
-                    ElseIf (line.Replace("Prompt for Arguments on Boot = ", "") = "False") Then
+                    ElseIf line.Replace("Prompt for Arguments on Boot = ", "") = "False" Then
                         argsOnBoot = False
                     End If
-                ElseIf (line.Contains("Clear Screen on Log-in = ")) Then
-                    If (line.Replace("Clear Screen on Log-in = ", "") = "True") Then
+                ElseIf line.Contains("Clear Screen on Log-in = ") Then
+                    If line.Replace("Clear Screen on Log-in = ", "") = "True" Then
                         clsOnLogin = True
-                    ElseIf (line.Replace("Clear Screen on Log-in = ", "") = "False") Then
+                    ElseIf line.Replace("Clear Screen on Log-in = ", "") = "False" Then
                         clsOnLogin = False
                     End If
-                ElseIf (line.Contains("Show MOTD on Log-in = ")) Then
-                    If (line.Replace("Show MOTD on Log-in = ", "") = "True") Then
+                ElseIf line.Contains("Show MOTD on Log-in = ") Then
+                    If line.Replace("Show MOTD on Log-in = ", "") = "True" Then
                         showMOTD = True
-                    ElseIf (line.Replace("Show MOTD on Log-in = ", "") = "False") Then
+                    ElseIf line.Replace("Show MOTD on Log-in = ", "") = "False" Then
                         showMOTD = False
                     End If
-                ElseIf (line.Contains("Simplified Help Command = ")) Then
-                    If (line.Replace("Simplified Help Command = ", "") = "True") Then
+                ElseIf line.Contains("Simplified Help Command = ") Then
+                    If line.Replace("Simplified Help Command = ", "") = "True" Then
                         simHelp = True
-                    ElseIf (line.Replace("Simplified Help Command = ", "") = "False") Then
+                    ElseIf line.Replace("Simplified Help Command = ", "") = "False" Then
                         simHelp = False
                     End If
-                ElseIf (line.Contains("Colored Shell = ")) Then
-                    If (line.Replace("Colored Shell = ", "") = "False") Then
+                ElseIf line.Contains("Colored Shell = ") Then
+                    If line.Replace("Colored Shell = ", "") = "False" Then
                         TemplateSet.templateSet("LinuxUncolored")
                     End If
-                ElseIf (line.Contains("Probe Slots = ")) Then
-                    If (line.Replace("Probe Slots = ", "") = "True") Then
+                ElseIf line.Contains("Probe Slots = ") Then
+                    If line.Replace("Probe Slots = ", "") = "True" Then
                         slotProbe = True
-                    ElseIf (line.Replace("Probe Slots = ", "") = "False") Then
+                    ElseIf line.Replace("Probe Slots = ", "") = "False" Then
                         slotProbe = False
                     End If
-                ElseIf (line.Contains("Quiet Probe = ")) Then
-                    If (line.Replace("Quiet Probe = ", "") = "True") Then
+                ElseIf line.Contains("Quiet Probe = ") Then
+                    If line.Replace("Quiet Probe = ", "") = "True" Then
                         quietProbe = True
-                    ElseIf (line.Replace("Quiet Probe = ", "") = "False") Then
+                    ElseIf line.Replace("Quiet Probe = ", "") = "False" Then
                         quietProbe = False
                     End If
-                ElseIf (line.Contains("Probe GPU = ")) Then
-                    If (line.Replace("Probe GPU = ", "") = "True") Then
+                ElseIf line.Contains("Probe GPU = ") Then
+                    If line.Replace("Probe GPU = ", "") = "True" Then
                         GPUProbeFlag = True
-                    ElseIf (line.Replace("Probe GPU = ", "") = "False") Then
+                    ElseIf line.Replace("Probe GPU = ", "") = "False" Then
                         GPUProbeFlag = False
                     End If
                 End If
@@ -187,7 +187,7 @@ Module Config
             configReader.Close()
             configReader.Dispose()
         Catch ex As Exception
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wdbg(ex.StackTrace, True)
                 Wln("There is an error trying to read configuration: {0}." + vbNewLine + ex.StackTrace, "neutralText", Err.Description)
             Else

@@ -31,30 +31,30 @@ Module TextWriterColor
     Sub W(text As String, colorType As String, ParamArray vars() As Object)
 
         On Error GoTo bug
-        If (colorType = "neutralText") Then
+        If colorType = "neutralText" Then
             ForegroundColor = neutralTextColor
-        ElseIf (colorType = "input") Then
+        ElseIf colorType = "input" Then
             ForegroundColor = neutralTextColor
-        ElseIf (colorType = "contError") Then
+        ElseIf colorType = "contError" Then
             ForegroundColor = contKernelErrorColor
-        ElseIf (colorType = "uncontError") Then
+        ElseIf colorType = "uncontError" Then
             ForegroundColor = uncontKernelErrorColor
-        ElseIf (colorType = "hostName") Then
+        ElseIf colorType = "hostName" Then
             ForegroundColor = hostNameShellColor
-        ElseIf (colorType = "userName") Then
+        ElseIf colorType = "userName" Then
             ForegroundColor = userNameShellColor
-        ElseIf (colorType = "license") Then
+        ElseIf colorType = "license" Then
             ForegroundColor = licenseColor
-        ElseIf (colorType = "def") Then
+        ElseIf colorType = "def" Then
             ForegroundColor = ConsoleColor.Gray
         Else
             Exit Sub
         End If
         Write(text, vars)
-        If (Console.BackgroundColor = ConsoleColor.Black) Then
+        If Console.BackgroundColor = ConsoleColor.Black Then
             ResetColor()
         End If
-        If (colorType = "input") Then
+        If colorType = "input" Then
             ForegroundColor = inputColor
         End If
         Exit Sub
@@ -73,30 +73,30 @@ bug:
     Sub Wln(text As String, colorType As String, ParamArray vars() As Object)
 
         On Error GoTo bug
-        If (colorType = "neutralText") Then
+        If colorType = "neutralText" Then
             ForegroundColor = neutralTextColor
-        ElseIf (colorType = "input") Then
+        ElseIf colorType = "input" Then
             ForegroundColor = neutralTextColor
-        ElseIf (colorType = "contError") Then
+        ElseIf colorType = "contError" Then
             ForegroundColor = contKernelErrorColor
-        ElseIf (colorType = "uncontError") Then
+        ElseIf colorType = "uncontError" Then
             ForegroundColor = uncontKernelErrorColor
-        ElseIf (colorType = "hostName") Then
+        ElseIf colorType = "hostName" Then
             ForegroundColor = hostNameShellColor
-        ElseIf (colorType = "userName") Then
+        ElseIf colorType = "userName" Then
             ForegroundColor = userNameShellColor
-        ElseIf (colorType = "license") Then
+        ElseIf colorType = "license" Then
             ForegroundColor = licenseColor
-        ElseIf (colorType = "def") Then
+        ElseIf colorType = "def" Then
             ForegroundColor = ConsoleColor.Gray
         Else
             Exit Sub
         End If
         WriteLine(text, vars)
-        If (Console.BackgroundColor = ConsoleColor.Black) Then
+        If Console.BackgroundColor = ConsoleColor.Black Then
             ResetColor()
         End If
-        If (colorType = "input") Then
+        If colorType = "input" Then
             ForegroundColor = inputColor
         End If
         Exit Sub

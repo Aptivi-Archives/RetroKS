@@ -29,22 +29,22 @@ Module NetworkTools
         For Each adapter As NetworkInterface In adapters
             adapterNumber = adapterNumber + 1
             If adapter.Supports(NetworkInterfaceComponent.IPv4) = False Then
-                If (DebugMode = True) Then
+                If DebugMode = True Then
                     Wdbg("{0} doesn't support IPv4 because ASSERT(adapter.Supp(IPv4) = True) = False.", True, adapter.Description)
                 End If
                 GoTo Cont
-            ElseIf (adapter.NetworkInterfaceType = NetworkInterfaceType.Ethernet Or _
+            ElseIf adapter.NetworkInterfaceType = NetworkInterfaceType.Ethernet Or _
                     adapter.NetworkInterfaceType = NetworkInterfaceType.Ethernet3Megabit Or _
                     adapter.NetworkInterfaceType = NetworkInterfaceType.FastEthernetFx Or _
                     adapter.NetworkInterfaceType = NetworkInterfaceType.FastEthernetT Or _
                     adapter.NetworkInterfaceType = NetworkInterfaceType.GigabitEthernet Or _
-                    adapter.NetworkInterfaceType = NetworkInterfaceType.Wireless80211) Then
+                    adapter.NetworkInterfaceType = NetworkInterfaceType.Wireless80211 Then
                 Dim adapterProperties As IPInterfaceProperties = adapter.GetIPProperties()
                 Dim p As IPv4InterfaceProperties = adapterProperties.GetIPv4Properties
                 Dim s As IPv4InterfaceStatistics = adapter.GetIPv4Statistics
-                If (p Is Nothing) Then
+                If p Is Nothing Then
                     Wln("Failed to get properties for adapter {0}", "neutralText", adapter.Description)
-                ElseIf (s Is Nothing) Then
+                ElseIf s Is Nothing Then
                     Wln("Failed to get statistics for adapter {0}", "neutralText", adapter.Description)
                 End If
                 Wln("Adapter Number: {0}" + vbNewLine + _
@@ -57,7 +57,7 @@ Module NetworkTools
                     adapterNumber, adapter.Description, p.Mtu, p.IsDhcpEnabled, s.NonUnicastPacketsSent, s.NonUnicastPacketsReceived, _
                     s.UnicastPacketsSent, s.UnicastPacketsReceived, s.IncomingPacketsWithErrors, s.OutgoingPacketsWithErrors)
             Else
-                If (DebugMode = True) Then
+                If DebugMode = True Then
                     Wdbg("Adapter {0} doesn't belong in netinfo because the type is {1}", True, adapter.Description, adapter.NetworkInterfaceType)
                 End If
                 GoTo Cont

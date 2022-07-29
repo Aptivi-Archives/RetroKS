@@ -24,18 +24,18 @@ Module CommandLineArgsParse
     Sub parseCMDArguments(arg As String)
 
         Try
-            If (GetCommandLineArgs.Length <> 0 And availableCMDLineArgs.Contains(arg) = True) Then
-                If (arg = "createConf") Then
+            If GetCommandLineArgs.Length <> 0 And availableCMDLineArgs.Contains(arg) = True Then
+                If arg = "createConf" Then
                     createConfig(True)
-                ElseIf (arg = "promptArgs") Then
+                ElseIf arg = "promptArgs" Then
                     PromptArgs()
-                    If (argsFlag = True) Then
+                    If argsFlag = True Then
                         ParseArguments()
                     End If
                 End If
             End If
         Catch ex As Exception
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wln("Error while parsing real command-line arguments: {0} " + vbNewLine + _
                     "{1}", "neutralText", Err.Description, ex.StackTrace) : Wdbg(ex.StackTrace, True)
             End If

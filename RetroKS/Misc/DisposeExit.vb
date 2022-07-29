@@ -28,7 +28,7 @@ Module DisposeExit
 
         GC.Collect()
         GC.WaitForPendingFinalizers()
-        If (Environment.OSVersion.Platform = PlatformID.Win32NT) Then
+        If Environment.OSVersion.Platform = PlatformID.Win32NT Then
             SetProcessWorkingSetSize(GetCurrentProcess().Handle, -1, -1)
         End If
         Exit Sub

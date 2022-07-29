@@ -22,30 +22,30 @@ Module PanicSim
 
         W("Write a message: ", "input")
         Dim kpmsg As String = Console.ReadLine()
-        If (kpmsg = "") Then
+        If kpmsg = "" Then
             Wln("Blank message.", "neutralText")
-        ElseIf (kpmsg = "q") Then
+        ElseIf kpmsg = "q" Then
             Wln("Text printing has been cancelled.", "neutralText")
         Else
             W("Write error type: ", "input")
             Dim kpet = Console.ReadKey.KeyChar
             Console.WriteLine()
-            If (kpet = "") Then
+            If kpet = "" Then
                 Wln("Blank error type", "neutralText")
-            ElseIf (kpet = "q") Then
+            ElseIf kpet = "q" Then
                 Wln("Text printing has been cancelled.", "neutralText")
-            ElseIf (kpet = "S" Or kpet = "U" Or kpet = "D" Or kpet = "F" Or kpet = "C") Then
+            ElseIf kpet = "S" Or kpet = "U" Or kpet = "D" Or kpet = "F" Or kpet = "C" Then
                 W("Restart time in seconds: ", "input")
                 Dim kptime = Console.ReadLine()
-                If (kptime = "") Then
+                If kptime = "" Then
                     Wln("Blank time", "neutralText")
-                ElseIf (CDbl(kptime) <= 3600 And (kpet <> "C" Or kpet <> "D")) Then
+                ElseIf CDbl(kptime) <= 3600 And (kpet <> "C" Or kpet <> "D") Then
                     KernelError(kpet, True, CLng(kptime), kpmsg)
-                ElseIf ((CDbl(kptime) <= 3600 And kpet = "C") Or (CDbl(kptime) <= 0 And kpet = "C") Or (CDbl(kptime) <= 3600 And kpet = "D") Or (CDbl(kptime) <= 0 And kpet = "D")) Then
+                ElseIf (CDbl(kptime) <= 3600 And kpet = "C") Or (CDbl(kptime) <= 0 And kpet = "C") Or (CDbl(kptime) <= 3600 And kpet = "D") Or (CDbl(kptime) <= 0 And kpet = "D") Then
                     KernelError(kpet, False, 0, kpmsg)
-                ElseIf (CDbl(kptime) <= 0 And kpet <> "C") Then
+                ElseIf CDbl(kptime) <= 0 And kpet <> "C" Then
                     Wln("Invalid time.", "neutralText")
-                ElseIf (kptime = "q") Then
+                ElseIf kptime = "q" Then
                     Wln("Text printing has been cancelled.", "neutralText")
                 End If
             Else

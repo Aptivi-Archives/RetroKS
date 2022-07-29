@@ -23,15 +23,15 @@ Module HostName
         'Change host-name to custom name
         W("Write a new host name: ", "input")
         Dim newhost As String = Console.ReadLine()
-        If (newhost = "") Then
+        If newhost = "" Then
             Wln("Blank host name.", "neutralText")
-        ElseIf (newhost.Length <= 3) Then
+        ElseIf newhost.Length <= 3 Then
             Wln("The host name length must be at least 4 characters.", "neutralText")
         ElseIf InStr(newhost, " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
-        ElseIf (newhost.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
+        ElseIf newhost.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
             Wln("Special characters are not allowed.", "neutralText")
-        ElseIf (newhost = "q") Then
+        ElseIf newhost = "q" Then
             Wln("Host name changing has been cancelled.", "neutralText")
         Else
             Wln("Changing from: {0} to {1}...", "neutralText", My.Settings.HostName, newhost)

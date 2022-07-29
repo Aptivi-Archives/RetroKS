@@ -21,16 +21,16 @@ Module sciCalc
     Sub expressionCalculate(sciMode As Boolean, ParamArray exps() As Object)
 
         Try
-            If (sciMode = False) Then
-                If (exps.Count >= 3) Then
+            If sciMode = False Then
+                If exps.Count >= 3 Then
                     Dim expressions As New List(Of String)
                     Dim ops As New List(Of String)
                     Dim finalExp As String = ""
                     Dim numOps As Integer = 0
                     For i As Integer = 0 To exps.Count - 1 Step 2
-                        If (exps(i) = "pi") Then
+                        If exps(i) = "pi" Then
                             expressions.Add(Math.PI)
-                        ElseIf (exps(i) = "e") Then
+                        ElseIf exps(i) = "e" Then
                             expressions.Add(Math.E)
                         Else
                             expressions.Add(exps(i))
@@ -41,7 +41,7 @@ Module sciCalc
                     Next
                     For i As Integer = 0 To expressions.Count - 1
                         finalExp = finalExp + expressions(i) + " "
-                        If (i <> expressions.Count - 1) Then
+                        If i <> expressions.Count - 1 Then
                             finalExp = finalExp + ops(numOps) + " "
                             numOps += 1
                         End If
@@ -53,15 +53,15 @@ Module sciCalc
                         "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
                 End If
             Else
-                If (exps.Count = 2) Then
+                If exps.Count = 2 Then
                     Dim finalRes
-                    If (exps(0) = "sqrt") Then
+                    If exps(0) = "sqrt" Then
                         finalRes = Math.Sqrt(exps(1))
-                    ElseIf (exps(0) = "tan") Then
+                    ElseIf exps(0) = "tan" Then
                         finalRes = Math.Tan(exps(1))
-                    ElseIf (exps(0) = "sin") Then
+                    ElseIf exps(0) = "sin" Then
                         finalRes = Math.Sin(exps(1))
-                    ElseIf (exps(0) = "cos") Then
+                    ElseIf exps(0) = "cos" Then
                         finalRes = Math.Cos(exps(1))
                     Else
                         Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine + _
@@ -76,12 +76,12 @@ Module sciCalc
             End If
         Catch ex As DivideByZeroException
             Wln("Attempt to divide by zero is not allowed.", "neutralText")
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wln(ex.StackTrace, "neutralText") : Wdbg(ex.StackTrace, True)
             End If
         Catch ex As Exception
             Wln("There is an error while calculating: {0}", "neutralText", ex.Message)
-            If (DebugMode = True) Then
+            If DebugMode = True Then
                 Wln(ex.StackTrace, "neutralText") : Wdbg(ex.StackTrace, True)
             End If
         End Try

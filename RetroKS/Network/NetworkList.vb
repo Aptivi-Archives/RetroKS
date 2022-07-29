@@ -30,7 +30,7 @@ Module NetworkList
     Sub ListHostsInNetwork()
 
         'Check if main network is available
-        If (My.Computer.Network.IsAvailable = True) Then
+        If My.Computer.Network.IsAvailable = True Then
 
             'Variables
             Dim HostNameFromDNS As String
@@ -49,7 +49,7 @@ Module NetworkList
                 Dim p As New System.Net.NetworkInformation.Ping()
                 For Each ipheal In IPHostEntry.AddressList
                     Dim reply = p.Send(ipheal, 100)
-                    If (reply.Status = IPStatus.Success) Then
+                    If reply.Status = IPStatus.Success Then
                         Wln("net: {0}: {1}", "neutralText", cmp, ipheal)
                     End If
                 Next
@@ -147,7 +147,7 @@ Module NetworkList
                 Dim p As New System.Net.NetworkInformation.Ping()
                 For Each ipheal In IPHostEntry.AddressList
                     Dim reply = p.Send(ipheal, 100)
-                    If (reply.Status = IPStatus.Success) Then
+                    If reply.Status = IPStatus.Success Then
                         Wln("|-> {0}: {1}", "neutralText", cmp, ipheal)
                     End If
                 Next

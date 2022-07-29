@@ -24,10 +24,10 @@ Module DebugWriter
 
     Sub Wdbg(text As String, line As Boolean, ParamArray vars() As Object)
 
-        If (DebugMode = True) Then
-            If (line = False) Then
+        If DebugMode = True Then
+            If line = False Then
                 dbgWriter.Write(FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortDate) + " " + FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortTime) + ": " + text, vars)
-            ElseIf (line = True) Then
+            ElseIf line = True Then
                 dbgWriter.WriteLine(FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortDate) + " " + FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortTime) + ": " + text, vars)
             End If
         End If
