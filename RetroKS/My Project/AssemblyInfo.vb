@@ -1,6 +1,4 @@
 ﻿Imports System.Resources
-
-Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -15,9 +13,9 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCompany("EoflaOE")>
 <Assembly: AssemblyProduct("RetroKS")>
 <Assembly: AssemblyCopyright("Copyright © EoflaOE 2022")>
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(False)> 
+<Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("d2feb7cd-1e12-493a-998a-6366898f6aae")>
@@ -36,4 +34,4 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyVersion("0.0.4.2")>
 <Assembly: AssemblyFileVersion("1.0.4.2")>
 
-<Assembly: NeutralResourcesLanguageAttribute("en-US")> 
+<Assembly: NeutralResourcesLanguageAttribute("en-US")>

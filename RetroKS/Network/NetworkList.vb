@@ -38,8 +38,8 @@ Module NetworkList
             Dim ComputerNames() = Computers.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
 
             'Display infromation
-            Wln("net: Your computer name on network is {0}" + vbNewLine + _
-                "net: Your host name is {1}" + vbNewLine + _
+            Wln("net: Your computer name on network is {0}" + vbNewLine + 
+                "net: Your host name is {1}" + vbNewLine + 
                 "net: It appears that your computers is connected below:", "neutralText", My.Computer.Name, My.Settings.HostName)
 
             'List IP addresses of computers

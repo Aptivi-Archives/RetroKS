@@ -23,27 +23,27 @@ Module Config
     Sub createConfig(CmdArg As Boolean)
         Try
             Dim writer As New StreamWriter(AppDataPath + "\kernelConfig.ini")
-            writer.WriteLine("Kernel Version = {0}" + vbNewLine + _
-                             "Customized Colors on Boot = False" + vbNewLine + _
-                             "User Name Shell Color = {1}" + vbNewLine + _
-                             "Host Name Shell Color = {2}" + vbNewLine + _
-                             "Continuable Kernel Error Color = {3}" + vbNewLine + _
-                             "Uncontinuable Kernel Error Color = {4}" + vbNewLine + _
-                             "Text Color = {5}" + vbNewLine + _
-                             "License Color = {6}" + vbNewLine + _
-                             "Create Demo Account = True" + vbNewLine + _
-                             "Change Root Password = False" + vbNewLine + _
-                             "Set Root Password to = toor" + vbNewLine + _
-                             "Maintenance Mode = False" + vbNewLine + _
-                             "Prompt for Arguments on Boot = False" + vbNewLine + _
-                             "Clear Screen on Log-in = False" + vbNewLine + _
-                             "Show MOTD on Log-in = True" + vbNewLine + _
-                             "Simplified Help Command = False" + vbNewLine + _
-                             "Colored Shell = True" + vbNewLine + _
-                             "Probe Slots = True" + vbNewLine + _
-                             "Quiet Probe = False" + vbNewLine + _
-                             "Probe GPU = False" + vbNewLine + _
-                             "Background Color = {7}" + vbNewLine + _
+            writer.WriteLine("Kernel Version = {0}" + vbNewLine + 
+                             "Customized Colors on Boot = False" + vbNewLine + 
+                             "User Name Shell Color = {1}" + vbNewLine + 
+                             "Host Name Shell Color = {2}" + vbNewLine + 
+                             "Continuable Kernel Error Color = {3}" + vbNewLine + 
+                             "Uncontinuable Kernel Error Color = {4}" + vbNewLine + 
+                             "Text Color = {5}" + vbNewLine + 
+                             "License Color = {6}" + vbNewLine + 
+                             "Create Demo Account = True" + vbNewLine + 
+                             "Change Root Password = False" + vbNewLine + 
+                             "Set Root Password to = toor" + vbNewLine + 
+                             "Maintenance Mode = False" + vbNewLine + 
+                             "Prompt for Arguments on Boot = False" + vbNewLine + 
+                             "Clear Screen on Log-in = False" + vbNewLine + 
+                             "Show MOTD on Log-in = True" + vbNewLine + 
+                             "Simplified Help Command = False" + vbNewLine + 
+                             "Colored Shell = True" + vbNewLine + 
+                             "Probe Slots = True" + vbNewLine + 
+                             "Quiet Probe = False" + vbNewLine + 
+                             "Probe GPU = False" + vbNewLine + 
+                             "Background Color = {7}" + vbNewLine + 
                              "Input Color = {8}", KernelVersion, userNameShellColor, hostNameShellColor, contKernelErrorColor, _
                                                 uncontKernelErrorColor, neutralTextColor, licenseColor, backgroundColor, inputColor)
             writer.Close()

@@ -97,11 +97,11 @@ Module Groups
             End If
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("You have either found a bug, or the permission you tried to add or remove is already done, or other error." + vbNewLine + _
+                Wln("You have either found a bug, or the permission you tried to add or remove is already done, or other error." + vbNewLine + 
                     "Error {0}: {1}" + vbNewLine + "{2}", "neutralText", Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
-                Wln("You have either found a bug, or the permission you tried to add or remove is already done, or other error." + vbNewLine + _
+                Wln("You have either found a bug, or the permission you tried to add or remove is already done, or other error." + vbNewLine + 
                     "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
             End If
         End Try
@@ -126,11 +126,11 @@ Module Groups
             End If
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("You have either found a bug, or the permission you tried to edit for a new user has failed." + vbNewLine + _
+                Wln("You have either found a bug, or the permission you tried to edit for a new user has failed." + vbNewLine + 
                     "Error {0}: {1}" + vbNewLine + "{2}", "neutralText", Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
-                Wln("You have either found a bug, or the permission you tried to edit for a new user has failed." + vbNewLine + _
+                Wln("You have either found a bug, or the permission you tried to edit for a new user has failed." + vbNewLine + 
                     "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
             End If
         End Try

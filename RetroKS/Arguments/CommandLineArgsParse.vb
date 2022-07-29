@@ -17,7 +17,6 @@
 '    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 Imports System.Environment
-Imports System.IO
 
 Module CommandLineArgsParse
 
@@ -36,7 +35,7 @@ Module CommandLineArgsParse
             End If
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("Error while parsing real command-line arguments: {0} " + vbNewLine + _
+                Wln("Error while parsing real command-line arguments: {0} " + vbNewLine +
                     "{1}", "neutralText", Err.Description, ex.StackTrace) : Wdbg(ex.StackTrace, True)
             End If
         End Try

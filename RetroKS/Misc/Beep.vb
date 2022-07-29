@@ -31,8 +31,8 @@ Module Beep
                 If CDbl(answerbeep) <= 36 Or CDbl(answerbeep) >= 32768 Then
                     Wln("Invalid value for beep frequency.", "neutralText")
                 ElseIf CDbl(answerbeep) > 2048 Then
-                    W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + _
-                      "and more importantly, your motherboard speaker might deafen, or malfunction." + vbNewLine + _
+                    W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + 
+                      "and more importantly, your motherboard speaker might deafen, or malfunction." + vbNewLine + 
                       "Are you sure that you want to beep at this frequency, {0}? (y/N) ", "input", answerbeep)
                     Dim answerrape = Console.ReadKey.KeyChar
                     If answerrape = "n" Or answerrape = "N" Or answerrape = "" Or answerrape = "q" Then
@@ -70,8 +70,8 @@ Module Beep
         If freq <= 36 Or freq >= 32768 Then
             Wln("Invalid value for beep frequency.", "neutralText")
         ElseIf freq > 2048 Then
-            W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + _
-              "and more importantly, your motherboard speaker might deafen, or malfunction." + vbNewLine + _
+            W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + 
+              "and more importantly, your motherboard speaker might deafen, or malfunction." + vbNewLine + 
               "Are you sure that you want to beep at this frequency, {0}? (y/N) ", "input", answerbeep)
             Dim answerrape = Console.ReadKey.KeyChar
             If answerrape = "n" Or answerrape = "N" Or answerrape = "" Or answerrape = "q" Then

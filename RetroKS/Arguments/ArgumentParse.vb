@@ -155,8 +155,8 @@ Module ArgumentParse
 
                     ElseIf BootArgs(i) = "help" Then
 
-                        Wln("Separate boot arguments with commas without spaces, for example, 'motd,gpuprobe'" + vbNewLine + _
-                            "Separate commands on 'cmdinject' with colons without spaces, for example, 'cmdinject setthemes Hacker:beep 1024 0.5'" + vbNewLine + _
+                        Wln("Separate boot arguments with commas without spaces, for example, 'motd,gpuprobe'" + vbNewLine + 
+                            "Separate commands on 'cmdinject' with colons without spaces, for example, 'cmdinject setthemes Hacker:beep 1024 0.5'" + vbNewLine + 
                             "Note that the 'debug' argument does not fully cover the kernel.", "neutralText")
                         answerargs = "" : argsFlag = False : argsInjected = False
                         PromptArgs()

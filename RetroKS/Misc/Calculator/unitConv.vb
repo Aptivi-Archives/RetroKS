@@ -22,7 +22,6 @@ Module unitConv
 
     Sub Converter(sourceUnit As String, targetUnit As String, value As Object)
 
-        'TODO: Add currency conversion (might require Internet)
         'Begin with size conversion first...
         If sourceUnit = "B" And targetUnit = "TB" Then
             resultVal = value / 1099511627776
@@ -116,7 +115,6 @@ Module unitConv
             resultVal = value * 100000
         ElseIf sourceUnit = "km" And targetUnit = "m" Then
             resultVal = value * 1000
-            'TODO: Add more uncommon temperatures (Reaumur, Delisle, Romer, and Rankine)
         ElseIf sourceUnit = "Celsius" And targetUnit = "Fahrenheit" Then '... then to temperature ...
             resultVal = value * 9 / 5 + 32
         ElseIf sourceUnit = "Celsius" And targetUnit = "Kelvin" Then

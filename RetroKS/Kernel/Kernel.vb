@@ -16,7 +16,6 @@
 
 'About this kernel: THIS KERNEL IS NEAR TO BETA BUT NOT FINAL! Final kernel will be developed through another language, ASM included, depending on system.
 
-Imports System
 Imports System.IO
 Imports System.Reflection
 
