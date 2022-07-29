@@ -77,8 +77,7 @@ Module ColorSet
             W(currentStepMessage, "input")
             answerColor = Console.ReadLine()
 
-            'Checks the user input if colors exist, and then try to put it into a temporary array. 
-            'TODO: "Live Mode" will come in the future.
+            'Checks the user input if colors exist, and then try to put it into a temporary array.
             If i <> 8 Then
                 If answerColor = "RESET" Then
                     'Give a signal to the command that the colors are resetting. 

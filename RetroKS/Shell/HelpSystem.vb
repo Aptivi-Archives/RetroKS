@@ -22,7 +22,6 @@ Module HelpSystem
 
         If command = "" Then
 
-            'TODO: Convert (All Commands) help system from plain text to dictionaries
             If simHelp = False Then
                 Wln("Help commands:" + vbNewLine + vbNewLine +
                     "adduser: Adds users (Only admins can access this command)" + vbNewLine +

@@ -20,7 +20,6 @@
 
 Module UserManagement
 
-    'TODO: Merge initializeMainUsers to adduser
     Sub initializeMainUsers()
 
         'Check if the process is done, then do nothing if it is done.
@@ -57,7 +56,7 @@ Module UserManagement
             disabledList.Add(uninitUser, False)
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText", _
+                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
@@ -302,7 +301,7 @@ Module UserManagement
             End If
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText", _
+                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
