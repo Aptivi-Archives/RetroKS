@@ -28,7 +28,7 @@ Module TextWriterColor
     ''' <param name="colorType">A type of colors that will be changed. Any of neutralText, input, contError, uncontError, hostName, userName, def, or license.</param>
     ''' <param name="vars">Endless amounts of any variables that is separated by commas.</param>
     ''' <remarks>This is used to reduce number of lines containing "System.Console.ForegroundColor = " and "System.Console.ResetColor()" text.</remarks>
-    Sub W(ByVal text As Object, ByVal colorType As String, ByVal ParamArray vars() As Object)
+    Sub W(ByVal text As String, ByVal colorType As String, ByVal ParamArray vars() As Object)
 
         On Error GoTo bug
         If (colorType = "neutralText") Then
@@ -70,7 +70,7 @@ bug:
     ''' <param name="colorType">A type of colors that will be changed.  Any of neutralText, input, contError, uncontError, hostName, userName, def, or license.</param>
     ''' <param name="vars">Endless amounts of any variables that is separated by commas.</param>
     ''' <remarks>This is used to reduce number of lines containing "System.Console.ForegroundColor = " and "System.Console.ResetColor()" text.</remarks>
-    Sub Wln(ByVal text As Object, ByVal colorType As String, ByVal ParamArray vars() As Object)
+    Sub Wln(ByVal text As String, ByVal colorType As String, ByVal ParamArray vars() As Object)
 
         On Error GoTo bug
         If (colorType = "neutralText") Then
