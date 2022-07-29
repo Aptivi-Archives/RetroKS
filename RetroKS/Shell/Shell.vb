@@ -38,9 +38,9 @@ Module Shell
         'Initialize Shell
         getLine(True)
         commandPromptWrite()
-        DisposeExit.DisposeAll()
-        System.Console.ForegroundColor = CType(inputColor, ConsoleColor)
-        strcommand = System.Console.ReadLine()
+        DisposeAll()
+        Console.ForegroundColor = CType(inputColor, ConsoleColor)
+        strcommand = Console.ReadLine()
         getLine()
 
     End Sub
@@ -82,7 +82,7 @@ Module Shell
                             Wln("Shell message: The requested command {0} is not allowed to run in maintenance mode.", "neutralText", cmd.Substring(0, indexCmd))
                         ElseIf (adminList(signedinusrnm) = True And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Or (availableCommands.Contains(cmd.Substring(0, indexCmd))) Then
                             Wdbg("Cmd exec: {0}", True, cmd.Substring(0, indexCmd))
-                            GetCommand.ExecuteCommand(cmd)
+                            ExecuteCommand(cmd)
                         Else
                             Wdbg("Cmd exec {0} failed: availableCmds.Cont({0}.Substring(0, {1})) = False", True, cmd.Substring(0, indexCmd), indexCmd)
                             Wln("Shell message: The requested command {0} is not found. See 'help' for available commands.", "neutralText", cmd.Substring(0, indexCmd))
@@ -104,7 +104,7 @@ Module Shell
                         Else
                             If (adminList(signedinusrnm) = True And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Then
                                 Wdbg("Cmd exec: {0}", True, cmd.Substring(0, indexCmd))
-                                GetCommand.ExecuteCommand(cmd)
+                                ExecuteCommand(cmd)
                             ElseIf (adminList(signedinusrnm) = False And strictCmds.Contains(cmd.Substring(0, indexCmd)) = True) Then
                                 Wdbg("Cmd exec {0} failed: adminList.ASSERT(signedinusrnm) = False, strictCmds.Cont({0}.Substr(0, {1})) = True", True, cmd.Substring(0, indexCmd), indexCmd)
                                 Wln("You don't have permission to use {0}", "neutralText", cmd.Substring(0, indexCmd))
@@ -113,7 +113,7 @@ Module Shell
                                 Wln("Shell message: Command {0} is not allowed to run on log in.", "neutralText", cmd)
                             Else
                                 Wdbg("Cmd exec: {0}", True, cmd.Substring(0, indexCmd))
-                                GetCommand.ExecuteCommand(cmd)
+                                ExecuteCommand(cmd)
                             End If
                         End If
                     Else

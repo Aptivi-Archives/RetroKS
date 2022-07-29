@@ -66,16 +66,16 @@ Module ColorSet
                 userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), answersColor(5)), ConsoleColor)
                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), answersColor(6)), ConsoleColor)
                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), answersColor(7)), ConsoleColor)
-                LoadBackground.Load()
-                Wln("Input Color: {0}" + vbNewLine + "License Color: {1}" + vbNewLine + "Cont. Kernel Error Color: {2}" + vbNewLine + _
-                    "Uncont. Kernel Error Color: {3}" + vbNewLine + "Hostname Shell Color: {4}" + vbNewLine + "Username Shell Color: {5}" + vbNewLine + _
-                    "Background Color: {6}" + vbNewLine + "Text Color: {7}", "neutralText", answersColor(0), answersColor(1), answersColor(2), _
+                Load()
+                Wln("Input Color: {0}" + vbNewLine + "License Color: {1}" + vbNewLine + "Cont. Kernel Error Color: {2}" + vbNewLine +
+                    "Uncont. Kernel Error Color: {3}" + vbNewLine + "Hostname Shell Color: {4}" + vbNewLine + "Username Shell Color: {5}" + vbNewLine +
+                    "Background Color: {6}" + vbNewLine + "Text Color: {7}", "neutralText", answersColor(0), answersColor(1), answersColor(2),
                     answersColor(3), answersColor(4), answersColor(5), answersColor(6), answersColor(7))
             End If
 
             'Write current step message
             W(currentStepMessage, "input")
-            answerColor = System.Console.ReadLine()
+            answerColor = Console.ReadLine()
 
             'Checks the user input if colors exist, and then try to put it into a temporary array. 
             'TODO: "Live Mode" will come in the future.
@@ -83,19 +83,19 @@ Module ColorSet
                 If (answerColor = "RESET") Then
                     'Give a signal to the command that the colors are resetting. 
                     W("Are you sure that you want to reset your colors to the defaults? <y/n> ", "input")
-                    Dim answerreset As String = System.Console.ReadKey.KeyChar
+                    Dim answerreset As String = Console.ReadKey.KeyChar
                     If (answerreset = "y") Then
-                        System.Console.WriteLine()
+                        Console.WriteLine()
                         ResetFlag = True
                         Exit For
                     ElseIf (answerreset = "n") Then
-                        System.Console.WriteLine()
+                        Console.WriteLine()
                     ElseIf (answerreset = "q") Then
                         Wln(vbNewLine + "Color changing has been cancelled.", "neutralText")
                         Exit Sub
                     End If
                 ElseIf (answerColor = "THEME") Then
-                    TemplateSet.TemplatePrompt()
+                    TemplatePrompt()
                     If (templateSetExitFlag = True) Then
                         Wln("Theme changed.", "neutralText")
                         Exit Sub
@@ -177,7 +177,7 @@ Module ColorSet
         userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), userNameShellColorDef), ConsoleColor)
         backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), backgroundColorDef), ConsoleColor)
         neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), neutralTextColorDef), ConsoleColor)
-        LoadBackground.Load()
+        Load()
     End Sub
 
 End Module

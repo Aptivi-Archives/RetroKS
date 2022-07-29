@@ -22,7 +22,7 @@ Module HostName
 
         'Change host-name to custom name
         W("Write a new host name: ", "input")
-        Dim newhost As String = System.Console.ReadLine()
+        Dim newhost As String = Console.ReadLine()
         If (newhost = "") Then
             Wln("Blank host name.", "neutralText")
         ElseIf (newhost.Length <= 3) Then

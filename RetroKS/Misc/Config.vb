@@ -49,7 +49,7 @@ Module Config
             writer.Close()
             writer.Dispose()
             If (CmdArg = True) Then
-                DisposeExit.DisposeAll()
+                DisposeAll()
                 Environment.Exit(0)
             End If
         Catch ex As Exception
@@ -60,7 +60,7 @@ Module Config
                 Wln("There is an error trying to create configuration.", "neutralText")
             End If
             If (CmdArg = True) Then
-                DisposeExit.DisposeAll()
+                DisposeAll()
                 Environment.Exit(2)
             End If
         End Try
@@ -68,12 +68,12 @@ Module Config
 
     Sub checkForUpgrade()
         Try
-            Dim lns() As String = IO.File.ReadAllLines(AppDataPath + "\kernelConfig.ini")
+            Dim lns() As String = File.ReadAllLines(AppDataPath + "\kernelConfig.ini")
             If (lns(0).Contains("Kernel Version = ") And lns(0).Replace("Kernel Version = ", "") <> KernelVersion) Then
                 If (lns.Length > 0) AndAlso (lns(0).StartsWith("Kernel Version = ")) Then
                     Wln("An upgrade from {0} to {1} was detected. Updating configuration file...", "neutralText", lns(0).Replace("Kernel Version = ", ""), KernelVersion)
                     lns(0) = "Kernel Version = " + KernelVersion
-                    IO.File.WriteAllLines(AppDataPath + "\kernelConfig.ini", lns)
+                    File.WriteAllLines(AppDataPath + "\kernelConfig.ini", lns)
                 End If
             End If
         Catch ex As Exception
@@ -110,7 +110,7 @@ Module Config
                     licenseColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("License Color = ", "")), ConsoleColor)
                 ElseIf (line.Contains("Background Color = ")) Then
                     backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Background Color = ", "")), ConsoleColor)
-                    LoadBackground.Load()
+                    Load()
                 ElseIf (line.Contains("Input Color = ")) Then
                     inputColor = CType([Enum].Parse(GetType(ConsoleColor), line.Replace("Input Color = ", "")), ConsoleColor)
                 ElseIf (line.Contains("Create Demo Account = ")) Then

@@ -57,7 +57,7 @@ Module KernelTools
                 'If the description has a double panic tag and the error type is Double
                 Wln("[{0}] dpanic: {1} -- Rebooting in {2} seconds...", "uncontError", ErrorType, CStr(Description), CStr(RebootTime))
                 Sleep(CInt(RebootTime * 1000))
-                System.Console.Clear()
+                Console.Clear()
                 ResetEverything()
                 Main()
             ElseIf (StopPanicAndGoToDoublePanic = True) Then
@@ -67,21 +67,21 @@ Module KernelTools
                 'Check if error is Continuable and reboot is enabled
                 Reboot = False
                 Wln("[{0}] panic: Reboot disabled due to error level being {0}." + vbNewLine + "[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, CStr(Description))
-                Dim answercontpanic = System.Console.ReadKey.KeyChar
+                Dim answercontpanic = Console.ReadKey.KeyChar
             ElseIf (ErrorType = "C" And Reboot = False) Then
                 'Check if error is Continuable and reboot is disabled
                 Wln("[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, CStr(Description))
-                Dim answercontpanic = System.Console.ReadKey.KeyChar
+                Dim answercontpanic = Console.ReadKey.KeyChar
             ElseIf ((Reboot = False And ErrorType <> "D") Or (Reboot = False And ErrorType <> "C")) Then
                 'If rebooting is disabled and the error type does not equal Double or Continuable
                 Wln("[{0}] panic: {1} -- Press any key to shutdown.", "uncontError", ErrorType, CStr(Description))
-                Dim answerpanic = System.Console.ReadKey.KeyChar
+                Dim answerpanic = Console.ReadKey.KeyChar
                 Environment.Exit(0)
             Else
                 'Everything else.
                 Wln("[{0}] panic: {1} -- Rebooting in {2} seconds...", "uncontError", ErrorType, CStr(Description), CStr(RebootTime))
                 Sleep(CInt(RebootTime * 1000))
-                System.Console.Clear()
+                Console.Clear()
                 ResetEverything()
                 Main()
             End If
@@ -119,11 +119,11 @@ Module KernelTools
         Wdbg("General variables reset", True)
 
         'Reset users
-        UserManagement.resetUsers()
+        resetUsers()
         Wdbg("User variables reset", True)
 
         'Release RAM used
-        DisposeExit.DisposeAll()
+        DisposeAll()
         Wdbg("Garbage collector finished", True)
 
         'Disable Debugger

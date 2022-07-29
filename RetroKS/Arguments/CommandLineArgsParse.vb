@@ -26,11 +26,11 @@ Module CommandLineArgsParse
         Try
             If (GetCommandLineArgs.Length <> 0 And availableCMDLineArgs.Contains(arg) = True) Then
                 If (arg = "createConf") Then
-                    Config.createConfig(True)
+                    createConfig(True)
                 ElseIf (arg = "promptArgs") Then
-                    ArgumentPrompt.PromptArgs()
+                    PromptArgs()
                     If (argsFlag = True) Then
-                        ArgumentParse.ParseArguments()
+                        ParseArguments()
                     End If
                 End If
             End If

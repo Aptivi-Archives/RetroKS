@@ -21,22 +21,22 @@ Module PanicSim
     Sub panicPrompt()
 
         W("Write a message: ", "input")
-        Dim kpmsg As String = System.Console.ReadLine()
+        Dim kpmsg As String = Console.ReadLine()
         If (kpmsg = "") Then
             Wln("Blank message.", "neutralText")
         ElseIf (kpmsg = "q") Then
             Wln("Text printing has been cancelled.", "neutralText")
         Else
             W("Write error type: ", "input")
-            Dim kpet = System.Console.ReadKey.KeyChar
-            System.Console.WriteLine()
+            Dim kpet = Console.ReadKey.KeyChar
+            Console.WriteLine()
             If (kpet = "") Then
                 Wln("Blank error type", "neutralText")
             ElseIf (kpet = "q") Then
                 Wln("Text printing has been cancelled.", "neutralText")
             ElseIf (kpet = "S" Or kpet = "U" Or kpet = "D" Or kpet = "F" Or kpet = "C") Then
                 W("Restart time in seconds: ", "input")
-                Dim kptime = System.Console.ReadLine()
+                Dim kptime = Console.ReadLine()
                 If (kptime = "") Then
                     Wln("Blank time", "neutralText")
                 ElseIf (CDbl(kptime) <= 3600 And (kpet <> "C" Or kpet <> "D")) Then

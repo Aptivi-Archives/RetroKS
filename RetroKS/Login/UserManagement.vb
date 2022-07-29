@@ -113,7 +113,7 @@ Module UserManagement
 
         'Prompts user to enter a new username
         W("Username to be changed: ", "input")
-        Dim answernuser = System.Console.ReadLine()
+        Dim answernuser = Console.ReadLine()
         If InStr(CStr(answernuser), " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
             changePassword()
@@ -127,8 +127,8 @@ Module UserManagement
                 If (user = answernuser) Then
                     DoneFlag = True
                     W("Username to change to: ", "input")
-                    System.Console.ForegroundColor = CType(inputColor, ConsoleColor)
-                    Dim answerNewUserTemp = System.Console.ReadLine()
+                    Console.ForegroundColor = CType(inputColor, ConsoleColor)
+                    Dim answerNewUserTemp = Console.ReadLine()
                     If InStr(CStr(answerNewUserTemp), " ") > 0 Then
                         Wln("Spaces are not allowed.", "neutralText")
                         changePassword()
@@ -144,7 +144,7 @@ Module UserManagement
                             userword.Remove(answernuser)
                             userword.Add(answerNewUserTemp, temporary)
                             Wdbg("userword.Added = {0}", True, userword(answerNewUserTemp))
-                            Groups.permissionEditForNewUser(answernuser, answerNewUserTemp)
+                            permissionEditForNewUser(answernuser, answerNewUserTemp)
                             Wln("Username has been changed to {0}!", "neutralText", answerNewUserTemp)
                             If (answernuser = signedinusrnm) Then
                                 Wdbg("{0}.Logout.Execute(because ASSERT({0} = {1}) = True)", True, answernuser, signedinusrnm)
@@ -175,7 +175,7 @@ Module UserManagement
         'Checks if there is a password
         If Not (password = Nothing) Then
             W("Current password: ", "input")
-            answerpass = System.Console.ReadLine()
+            answerpass = Console.ReadLine()
             If InStr(CStr(answerpass), " ") > 0 Then
                 Wln("Spaces are not allowed.", "neutralText")
                 changePassword()
@@ -202,7 +202,7 @@ Module UserManagement
 
         'Prompts user to enter new password
         W("New password: ", "input")
-        Dim answernewpass = System.Console.ReadLine()
+        Dim answernewpass = Console.ReadLine()
         If InStr(answernewpass, " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
             changePasswordPrompt(usernamerequestedChange)
@@ -213,7 +213,7 @@ Module UserManagement
             Wln("Password changing has been cancelled.", "neutralText")
         Else
             W("Confirm: ", "input")
-            Dim answernewpassconfirm = System.Console.ReadLine()
+            Dim answernewpassconfirm = Console.ReadLine()
             If InStr(answernewpassconfirm, " ") > 0 Then
                 Wln("Spaces are not allowed.", "neutralText")
                 changePasswordPrompt(usernamerequestedChange)
@@ -236,7 +236,7 @@ Module UserManagement
 
         'Removes user from the username and password list
         W("Username to be removed: ", "input")
-        Dim answerrmuser = System.Console.ReadLine()
+        Dim answerrmuser = Console.ReadLine()
         removeUserFromDatabase(answerrmuser)
 
     End Sub
@@ -317,7 +317,7 @@ Module UserManagement
 
         'Prompt user to write username to be added
         W("Write username: ", "input")
-        answernewuser = System.Console.ReadLine()
+        answernewuser = Console.ReadLine()
         If InStr(answernewuser, " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
         ElseIf (answernewuser.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
@@ -333,7 +333,7 @@ Module UserManagement
     Sub newPassword(user As String)
 
         W("Write password: ", "input")
-        answerpassword = System.Console.ReadLine()
+        answerpassword = Console.ReadLine()
         If InStr(answerpassword, " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
         ElseIf (answerpassword.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
@@ -342,7 +342,7 @@ Module UserManagement
             Wln("Username creation has been cancelled.", "neutralText")
         Else
             W("Confirm: ", "input")
-            Dim answerpasswordconfirm As String = System.Console.ReadLine()
+            Dim answerpasswordconfirm As String = Console.ReadLine()
             If InStr(answerpasswordconfirm, " ") > 0 Then
                 Wln("Spaces are not allowed.", "neutralText")
             ElseIf (answerpasswordconfirm.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then

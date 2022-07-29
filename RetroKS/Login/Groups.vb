@@ -145,17 +145,17 @@ Module Groups
 
         'Asks for username, and then permission prompts.
         W("Username to be managed: ", "input")
-        Dim answermuser = System.Console.ReadLine()
+        Dim answermuser = Console.ReadLine()
         If (answermuser = "q") Then
             Exit Sub
         Else
             For Each userPerm As String In userword.Keys.ToArray
                 If (userPerm = answermuser And answermuser <> "root") Then
                     W("Type (Admin / Disabled): ", "input")
-                    Dim answermtype = System.Console.ReadLine()
+                    Dim answermtype = Console.ReadLine()
                     If (answermtype = "Admin" Or answermtype = "Disabled") Then
                         W("Add or remove? <Add/Remove> ", "input")
-                        Dim answermaddremove = System.Console.ReadLine()
+                        Dim answermaddremove = Console.ReadLine()
                         If (answermaddremove = "Add" Or answermaddremove = "Remove") Then
                             permission(answermtype, True, answermuser, answermaddremove)
                         Else
@@ -186,17 +186,17 @@ Module Groups
 
         'Asks for username, and then permission prompts.
         W("Username to be managed: ", "input")
-        Dim answermuser = System.Console.ReadLine()
+        Dim answermuser = Console.ReadLine()
         If (answermuser = "q") Then
             Exit Sub
         Else
             For Each userPerm As String In userword.Keys.ToArray
                 If (userPerm = answermuser And answermuser <> "root") Then
                     W("Type (Admin / Disabled): ", "input")
-                    Dim answermtype = System.Console.ReadLine()
+                    Dim answermtype = Console.ReadLine()
                     If (answermtype = "Admin" Or answermtype = "Disabled") Then
                         W("Is the user allowed? <y/n> ", "input")
-                        Dim answermallow = System.Console.ReadLine()
+                        Dim answermallow = Console.ReadLine()
                         If (answermallow = "y") Then
                             permission(answermtype, answermuser, "Allow")
                             DoneFlag = True

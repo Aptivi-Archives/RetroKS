@@ -61,12 +61,12 @@ Module ArgumentParse
                     ElseIf (BootArgs(i).Contains("chkn=1")) Then
 
                         'Makes a kernel check for connectivity on boot
-                        Network.CheckNetworkKernel()
+                        CheckNetworkKernel()
 
                     ElseIf (BootArgs(i) = "preadduser") Then
 
                         W("Write username: ", "input")
-                        arguser = System.Console.ReadLine()
+                        arguser = Console.ReadLine()
                         If InStr(arguser, " ") > 0 Then
                             Wln("Spaces are not allowed.", "neutralText")
                         ElseIf (arguser.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
@@ -75,7 +75,7 @@ Module ArgumentParse
                             Wln("Username creation has been cancelled.", "neutralText")
                         Else
                             W("Write password: ", "input")
-                            argword = System.Console.ReadLine()
+                            argword = Console.ReadLine()
                             If InStr(argword, " ") > 0 Then
                                 Wln("Spaces are not allowed.", "neutralText")
                             ElseIf (argword.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
@@ -84,7 +84,7 @@ Module ArgumentParse
                                 Wln("Username creation has been cancelled.", "neutralText")
                             Else
                                 W("Confirm: ", "input")
-                                Dim answerpasswordconfirm As String = System.Console.ReadLine()
+                                Dim answerpasswordconfirm As String = Console.ReadLine()
                                 If InStr(answerpasswordconfirm, " ") > 0 Then
                                     Wln("Spaces are not allowed.", "neutralText")
                                 ElseIf (answerpasswordconfirm.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1) Then
@@ -103,7 +103,7 @@ Module ArgumentParse
                     ElseIf (BootArgs(i).Contains("hostname")) Then
 
                         If (BootArgs(i) = "hostname") Then
-                            HostName.ChangeHostName()
+                            ChangeHostName()
                         Else
                             Dim newhost As String = BootArgs(i).Substring(9)
                             If (newhost = "") Then
@@ -135,7 +135,7 @@ Module ArgumentParse
                         'Command Injector argument
                         If (BootArgs(i) = "cmdinject") Then
                             W("Available commands: {0}" + vbNewLine + "Write command: ", "input", String.Join(", ", availableCommands))
-                            argcmds = System.Console.ReadLine().Split({":"c}, StringSplitOptions.RemoveEmptyEntries)
+                            argcmds = Console.ReadLine().Split({":"c}, StringSplitOptions.RemoveEmptyEntries)
                             argcommands = String.Join(", ", argcmds)
                             If (argcommands <> "q") Then
                                 CommandFlag = True
@@ -159,9 +159,9 @@ Module ArgumentParse
                             "Separate commands on 'cmdinject' with colons without spaces, for example, 'cmdinject setthemes Hacker:beep 1024 0.5'" + vbNewLine + _
                             "Note that the 'debug' argument does not fully cover the kernel.", "neutralText")
                         answerargs = "" : argsFlag = False : argsInjected = False
-                        ArgumentPrompt.PromptArgs()
+                        PromptArgs()
                         If (argsFlag = True) Then
-                            ArgumentParse.ParseArguments()
+                            ParseArguments()
                         End If
 
                     End If

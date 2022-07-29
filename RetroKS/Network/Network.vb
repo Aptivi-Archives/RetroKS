@@ -20,11 +20,11 @@ Module Network
 
     Sub CheckNetworkKernel()
 
-        If System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
+        If Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
             W("net: Network available." + vbNewLine + _
                                  "net: Checking for connectivity..." + vbNewLine + _
                                  "net: Write address, or URL: ", "input")
-            Dim AnswerPing As String = System.Console.ReadLine()
+            Dim AnswerPing As String = Console.ReadLine()
             If (AnswerPing <> "q") Then
                 PingTargetKernel(AnswerPing)
             Else
@@ -38,9 +38,9 @@ Module Network
 
     Sub CheckNetworkCommand()
 
-        If System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
+        If Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
             W("net: Write address, or URL: ", "input")
-            Dim AnswerPing As String = System.Console.ReadLine()
+            Dim AnswerPing As String = Console.ReadLine()
             If (AnswerPing <> "q") Then
                 PingTarget(AnswerPing)
             Else

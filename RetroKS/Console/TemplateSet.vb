@@ -21,7 +21,7 @@ Module TemplateSet
     Sub TemplatePrompt()
 
         W("Available templates: {0}" + vbNewLine + "Template: ", "input", String.Join(", ", colorTemplates))
-        Dim answertemplate As String = System.Console.ReadLine()
+        Dim answertemplate As String = Console.ReadLine()
         templateSet(answertemplate)
 
     End Sub
@@ -30,7 +30,7 @@ Module TemplateSet
 
         If colorTemplates.Contains(theme) = True Then
             If theme = "Default" Then
-                ColorSet.ResetColors()
+                ResetColors()
                 templateSetExitFlag = True
             ElseIf theme = "RedConsole" Then
                 inputColor = CType([Enum].Parse(GetType(ConsoleColor), inputColorRC), ConsoleColor)
@@ -41,7 +41,7 @@ Module TemplateSet
                 userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), userNameShellColorRC), ConsoleColor)
                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), backgroundColorRC), ConsoleColor)
                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), neutralTextColorRC), ConsoleColor)
-                LoadBackground.Load()
+                Load()
                 templateSetExitFlag = True
             ElseIf theme = "Bluespire" Then
                 inputColor = CType([Enum].Parse(GetType(ConsoleColor), inputColorBS), ConsoleColor)
@@ -52,7 +52,7 @@ Module TemplateSet
                 userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), userNameShellColorBS), ConsoleColor)
                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), backgroundColorBS), ConsoleColor)
                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), neutralTextColorBS), ConsoleColor)
-                LoadBackground.Load()
+                Load()
                 templateSetExitFlag = True
             ElseIf theme = "Hacker" Then
                 inputColor = CType([Enum].Parse(GetType(ConsoleColor), inputColorHckr), ConsoleColor)
@@ -63,7 +63,7 @@ Module TemplateSet
                 userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), userNameShellColorHckr), ConsoleColor)
                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), backgroundColorHckr), ConsoleColor)
                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), neutralTextColorHckr), ConsoleColor)
-                LoadBackground.Load()
+                Load()
                 templateSetExitFlag = True
             ElseIf theme = "LinuxUncolored" Then
                 inputColor = CType([Enum].Parse(GetType(ConsoleColor), inputColorLUnc), ConsoleColor)
@@ -74,7 +74,7 @@ Module TemplateSet
                 userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), userNameShellColorLUnc), ConsoleColor)
                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), backgroundColorLUnc), ConsoleColor)
                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), neutralTextColorLUnc), ConsoleColor)
-                LoadBackground.Load()
+                Load()
                 templateSetExitFlag = True
             ElseIf theme = "LinuxColoredDef" Then
                 inputColor = CType([Enum].Parse(GetType(ConsoleColor), inputColorLcDef), ConsoleColor)
@@ -85,7 +85,7 @@ Module TemplateSet
                 userNameShellColor = CType([Enum].Parse(GetType(ConsoleColor), userNameShellColorLcDef), ConsoleColor)
                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), backgroundColorLcDef), ConsoleColor)
                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), neutralTextColorLcDef), ConsoleColor)
-                LoadBackground.Load()
+                Load()
                 templateSetExitFlag = True
             End If
         Else

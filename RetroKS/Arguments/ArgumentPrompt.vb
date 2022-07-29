@@ -26,11 +26,11 @@ Module ArgumentPrompt
         'Checks if the arguments are injected
         If argsInjected = True Then
             argsInjected = False
-            ArgumentParse.ParseArguments()
+            ParseArguments()
         Else
             'Shows available arguments and prompts for it
             W("Available arguments: {0}" + vbNewLine + "Arguments ('help' for help): ", "input", String.Join(", ", AvailableArgs))
-            answerargs = System.Console.ReadLine()
+            answerargs = Console.ReadLine()
 
             'Make a kernel check for arguments later if anything is entered
             If (answerargs <> Nothing And InjMode = False) Then

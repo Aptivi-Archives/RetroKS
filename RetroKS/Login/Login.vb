@@ -29,14 +29,14 @@ Module Login
 
         'Prompts user to log-in
         If (clsOnLogin = True) Then
-            System.Console.Clear()
+            Console.Clear()
         End If
         If (showMOTD = False) Then
             W(vbNewLine + "Username: ", "input")
         Else
             W(vbNewLine + My.Settings.MOTD + vbNewLine + vbNewLine + "Username: ", "input")
         End If
-        answeruser = System.Console.ReadLine()
+        answeruser = Console.ReadLine()
         If InStr(CStr(answeruser), " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
             LoginPrompt()
@@ -64,7 +64,7 @@ Module Login
                 'Check if there's the password
                 If Not (password = Nothing) Then
                     W("{0}'s password: ", "input", usernamerequested)
-                    answerpass = System.Console.ReadLine()
+                    answerpass = Console.ReadLine()
                     If InStr(CStr(answerpass), " ") > 0 Then
                         Wln("Spaces are not allowed.", "neutralText")
                         If (maintenance = False) Then
@@ -114,7 +114,7 @@ Module Login
         'Initialize shell, and sign in to user.
         Wln(vbNewLine + "Logged in successfully as {0}!", "neutralText", signedInUser)
         signedinusrnm = signedInUser
-        Shell.initializeShell()
+        initializeShell()
 
     End Sub
 

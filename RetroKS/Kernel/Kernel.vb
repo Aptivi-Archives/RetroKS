@@ -52,21 +52,21 @@ Module Kernel
         Try
             'Parse real command-line arguments
             For Each argu In Environment.GetCommandLineArgs
-                CommandLineArgsParse.parseCMDArguments(argu)
+                parseCMDArguments(argu)
             Next
 
             'Make an app data folder
             If Not Directory.Exists(AppDataPath) Then Directory.CreateDirectory(AppDataPath)
 
             'Create config file and then read it
-            Config.checkForUpgrade()
+            checkForUpgrade()
             If (File.Exists(AppDataPath + "\kernelConfig.ini") = True) Then
                 configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
             Else
-                Config.createConfig(False)
+                createConfig(False)
                 configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
             End If
-            Config.readConfig()
+            readConfig()
 
             'Show introduction. Don't remove license.
             Wln("|--+---> Welcome to the kernel, version {0} <---+--|", "neutralText", KernelVersion)
@@ -78,13 +78,13 @@ Module Kernel
 
             'Phase 0: Initialize time and files, and check for quietness
             If (argsOnBoot = True) Then
-                ArgumentPrompt.PromptArgs()
+                PromptArgs()
                 If (argsFlag = True) Then
-                    ArgumentParse.ParseArguments()
+                    ParseArguments()
                 End If
             End If
             If (argsInjected = True) Then
-                ArgumentParse.ParseArguments()
+                ParseArguments()
                 answerargs = ""
                 argsInjected = False
             End If
@@ -92,14 +92,14 @@ Module Kernel
                 InitializeTimeDate()
                 TimeDateIsSet = True
             End If
-            InitializeDirectoryFile.Init()
+            Init()
             Wdbg("Kernel initialized, version {0}.", True, KernelVersion)
             If (Quiet = True Or quietProbe = True) Then
                 'Continue the kernel, and don't print messages
                 'Phase 1: Username management
-                UserManagement.initializeMainUsers()
+                initializeMainUsers()
                 If (enableDemo = True) Then
-                    UserManagement.adduser("demo")
+                    adduser("demo")
                 End If
                 LoginFlag = True
 
@@ -109,21 +109,21 @@ Module Kernel
                 End If
 
                 'Phase 3: Free unused RAM and log-in
-                DisposeExit.DisposeAll()
+                DisposeAll()
                 If (LoginFlag = True And maintenance = False) Then
-                    Login.LoginPrompt()
+                    LoginPrompt()
                 ElseIf (LoginFlag = True And maintenance = True) Then
                     LoginFlag = False
                     Wln("Enter the admin password for maintenance.", "neutralText")
                     answeruser = "root"
-                    Login.showPasswordPrompt("root")
+                    showPasswordPrompt("root")
                 End If
             Else
                 'Continue the kernel
                 'Phase 1: Username management
-                UserManagement.initializeMainUsers()
+                initializeMainUsers()
                 If (enableDemo = True) Then
-                    UserManagement.adduser("demo")
+                    adduser("demo")
                 End If
                 LoginFlag = True
 
@@ -133,14 +133,14 @@ Module Kernel
                 End If
 
                 'Phase 3: Free unused RAM and log-in if the kernel isn't on maintenance mode
-                DisposeExit.DisposeAll()
+                DisposeAll()
                 If (LoginFlag = True And maintenance = False) Then
-                    Login.LoginPrompt()
+                    LoginPrompt()
                 ElseIf (LoginFlag = True And maintenance = True) Then
                     LoginFlag = False
                     Wln("Enter the admin password for maintenance.", "neutralText")
                     answeruser = "root"
-                    Login.showPasswordPrompt("root")
+                    showPasswordPrompt("root")
                 End If
             End If
         Catch ex As Exception
