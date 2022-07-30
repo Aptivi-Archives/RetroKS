@@ -1,5 +1,5 @@
 ﻿
-'    RetroKS  Copyright (C) 2018-2022  EoflaOE
+'    RetroKS  Copyright (C) 2018-2022  Aptivi
 '
 '    This file is part of RetroKS
 '

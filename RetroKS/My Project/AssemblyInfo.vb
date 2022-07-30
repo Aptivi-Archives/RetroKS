@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("RetroKS")>
 <Assembly: AssemblyDescription("Simulates a kernel in console.")>
-<Assembly: AssemblyCompany("EoflaOE")>
+<Assembly: AssemblyCompany("Aptivi")>
 <Assembly: AssemblyProduct("RetroKS")>
-<Assembly: AssemblyCopyright("Copyright © EoflaOE 2022")>
+<Assembly: AssemblyCopyright("Copyright © Aptivi 2022")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,7 +31,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.0.4.2")>
-<Assembly: AssemblyFileVersion("1.0.4.2")>
+<Assembly: AssemblyVersion("0.0.4.3")>
+<Assembly: AssemblyFileVersion("1.0.4.3")>
 
 <Assembly: NeutralResourcesLanguageAttribute("en-US")>
