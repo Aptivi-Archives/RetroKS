@@ -10,6 +10,7 @@
     <AssemblyName>RetroKS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworks>net48;net6.0</TargetFrameworks>
+    <Version>0.0.4.4</Version>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
