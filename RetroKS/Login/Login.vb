@@ -32,9 +32,9 @@ Module Login
             Console.Clear()
         End If
         If showMOTD = False Then
-            W(vbNewLine + "Username: ", "input")
+            W(NewLine + "Username: ", "input")
         Else
-            W(vbNewLine + MOTD + vbNewLine + vbNewLine + "Username: ", "input")
+            W(NewLine + MOTD + NewLine + NewLine + "Username: ", "input")
         End If
         answeruser = Console.ReadLine()
         If InStr(CStr(answeruser), " ") > 0 Then
@@ -84,7 +84,7 @@ Module Login
                             Wdbg("ASSERT(Parse({0}, {1})) = True | ASSERT({1} = {2}) = True", True, usernamerequested, password, answerpass)
                             signIn(usernamerequested)
                         Else
-                            Wln(vbNewLine + "Wrong password.", "neutralText")
+                            Wln(NewLine + "Wrong password.", "neutralText")
                             If maintenance = False Then
                                 LoginPrompt()
                             Else
@@ -103,7 +103,7 @@ Module Login
             If ShuttingDown Then Exit Sub
         Next
         If DoneFlag = False Then
-            Wln(vbNewLine + "Wrong username.", "neutralText")
+            Wln(NewLine + "Wrong username.", "neutralText")
             LoginPrompt()
         End If
 
@@ -112,7 +112,7 @@ Module Login
     Sub signIn(signedInUser As String)
 
         'Initialize shell, and sign in to user.
-        Wln(vbNewLine + "Logged in successfully as {0}!", "neutralText", signedInUser)
+        Wln(NewLine + "Logged in successfully as {0}!", "neutralText", signedInUser)
         signedinusrnm = signedInUser
         initializeShell()
 

@@ -56,11 +56,11 @@ Module UserManagement
             disabledList.Add(uninitUser, False)
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
+                Wln("Error trying to add username." + NewLine + "Error {0}: {1}" + NewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
-                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
+                Wln("Error trying to add username." + NewLine + "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
             End If
         End Try
 
@@ -187,7 +187,7 @@ Module UserManagement
                 If userword.TryGetValue(CStr(answeruser), password) AndAlso password = answerpass Then
                     changePasswordPrompt(CStr(answeruser))
                 Else
-                    Wln(vbNewLine + "Wrong password.", "neutralText")
+                    Wln(NewLine + "Wrong password.", "neutralText")
                     changePassword()
                 End If
             End If
@@ -301,11 +301,11 @@ Module UserManagement
             End If
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
+                Wln("Error trying to add username." + NewLine + "Error {0}: {1}" + NewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
-                Wln("Error trying to add username." + vbNewLine + "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
+                Wln("Error trying to add username." + NewLine + "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
             End If
         End Try
 

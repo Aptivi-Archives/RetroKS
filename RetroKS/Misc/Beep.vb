@@ -32,11 +32,11 @@ Module Beep
                     Wln("Invalid value for beep frequency.", "neutralText")
                 ElseIf CDbl(answerbeep) > 2048 Then
                     W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + 
-                      "and more importantly, your motherboard speaker might deafen, or malfunction." + vbNewLine + 
+                      "and more importantly, your motherboard speaker might deafen, or malfunction." + NewLine + 
                       "Are you sure that you want to beep at this frequency, {0}? (y/N) ", "input", answerbeep)
                     Dim answerrape = Console.ReadKey.KeyChar
                     If answerrape = "n" Or answerrape = "N" Or answerrape = "" Or answerrape = "q" Then
-                        Wln(vbNewLine + "High frequency. Please read documentation for more info why high frequency shouldn't be used.", "neutralText")
+                        Wln(NewLine + "High frequency. Please read documentation for more info why high frequency shouldn't be used.", "neutralText")
                     ElseIf answerrape = "y" Or answerrape = "Y" Then
                         Console.WriteLine()
                         BeepSystem()
@@ -71,13 +71,13 @@ Module Beep
             Wln("Invalid value for beep frequency.", "neutralText")
         ElseIf freq > 2048 Then
             W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + 
-              "and more importantly, your motherboard speaker might deafen, or malfunction." + vbNewLine + 
+              "and more importantly, your motherboard speaker might deafen, or malfunction." + NewLine + 
               "Are you sure that you want to beep at this frequency, {0}? (y/N) ", "input", answerbeep)
             Dim answerrape = Console.ReadKey.KeyChar
             If answerrape = "n" Or answerrape = "N" Or answerrape = "" Or answerrape = "q" Then
-                Wln(vbNewLine + "High frequency. Please read documentation for more info why high frequency shouldn't be used.", "neutralText")
+                Wln(NewLine + "High frequency. Please read documentation for more info why high frequency shouldn't be used.", "neutralText")
             ElseIf answerrape = "y" Or answerrape = "Y" Then
-                Wln(vbNewLine + "Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq)
+                Wln(NewLine + "Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq)
                 Console.Beep(freq, CInt(s * 1000))
                 Wln("Beep complete.", "neutralText")
             End If

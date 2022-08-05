@@ -30,7 +30,7 @@ Module ChangeMOTD
         Else
             W("Changing MOTD...", "neutralText")
             MOTD = newmotd
-            Wln(" Done!" + vbNewLine + "Please log-out, or use 'showmotd' to see the changes", "neutralText")
+            Wln(" Done!" + NewLine + "Please log-out, or use 'showmotd' to see the changes", "neutralText")
         End If
 
     End Sub

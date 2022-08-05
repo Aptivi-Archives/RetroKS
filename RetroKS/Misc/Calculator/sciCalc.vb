@@ -49,7 +49,7 @@ Module sciCalc
                     Dim finalRes = New DataTable().Compute(finalExp, Nothing)
                     Wln("{0}= {1}", "neutralText", finalExp, FormatNumber(finalRes, 2))
                 Else
-                    Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine + 
+                    Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + NewLine + 
                         "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
                 End If
             Else
@@ -64,13 +64,13 @@ Module sciCalc
                     ElseIf exps(0) = "cos" Then
                         finalRes = Math.Cos(exps(1))
                     Else
-                        Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine + 
+                        Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + NewLine + 
                             "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
                         Exit Sub
                     End If
                     Wln("{0} of {1} = {2}", "neutralText", exps(0), exps(1), FormatNumber(finalRes, 2))
                 Else
-                    Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + vbNewLine + 
+                    Wln("Usage: scical <expression1|pi|e> <+|-|*|/|%> <expression2|pi|e> ..." + NewLine + 
                         "       scical <sqrt|tan|sin|cos> <number>", "neutralText")
                 End If
             End If

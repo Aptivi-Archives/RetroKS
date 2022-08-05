@@ -35,7 +35,7 @@ Module CommandLineArgsParse
             End If
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("Error while parsing real command-line arguments: {0} " + vbNewLine +
+                Wln("Error while parsing real command-line arguments: {0} " + NewLine +
                     "{1}", "neutralText", Err.Description, ex.StackTrace) : Wdbg(ex.StackTrace, True)
             End If
         End Try

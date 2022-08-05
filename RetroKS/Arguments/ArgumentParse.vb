@@ -49,7 +49,7 @@ Module ArgumentParse
                             Else
                                 W("Changing MOTD...", "neutralText")
                                 MOTD = newmotd
-                                Wln(" Done!" + vbNewLine + "Please log-out, or use 'showmotd' to see the changes", "neutralText")
+                                Wln(" Done!" + NewLine + "Please log-out, or use 'showmotd' to see the changes", "neutralText")
                             End If
                         End If
 
@@ -134,7 +134,7 @@ Module ArgumentParse
 
                         'Command Injector argument
                         If BootArgs(i) = "cmdinject" Then
-                            W("Available commands: {0}" + vbNewLine + "Write command: ", "input", String.Join(", ", availableCommands))
+                            W("Available commands: {0}" + NewLine + "Write command: ", "input", String.Join(", ", availableCommands))
                             argcmds = Console.ReadLine().Split({":"c}, StringSplitOptions.RemoveEmptyEntries)
                             argcommands = String.Join(", ", argcmds)
                             If argcommands <> "q" Then
@@ -155,8 +155,8 @@ Module ArgumentParse
 
                     ElseIf BootArgs(i) = "help" Then
 
-                        Wln("Separate boot arguments with commas without spaces, for example, 'motd,gpuprobe'" + vbNewLine + 
-                            "Separate commands on 'cmdinject' with colons without spaces, for example, 'cmdinject setthemes Hacker:beep 1024 0.5'" + vbNewLine + 
+                        Wln("Separate boot arguments with commas without spaces, for example, 'motd,gpuprobe'" + NewLine + 
+                            "Separate commands on 'cmdinject' with colons without spaces, for example, 'cmdinject setthemes Hacker:beep 1024 0.5'" + NewLine + 
                             "Note that the 'debug' argument does not fully cover the kernel.", "neutralText")
                         answerargs = "" : argsFlag = False : argsInjected = False
                         PromptArgs()

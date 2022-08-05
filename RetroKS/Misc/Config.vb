@@ -23,27 +23,27 @@ Module Config
     Sub createConfig(CmdArg As Boolean)
         Try
             Dim writer As New StreamWriter(AppDataPath + "\kernelConfig.ini")
-            writer.WriteLine("Kernel Version = {0}" + vbNewLine + 
-                             "Customized Colors on Boot = False" + vbNewLine + 
-                             "User Name Shell Color = {1}" + vbNewLine + 
-                             "Host Name Shell Color = {2}" + vbNewLine + 
-                             "Continuable Kernel Error Color = {3}" + vbNewLine + 
-                             "Uncontinuable Kernel Error Color = {4}" + vbNewLine + 
-                             "Text Color = {5}" + vbNewLine + 
-                             "License Color = {6}" + vbNewLine + 
-                             "Create Demo Account = True" + vbNewLine + 
-                             "Change Root Password = False" + vbNewLine + 
-                             "Set Root Password to = toor" + vbNewLine + 
-                             "Maintenance Mode = False" + vbNewLine + 
-                             "Prompt for Arguments on Boot = False" + vbNewLine + 
-                             "Clear Screen on Log-in = False" + vbNewLine + 
-                             "Show MOTD on Log-in = True" + vbNewLine + 
-                             "Simplified Help Command = False" + vbNewLine + 
-                             "Colored Shell = True" + vbNewLine + 
-                             "Probe Slots = True" + vbNewLine + 
-                             "Quiet Probe = False" + vbNewLine + 
-                             "Probe GPU = False" + vbNewLine + 
-                             "Background Color = {7}" + vbNewLine + 
+            writer.WriteLine("Kernel Version = {0}" + NewLine + 
+                             "Customized Colors on Boot = False" + NewLine + 
+                             "User Name Shell Color = {1}" + NewLine + 
+                             "Host Name Shell Color = {2}" + NewLine + 
+                             "Continuable Kernel Error Color = {3}" + NewLine + 
+                             "Uncontinuable Kernel Error Color = {4}" + NewLine + 
+                             "Text Color = {5}" + NewLine + 
+                             "License Color = {6}" + NewLine + 
+                             "Create Demo Account = True" + NewLine + 
+                             "Change Root Password = False" + NewLine + 
+                             "Set Root Password to = toor" + NewLine + 
+                             "Maintenance Mode = False" + NewLine + 
+                             "Prompt for Arguments on Boot = False" + NewLine + 
+                             "Clear Screen on Log-in = False" + NewLine + 
+                             "Show MOTD on Log-in = True" + NewLine + 
+                             "Simplified Help Command = False" + NewLine + 
+                             "Colored Shell = True" + NewLine + 
+                             "Probe Slots = True" + NewLine + 
+                             "Quiet Probe = False" + NewLine + 
+                             "Probe GPU = False" + NewLine + 
+                             "Background Color = {7}" + NewLine + 
                              "Input Color = {8}", KernelVersion, userNameShellColor, hostNameShellColor, contKernelErrorColor, _
                                                 uncontKernelErrorColor, neutralTextColor, licenseColor, backgroundColor, inputColor)
             writer.Close()
@@ -55,7 +55,7 @@ Module Config
         Catch ex As Exception
             If DebugMode = True Then
                 Wdbg(ex.StackTrace, True)
-                Wln("There is an error trying to create configuration: {0}." + vbNewLine + ex.StackTrace, "neutralText", Err.Description)
+                Wln("There is an error trying to create configuration: {0}." + NewLine + ex.StackTrace, "neutralText", Err.Description)
             Else
                 Wln("There is an error trying to create configuration.", "neutralText")
             End If
@@ -79,7 +79,7 @@ Module Config
         Catch ex As Exception
             If DebugMode = True Then
                 Wdbg(ex.StackTrace, True)
-                Wln("There is an error trying to update configuration: {0}." + vbNewLine + ex.StackTrace, "neutralText", Err.Description)
+                Wln("There is an error trying to update configuration: {0}." + NewLine + ex.StackTrace, "neutralText", Err.Description)
             Else
                 Wln("There is an error trying to update configuration.", "neutralText")
             End If
@@ -189,7 +189,7 @@ Module Config
         Catch ex As Exception
             If DebugMode = True Then
                 Wdbg(ex.StackTrace, True)
-                Wln("There is an error trying to read configuration: {0}." + vbNewLine + ex.StackTrace, "neutralText", Err.Description)
+                Wln("There is an error trying to read configuration: {0}." + NewLine + ex.StackTrace, "neutralText", Err.Description)
             Else
                 Wln("There is an error trying to read configuration.", "neutralText")
             End If

@@ -23,8 +23,8 @@ Module Network
     Sub CheckNetworkKernel()
 
         If Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
-            W("net: Network available." + vbNewLine +
-                                 "net: Checking for connectivity..." + vbNewLine +
+            W("net: Network available." + NewLine +
+                                 "net: Checking for connectivity..." + NewLine +
                                  "net: Write address, or URL: ", "input")
             Dim AnswerPing As String = Console.ReadLine()
             If AnswerPing <> "q" Then

@@ -43,6 +43,7 @@ Module Kernel
     Public configReader As StreamReader                                                 'Configuration file
     Public Host As String
     Public MOTD As String
+    Public ReadOnly NewLine As String = Environment.NewLine
     Declare Sub Sleep Lib "kernel32" (milliseconds As Integer)                    'Enable sleep (Mandatory, don't remove)
 
     Sub KernelMain()
@@ -71,11 +72,11 @@ Module Kernel
 
             'Show introduction. Don't remove license.
             Wln("|--+---> Welcome to the kernel, version {0} <---+--|", "neutralText", KernelVersion)
-            Wln(vbNewLine + "    RetroKS  Copyright (C) 2022  Aptivi" + vbNewLine +
-                            "    This program comes with ABSOLUTELY NO WARRANTY, not even " + vbNewLine +
-                            "    MERCHANTABILITY or FITNESS for particular purposes." + vbNewLine +
-                            "    This is free software, and you are welcome to redistribute it" + vbNewLine +
-                            "    under certain conditions; See COPYING file in source code." + vbNewLine, "license")
+            Wln(NewLine + "    RetroKS  Copyright (C) 2022  Aptivi" + NewLine +
+                            "    This program comes with ABSOLUTELY NO WARRANTY, not even " + NewLine +
+                            "    MERCHANTABILITY or FITNESS for particular purposes." + NewLine +
+                            "    This is free software, and you are welcome to redistribute it" + NewLine +
+                            "    under certain conditions; See COPYING file in source code." + NewLine, "license")
 
             'Phase 0: Initialize time and files, and check for quietness
             If argsOnBoot = True Then

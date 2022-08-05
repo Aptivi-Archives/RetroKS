@@ -124,11 +124,11 @@ Module Shell
             End If
         Catch ex As Exception
             If DebugMode = True Then
-                Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}" + vbNewLine + "{2}", "neutralText",
+                Wln("Error trying to execute command." + NewLine + "Error {0}: {1}" + NewLine + "{2}", "neutralText",
                     Err.Number, Err.Description, ex.StackTrace)
                 Wdbg(ex.StackTrace, True)
             Else
-                Wln("Error trying to execute command." + vbNewLine + "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
+                Wln("Error trying to execute command." + NewLine + "Error {0}: {1}", "neutralText", Err.Number, Err.Description)
             End If
         End Try
 

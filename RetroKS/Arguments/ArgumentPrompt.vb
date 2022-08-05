@@ -29,7 +29,7 @@ Module ArgumentPrompt
             ParseArguments()
         Else
             'Shows available arguments and prompts for it
-            W("Available arguments: {0}" + vbNewLine + "Arguments ('help' for help): ", "input", String.Join(", ", AvailableArgs))
+            W("Available arguments: {0}" + NewLine + "Arguments ('help' for help): ", "input", String.Join(", ", AvailableArgs))
             answerargs = Console.ReadLine()
 
             'Make a kernel check for arguments later if anything is entered

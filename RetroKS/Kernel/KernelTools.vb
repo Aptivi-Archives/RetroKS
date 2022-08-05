@@ -66,7 +66,7 @@ Module KernelTools
             ElseIf ErrorType = "C" And Reboot = True Then
                 'Check if error is Continuable and reboot is enabled
                 Reboot = False
-                Wln("[{0}] panic: Reboot disabled due to error level being {0}." + vbNewLine + "[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, CStr(Description))
+                Wln("[{0}] panic: Reboot disabled due to error level being {0}." + NewLine + "[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, CStr(Description))
                 Dim answercontpanic = Console.ReadKey.KeyChar
             ElseIf ErrorType = "C" And Reboot = False Then
                 'Check if error is Continuable and reboot is disabled

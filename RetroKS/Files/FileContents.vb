@@ -36,21 +36,21 @@ Module FileContents
 
         ElseIf filename = "kernel" Then
 
-            Wln("Kernel process PID: 1" + vbNewLine +
-                "Priority: High" + vbNewLine +
+            Wln("Kernel process PID: 1" + NewLine +
+                "Priority: High" + NewLine +
                 "Importance: High, and shouldn't be killed.", "neutralText")
 
         ElseIf filename = "login" Then
 
-            Wln("Login process PID: 2" + vbNewLine +
-                "Priority: Normal" + vbNewLine +
+            Wln("Login process PID: 2" + NewLine +
+                "Priority: Normal" + NewLine +
                 "Importance: High, and shouldn't be killed.", "neutralText")
 
         ElseIf filename = "uesh" Then
 
-            Wln("UESH process PID: 3" + vbNewLine +
-                "Priority: Normal" + vbNewLine +
-                "Importance: Normal." + vbNewLine +
+            Wln("UESH process PID: 3" + NewLine +
+                "Priority: Normal" + NewLine +
+                "Importance: Normal." + NewLine +
                 "Short For: Unified Eofla SHell", "neutralText")
 
         End If

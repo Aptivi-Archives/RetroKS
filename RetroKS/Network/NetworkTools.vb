@@ -47,12 +47,12 @@ Module NetworkTools
                 ElseIf s Is Nothing Then
                     Wln("Failed to get statistics for adapter {0}", "neutralText", adapter.Description)
                 End If
-                Wln("Adapter Number: {0}" + vbNewLine + 
-                    "Adapter Name: {1}" + vbNewLine + 
-                    "Maximum Transmission Unit: {2} Units" + vbNewLine + 
-                    "DHCP Enabled: {3}" + vbNewLine + 
-                    "Non-unicast packets: {4}/{5}" + vbNewLine + 
-                    "Unicast packets: {6}/{7}" + vbNewLine + 
+                Wln("Adapter Number: {0}" + NewLine + 
+                    "Adapter Name: {1}" + NewLine + 
+                    "Maximum Transmission Unit: {2} Units" + NewLine + 
+                    "DHCP Enabled: {3}" + NewLine + 
+                    "Non-unicast packets: {4}/{5}" + NewLine + 
+                    "Unicast packets: {6}/{7}" + NewLine + 
                     "Error incoming/outgoing packets: {8}/{9}", "neutralText", _
                     adapterNumber, adapter.Description, p.Mtu, p.IsDhcpEnabled, s.NonUnicastPacketsSent, s.NonUnicastPacketsReceived, _
                     s.UnicastPacketsSent, s.UnicastPacketsReceived, s.IncomingPacketsWithErrors, s.OutgoingPacketsWithErrors)

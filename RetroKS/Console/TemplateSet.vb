@@ -20,7 +20,7 @@ Module TemplateSet
 
     Sub TemplatePrompt()
 
-        W("Available templates: {0}" + vbNewLine + "Template: ", "input", String.Join(", ", colorTemplates))
+        W("Available templates: {0}" + NewLine + "Template: ", "input", String.Join(", ", colorTemplates))
         Dim answertemplate As String = Console.ReadLine()
         templateSet(answertemplate)
 
