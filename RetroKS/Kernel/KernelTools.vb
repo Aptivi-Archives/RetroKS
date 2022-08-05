@@ -107,7 +107,6 @@ Module KernelTools
         answerbeepms = Nothing
         answerecho = Nothing
         argsFlag = False
-        Computers = Nothing
         ProbeFlag = True
         GPUProbeFlag = False
         Quiet = False

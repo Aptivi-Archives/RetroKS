@@ -45,8 +45,6 @@ Module HelpSystem
                     "list (Alias: ls): List file/folder contents in current folder" + vbNewLine +
                     "logout: Logs you out." + vbNewLine +
                     "lsdrivers: Lists drivers that is recognized by the kernel." + vbNewLine +
-                    "lsnet: Lists all network addresses on host" + vbNewLine +
-                    "lsnettree: Lists all network addresses on host using the tree" + vbNewLine +
                     "md (Alias: mkdir): Creates a directory (No prompt)" + vbNewLine +
                     "netinfo: Lists information about all available interfaces" + vbNewLine +
                     "panicsim: Kernel Panic Simulator (real)" + vbNewLine +

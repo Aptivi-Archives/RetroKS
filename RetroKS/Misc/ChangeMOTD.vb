@@ -29,7 +29,7 @@ Module ChangeMOTD
             Wln("MOTD changing has been cancelled.", "neutralText")
         Else
             W("Changing MOTD...", "neutralText")
-            My.Settings.MOTD = newmotd
+            MOTD = newmotd
             Wln(" Done!" + vbNewLine + "Please log-out, or use 'showmotd' to see the changes", "neutralText")
         End If
 

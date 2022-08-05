@@ -263,8 +263,8 @@ Module GetCommand
                     ElseIf newhost = "q" Then
                         Wln("Host name changing has been cancelled.", "neutralText")
                     Else
-                        Wln("Changing from: {0} to {1}...", "neutralText", My.Settings.HostName, newhost)
-                        My.Settings.HostName = newhost
+                        Wln("Changing from: {0} to {1}...", "neutralText", Host, newhost)
+                        Host = newhost
                     End If
                 End If
 
@@ -280,7 +280,7 @@ Module GetCommand
                         Wln("MOTD changing has been cancelled.", "neutralText")
                     Else
                         W("Changing MOTD...", "neutralText")
-                        My.Settings.MOTD = newmotd
+                        MOTD = newmotd
                         Wln(" Done!" + vbNewLine + "Please log-out, or use 'showmotd' to see the changes", "neutralText")
                     End If
                 End If
@@ -471,16 +471,6 @@ Module GetCommand
                     End If
                 End If
 
-            ElseIf requestedCommand = "lsnet" Then
-
-                GetNetworkComputers()
-                ListHostsInNetwork()
-
-            ElseIf requestedCommand = "lsnettree" Then
-
-                GetNetworkComputers()
-                ListHostsInTree()
-
             ElseIf requestedCommand = "logout" Then
 
                 'Logs out of the user
@@ -632,10 +622,10 @@ Module GetCommand
 
                 'Reload configuration
                 If File.Exists(AppDataPath + "\kernelConfig.ini") = True Then
-                    configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
+                    configReader = New StreamReader(AppDataPath + "\kernelConfig.ini")
                 Else
                     createConfig(False)
-                    configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
+                    configReader = New StreamReader(AppDataPath + "\kernelConfig.ini")
                 End If
                 readConfig()
                 Wln("Configuration reloaded. You might need to reboot the kernel for some changes to take effect.", "neutralText")
@@ -806,7 +796,7 @@ Module GetCommand
             ElseIf requestedCommand = "showmotd" Then
 
                 'Show changes to MOTD, or current
-                Wln(My.Settings.MOTD, "neutralText")
+                Wln(MOTD, "neutralText")
 
             ElseIf requestedCommand = "shutdown" Then
 

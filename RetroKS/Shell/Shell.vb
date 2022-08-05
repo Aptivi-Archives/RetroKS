@@ -24,7 +24,7 @@ Module Shell
     Public strcommand As String                             'Written Command
     Public availableCommands() As String = {"help", "logout", "version", "currentdir", "list", "changedir", "cdir", "ls", "chdir", "cd", "read", "echo", "choice",
                                             "shutdown", "reboot", "disco", "future-eyes-destroyer", "beep", "annoying-sound", "adduser", "chmotd",
-                                            "chhostname", "showmotd", "fed", "ping", "lsnet", "lsnettree", "showtd", "chpwd", "sysinfo", "arginj",
+                                            "chhostname", "showmotd", "fed", "ping", "showtd", "chpwd", "sysinfo", "arginj",
                                             "panicsim", "setcolors", "rmuser", "cls", "perm", "chusrname", "setthemes", "netinfo", "calc", "scical", "unitconv",
                                             "md", "mkdir", "rd", "rmdir", "debuglog", "reloadconfig"}
     Public strictCmds() As String = {"adduser", "perm", "arginj", "chhostname", "chmotd", "chusrname", "rmuser", "netinfo", "debuglog", "reloadconfig"}
@@ -49,11 +49,11 @@ Module Shell
 
         If adminList(signedinusrnm) = True Then
             W("[", "def") : W("{0}", "userName", signedinusrnm)
-            W("@", "def") : W("{0}", "hostName", My.Settings.HostName)
+            W("@", "def") : W("{0}", "hostName", Host)
             W("]{0} # ", "def", currDir)
         Else
             W("[", "def") : W("{0}", "userName", signedinusrnm)
-            W("@", "def") : W("{0}", "hostName", My.Settings.HostName)
+            W("@", "def") : W("{0}", "hostName", Host)
             W("]{0} $ ", "def", currDir)
         End If
 

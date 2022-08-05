@@ -41,6 +41,8 @@ Module Kernel
     Public Capacities() As String                                                       'Capacity (in MB)
     Public totalSlots As Integer                                                        'Total slots
     Public configReader As StreamReader                                                 'Configuration file
+    Public Host As String
+    Public MOTD As String
     Declare Sub Sleep Lib "kernel32" (milliseconds As Integer)                    'Enable sleep (Mandatory, don't remove)
 
     Sub KernelMain()
@@ -60,10 +62,10 @@ Module Kernel
             'Create config file and then read it
             checkForUpgrade()
             If File.Exists(AppDataPath + "\kernelConfig.ini") = True Then
-                configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
+                configReader = New StreamReader(AppDataPath + "\kernelConfig.ini")
             Else
                 createConfig(False)
-                configReader = My.Computer.FileSystem.OpenTextFileReader(AppDataPath + "\kernelConfig.ini")
+                configReader = New StreamReader(AppDataPath + "\kernelConfig.ini")
             End If
             readConfig()
 

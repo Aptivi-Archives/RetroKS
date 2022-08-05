@@ -1,17 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{C7B37899-C361-423D-9512-FE0A87A46866}</ProjectGuid>
     <OutputType>Exe</OutputType>
+    <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
     <StartupObject>RetroKS.EntryPoint</StartupObject>
     <RootNamespace>RetroKS</RootNamespace>
     <AssemblyName>RetroKS</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Console</MyType>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworks>net48;net6.0</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -24,18 +22,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-  </PropertyGroup>
-  <PropertyGroup>
-    <TargetZone>LocalIntranet</TargetZone>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Paomedia-Small-N-Flat-Terminal.ico</ApplicationIcon>
@@ -62,7 +48,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.DirectoryServices" />
@@ -81,85 +67,8 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arguments\ArgumentParse.vb" />
-    <Compile Include="Arguments\ArgumentPrompt.vb" />
-    <Compile Include="Arguments\CommandLineArgsParse.vb" />
-    <Compile Include="Console\ColorInitialize.vb" />
-    <Compile Include="Console\ColorSet.vb" />
-    <Compile Include="Console\LoadBackground.vb" />
-    <Compile Include="Console\Templates.vb" />
-    <Compile Include="Console\TemplateSet.vb" />
-    <Compile Include="EntryPoint.vb" />
-    <Compile Include="Files\CurrentDir.vb" />
-    <Compile Include="Files\FileContents.vb" />
-    <Compile Include="Files\InitializeDirectoryFile.vb" />
-    <Compile Include="Files\ListFolders.vb" />
-    <Compile Include="Kernel\Flags.vb" />
-    <Compile Include="Kernel\KernelTools.vb" />
-    <Compile Include="Misc\Beep.vb" />
-    <Compile Include="Misc\Calculator\sciCalc.vb" />
-    <Compile Include="Misc\Calculator\stdCalc.vb" />
-    <Compile Include="Misc\Calculator\unitConv.vb" />
-    <Compile Include="Misc\ChangeMOTD.vb" />
-    <Compile Include="Misc\Config.vb" />
-    <Compile Include="Misc\Platform\PlatformDetector.vb" />
-    <Compile Include="Misc\Writers\DebugWriter.vb" />
-    <Compile Include="Misc\DisposeExit.vb" />
-    <Compile Include="Misc\PanicSim.vb" />
-    <Compile Include="Misc\Writers\TextWriterColor.vb" />
-    <Compile Include="Network\NetworkTools.vb" />
-    <Compile Include="Shell\GetCommand.vb" />
-    <Compile Include="Kernel\Kernel.vb" />
-    <Compile Include="Login\Groups.vb" />
-    <Compile Include="Login\Login.vb" />
-    <Compile Include="Login\UserManagement.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="My Project\Application.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Settings.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Network\HostName.vb" />
-    <Compile Include="Network\Network.vb" />
-    <Compile Include="Network\NetworkList.vb" />
-    <Compile Include="Shell\HelpSystem.vb" />
-    <Compile Include="Shell\Shell.vb" />
-    <Compile Include="TimeDate\TimeDate.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="My Project\app.manifest" />
-    <None Include="My Project\Application.myapp">
-      <Generator>MyApplicationCodeGenerator</Generator>
-      <LastGenOutput>Application.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <CustomToolNamespace>My</CustomToolNamespace>
-      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="COPYING" />
     <None Include="Paomedia-Small-N-Flat-Terminal.ico" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

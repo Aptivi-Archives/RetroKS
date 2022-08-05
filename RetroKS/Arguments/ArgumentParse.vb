@@ -48,7 +48,7 @@ Module ArgumentParse
                                 Wln("MOTD changing has been cancelled.", "neutralText")
                             Else
                                 W("Changing MOTD...", "neutralText")
-                                My.Settings.MOTD = newmotd
+                                MOTD = newmotd
                                 Wln(" Done!" + vbNewLine + "Please log-out, or use 'showmotd' to see the changes", "neutralText")
                             End If
                         End If
@@ -117,8 +117,8 @@ Module ArgumentParse
                             ElseIf newhost = "q" Then
                                 Wln("Host name changing has been cancelled.", "neutralText")
                             Else
-                                Wln("Changing from: {0} to {1}...", "neutralText", My.Settings.HostName, newhost)
-                                My.Settings.HostName = newhost
+                                Wln("Changing from: {0} to {1}...", "neutralText", Host, newhost)
+                                Host = newhost
                             End If
                         End If
 

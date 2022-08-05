@@ -67,10 +67,8 @@ Module ColorSet
                 backgroundColor = CType([Enum].Parse(GetType(ConsoleColor), answersColor(6)), ConsoleColor)
                 neutralTextColor = CType([Enum].Parse(GetType(ConsoleColor), answersColor(7)), ConsoleColor)
                 Load()
-                Wln("Input Color: {0}" + vbNewLine + "License Color: {1}" + vbNewLine + "Cont. Kernel Error Color: {2}" + vbNewLine +
-                    "Uncont. Kernel Error Color: {3}" + vbNewLine + "Hostname Shell Color: {4}" + vbNewLine + "Username Shell Color: {5}" + vbNewLine +
-                    "Background Color: {6}" + vbNewLine + "Text Color: {7}", "neutralText", answersColor(0), answersColor(1), answersColor(2),
-                    answersColor(3), answersColor(4), answersColor(5), answersColor(6), answersColor(7))
+                Wln("Input Color: {0}" + vbNewLine + "License Color: {1}" + vbNewLine + "Cont. Kernel Error Color: {2}" + vbNewLine + "Uncont. Kernel Error Color: {3}" + vbNewLine + "Hostname Shell Color: {4}" + vbNewLine + "Username Shell Color: {5}" + vbNewLine + "Background Color: {6}" + vbNewLine + "Text Color: {7}", "neutralText",
+                    answersColor(0), answersColor(1), answersColor(2), answersColor(3), answersColor(4), answersColor(5), answersColor(6), answersColor(7))
             End If
 
             'Write current step message

@@ -16,13 +16,15 @@
 '    You should have received a copy of the GNU General Public License
 '    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+Imports System.Net.NetworkInformation
+
 Module Network
 
     Sub CheckNetworkKernel()
 
         If Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
-            W("net: Network available." + vbNewLine + 
-                                 "net: Checking for connectivity..." + vbNewLine + 
+            W("net: Network available." + vbNewLine +
+                                 "net: Checking for connectivity..." + vbNewLine +
                                  "net: Write address, or URL: ", "input")
             Dim AnswerPing As String = Console.ReadLine()
             If AnswerPing <> "q" Then
@@ -55,7 +57,8 @@ Module Network
     Sub PingTargetKernel(Address As String)
 
         On Error GoTo PingError
-        If My.Computer.Network.Ping(Address) Then
+        Dim Pinger As New Ping
+        If Pinger.Send(Address).Status = IPStatus.Success Then
             Wln("net: Connection is ready.", "neutralText")
         End If
         Exit Sub
@@ -68,17 +71,18 @@ PingError:
 
         On Error GoTo PingError1
         Dim s As New Stopwatch
+        Dim Pinger As New Ping
         If (repeatTimes <> 1) And Not repeatTimes < 0 Then
             For i As Int16 = 1 To repeatTimes
                 s.Start()
-                If My.Computer.Network.Ping(Address) Then
+                If Pinger.Send(Address).Status = IPStatus.Success Then
                     Wln("{0}/{1} {2}: {3} ms", "neutralText", repeatTimes, i, Address, s.ElapsedMilliseconds.ToString)
                 End If
                 s.Reset()
             Next
         ElseIf repeatTimes = 1 Then
             s.Start()
-            If My.Computer.Network.Ping(Address) Then
+            If Pinger.Send(Address).Status = IPStatus.Success Then
                 Wln("net: Got response from {0} in {1} ms", "neutralText", Address, s.ElapsedMilliseconds.ToString)
             End If
             s.Stop()
