@@ -78,12 +78,20 @@ Module Beep
                 Wln(NewLine + "High frequency. Please read documentation for more info why high frequency shouldn't be used.", "neutralText")
             ElseIf answerrape = "y" Or answerrape = "Y" Then
                 Wln(NewLine + "Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq)
+#If NETFRAMEWORK Then
                 Console.Beep(freq, s * 1000)
+#Else
+                Console.Beep()
+#End If
                 Wln("Beep complete.", "neutralText")
             End If
         Else
             Wln("Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq)
-            Console.Beep(freq, s * 1000)
+#If NETFRAMEWORK Then
+                Console.Beep(freq, s * 1000)
+#Else
+            Console.Beep()
+#End If
             Wln("Beep complete.", "neutralText")
         End If
 

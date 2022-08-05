@@ -634,7 +634,11 @@ Module GetCommand
 
                 'Reboot the simulated system
                 Wln("Rebooting...", "neutralText")
+#If NETFRAMEWORK Then
                 Console.Beep(870, 250)
+#Else
+                Console.Beep()
+#End If
                 ResetEverything()
                 Console.Clear()
                 Main()
@@ -802,7 +806,11 @@ Module GetCommand
 
                 'Shuts down the simulated system
                 Wln("Shutting down...", "neutralText")
+#If NETFRAMEWORK Then
                 Console.Beep(870, 250)
+#Else
+                Console.Beep()
+#End If
                 ResetEverything()
                 dbgWriter.Close()
                 dbgWriter.Dispose()
