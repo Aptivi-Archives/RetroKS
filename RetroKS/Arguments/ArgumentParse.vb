@@ -170,7 +170,7 @@ Module ArgumentParse
                 End If
             Next
         Catch ex As Exception
-            KernelError(CChar("U"), True, 5, "bargs: Unrecoverable error in argument: " + Err.Description)
+            KernelError("U", True, 5, "bargs: Unrecoverable error in argument: " + Err.Description)
         End Try
 
     End Sub

@@ -26,9 +26,9 @@ Module DebugWriter
 
         If DebugMode = True Then
             If line = False Then
-                dbgWriter.Write(FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortDate) + " " + FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortTime) + ": " + text, vars)
+                dbgWriter.Write(FormatDateTime(strKernelTimeDate, DateFormat.ShortDate) + " " + FormatDateTime(strKernelTimeDate, DateFormat.ShortTime) + ": " + text, vars)
             ElseIf line = True Then
-                dbgWriter.WriteLine(FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortDate) + " " + FormatDateTime(CDate(strKernelTimeDate), DateFormat.ShortTime) + ": " + text, vars)
+                dbgWriter.WriteLine(FormatDateTime(strKernelTimeDate, DateFormat.ShortDate) + " " + FormatDateTime(strKernelTimeDate, DateFormat.ShortTime) + ": " + text, vars)
             End If
         End If
 

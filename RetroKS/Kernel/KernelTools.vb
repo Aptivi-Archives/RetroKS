@@ -33,7 +33,7 @@ Module KernelTools
                 If ErrorType = "U" And RebootTime > 5 Or ErrorType = "D" And RebootTime > 5 Then
                     'If the error type is unrecoverable, or double, and the reboot time exceeds 5 seconds, then
                     'generate a second kernel error stating that there is something wrong with the reboot time.
-                    KernelError(CChar("D"), True, 5, "DOUBLE PANIC: Reboot Time exceeds maximum allowed " + CStr(ErrorType) + " error reboot time. You found a kernel bug.")
+                    KernelError("D", True, 5, "DOUBLE PANIC: Reboot Time exceeds maximum allowed " + ErrorType + " error reboot time. You found a kernel bug.")
                     StopPanicAndGoToDoublePanic = True
                 ElseIf ErrorType = "U" And Reboot = False Or ErrorType = "D" And Reboot = False Then
                     'If the error type is unrecoverable, or double, and the rebooting is false where it should
@@ -48,15 +48,15 @@ Module KernelTools
                 End If
             Else
                 'If the error type is other than D/F/C/U/S, then it will generate a second error.
-                KernelError(CChar("D"), True, 5, "DOUBLE PANIC: Error Type " + CStr(ErrorType) + " invalid.")
+                KernelError("D", True, 5, "DOUBLE PANIC: Error Type " + ErrorType + " invalid.")
                 StopPanicAndGoToDoublePanic = True
             End If
 
             'Check error capabilities
             If Description.Contains("DOUBLE PANIC: ") And ErrorType = "D" Then
                 'If the description has a double panic tag and the error type is Double
-                Wln("[{0}] dpanic: {1} -- Rebooting in {2} seconds...", "uncontError", ErrorType, CStr(Description), CStr(RebootTime))
-                Sleep(CInt(RebootTime * 1000))
+                Wln("[{0}] dpanic: {1} -- Rebooting in {2} seconds...", "uncontError", ErrorType, Description, CStr(RebootTime))
+                Sleep(RebootTime * 1000)
                 Console.Clear()
                 ResetEverything()
                 Main()
@@ -66,21 +66,21 @@ Module KernelTools
             ElseIf ErrorType = "C" And Reboot = True Then
                 'Check if error is Continuable and reboot is enabled
                 Reboot = False
-                Wln("[{0}] panic: Reboot disabled due to error level being {0}." + NewLine + "[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, CStr(Description))
+                Wln("[{0}] panic: Reboot disabled due to error level being {0}." + NewLine + "[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, Description)
                 Dim answercontpanic = Console.ReadKey.KeyChar
             ElseIf ErrorType = "C" And Reboot = False Then
                 'Check if error is Continuable and reboot is disabled
-                Wln("[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, CStr(Description))
+                Wln("[{0}] panic: {1} -- Press any key to continue using the kernel.", "contError", ErrorType, Description)
                 Dim answercontpanic = Console.ReadKey.KeyChar
             ElseIf (Reboot = False And ErrorType <> "D") Or (Reboot = False And ErrorType <> "C") Then
                 'If rebooting is disabled and the error type does not equal Double or Continuable
-                Wln("[{0}] panic: {1} -- Press any key to shutdown.", "uncontError", ErrorType, CStr(Description))
+                Wln("[{0}] panic: {1} -- Press any key to shutdown.", "uncontError", ErrorType, Description)
                 Dim answerpanic = Console.ReadKey.KeyChar
                 Environment.Exit(0)
             Else
                 'Everything else.
-                Wln("[{0}] panic: {1} -- Rebooting in {2} seconds...", "uncontError", ErrorType, CStr(Description), CStr(RebootTime))
-                Sleep(CInt(RebootTime * 1000))
+                Wln("[{0}] panic: {1} -- Rebooting in {2} seconds...", "uncontError", ErrorType, Description, CStr(RebootTime))
+                Sleep(RebootTime * 1000)
                 Console.Clear()
                 ResetEverything()
                 Main()
@@ -88,9 +88,9 @@ Module KernelTools
         Catch ex As Exception
             If DebugMode = True Then
                 Wln(ex.StackTrace, "uncontError") : Wdbg(ex.StackTrace, True)
-                KernelError(CChar("D"), True, 5, "DOUBLE PANIC: Kernel bug: " + Err.Description)
+                KernelError("D", True, 5, "DOUBLE PANIC: Kernel bug: " + Err.Description)
             Else
-                KernelError(CChar("D"), True, 5, "DOUBLE PANIC: Kernel bug: " + Err.Description)
+                KernelError("D", True, 5, "DOUBLE PANIC: Kernel bug: " + Err.Description)
             End If
         End Try
 

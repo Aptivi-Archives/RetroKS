@@ -113,7 +113,7 @@ Module UserManagement
         'Prompts user to enter a new username
         W("Username to be changed: ", "input")
         Dim answernuser = Console.ReadLine()
-        If InStr(CStr(answernuser), " ") > 0 Then
+        If InStr(answernuser, " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
             changePassword()
         ElseIf answernuser.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
@@ -128,7 +128,7 @@ Module UserManagement
                     W("Username to change to: ", "input")
                     Console.ForegroundColor = CType(inputColor, ConsoleColor)
                     Dim answerNewUserTemp = Console.ReadLine()
-                    If InStr(CStr(answerNewUserTemp), " ") > 0 Then
+                    If InStr(answerNewUserTemp, " ") > 0 Then
                         Wln("Spaces are not allowed.", "neutralText")
                         changePassword()
                     ElseIf answerNewUserTemp.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
@@ -169,13 +169,13 @@ Module UserManagement
 
         'Prompts user to enter current password
         On Error Resume Next
-        password = userword.Item(CStr(answeruser))
+        password = userword.Item(answeruser)
 
         'Checks if there is a password
         If Not password = Nothing Then
             W("Current password: ", "input")
             answerpass = Console.ReadLine()
-            If InStr(CStr(answerpass), " ") > 0 Then
+            If InStr(answerpass, " ") > 0 Then
                 Wln("Spaces are not allowed.", "neutralText")
                 changePassword()
             ElseIf answerpass.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
@@ -184,15 +184,15 @@ Module UserManagement
             ElseIf answerpass = "q" Then
                 Wln("Password changing has been cancelled.", "neutralText")
             Else
-                If userword.TryGetValue(CStr(answeruser), password) AndAlso password = answerpass Then
-                    changePasswordPrompt(CStr(answeruser))
+                If userword.TryGetValue(answeruser, password) AndAlso password = answerpass Then
+                    changePasswordPrompt(answeruser)
                 Else
                     Wln(NewLine + "Wrong password.", "neutralText")
                     changePassword()
                 End If
             End If
         Else
-            changePasswordPrompt(CStr(answeruser))
+            changePasswordPrompt(answeruser)
         End If
 
     End Sub

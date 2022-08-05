@@ -37,14 +37,14 @@ Module Login
             W(NewLine + MOTD + NewLine + NewLine + "Username: ", "input")
         End If
         answeruser = Console.ReadLine()
-        If InStr(CStr(answeruser), " ") > 0 Then
+        If InStr(answeruser, " ") > 0 Then
             Wln("Spaces are not allowed.", "neutralText")
             LoginPrompt()
         ElseIf answeruser.IndexOfAny("[~`!@#$%^&*()-+=|{}':;.,<>/?]".ToCharArray) <> -1 Then
             Wln("Special characters are not allowed.", "neutralText")
             LoginPrompt()
         Else
-            showPasswordPrompt(CStr(answeruser))
+            showPasswordPrompt(answeruser)
         End If
 
     End Sub
@@ -65,7 +65,7 @@ Module Login
                 If Not password = Nothing Then
                     W("{0}'s password: ", "input", usernamerequested)
                     answerpass = Console.ReadLine()
-                    If InStr(CStr(answerpass), " ") > 0 Then
+                    If InStr(answerpass, " ") > 0 Then
                         Wln("Spaces are not allowed.", "neutralText")
                         If maintenance = False Then
                             LoginPrompt()

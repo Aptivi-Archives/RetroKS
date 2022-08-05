@@ -162,7 +162,7 @@ Module GetCommand
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
                     If args.Count - 1 = 1 Then
-                        Beep.Beep(CInt(args(0)), CDbl(args(1)))
+                        Beep.Beep(args(0), args(1))
                     Else
                         Wln("Usage: annoying-sound/beep <Frequency:Hz> <Time:Seconds>" + NewLine +
                             "       annoying-sound/beep: to be prompted about beeping.", "neutralText")
@@ -308,7 +308,7 @@ Module GetCommand
                         Else
                             W("{0} <{1}> ", "input", question, sets)
                             Dim answerchoice As String = Console.ReadKey.KeyChar
-                            Dim answerchoices() As String = sets.Split(CChar("/"))
+                            Dim answerchoices() As String = sets.Split("/")
                             For Each choiceset In answerchoices
                                 If answerchoice = choiceset Then
                                     Wln(NewLine + "Choice {0} selected.", "neutralText", answerchoice)
@@ -329,7 +329,7 @@ Module GetCommand
                     If args.Count - 1 = 1 Then
                         W("{0} <{1}> ", "input", args(0), args(1))
                         Dim answerchoice As String = Console.ReadKey.KeyChar
-                        Dim answerchoices() As String = args(1).Split(CChar("/"))
+                        Dim answerchoices() As String = args(1).Split("/")
                         For Each choiceset In answerchoices
                             If answerchoice = choiceset Then
                                 Wln(NewLine + "Choice {0} selected.", "neutralText", answerchoice)
@@ -513,25 +513,25 @@ Module GetCommand
                     Dim strArgs As String = requestedCommand.Substring(requestedCommand.IndexOf(" "), c)
                     Dim args() As String = strArgs.Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
                     If args.Count - 1 = 0 Then
-                        KernelError(CChar("C"), False, 0, args(0))
+                        KernelError("C", False, 0, args(0))
                     ElseIf args.Count - 1 = 1 Then
                         If args(1) <> "C" Then
-                            KernelError(CChar(args(1)), True, 30, args(0))
+                            KernelError(args(1), True, 30, args(0))
                         ElseIf args(1) = "C" Then
-                            KernelError(CChar(args(1)), False, 0, args(0))
+                            KernelError(args(1), False, 0, args(0))
                         ElseIf args(1) = "D" Then
-                            KernelError(CChar(args(1)), True, 5, args(0))
+                            KernelError(args(1), True, 5, args(0))
                         Else
                             Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + NewLine +
                                 "       panicsim: to be prompted about panic simulator options.", "neutralText")
                         End If
                     ElseIf args.Count - 1 = 2 Then
-                        If CDbl(args(2)) <= 3600 And (args(1) <> "C" Or args(1) <> "D") Then
-                            KernelError(CChar(args(1)), True, CLng(args(2)), args(0))
-                        ElseIf (CDbl(args(2)) <= 3600 And args(1) = "C") Or (CDbl(args(2)) <= 0 And args(1) = "C") Then
-                            KernelError(CChar(args(1)), False, 0, args(0))
-                        ElseIf CDbl(args(2)) <= 5 And args(1) = "D" Then
-                            KernelError(CChar(args(1)), True, CLng(args(2)), args(0))
+                        If args(2) <= 3600 And (args(1) <> "C" Or args(1) <> "D") Then
+                            KernelError(args(1), True, args(2), args(0))
+                        ElseIf (args(2) <= 3600 And args(1) = "C") Or (args(2) <= 0 And args(1) = "C") Then
+                            KernelError(args(1), False, 0, args(0))
+                        ElseIf args(2) <= 5 And args(1) = "D" Then
+                            KernelError(args(1), True, args(2), args(0))
                         Else
                             Wln("Usage: panicsim <message> [S/F/D/[C]/U] [RebootTime:Seconds]" + NewLine +
                                 "       panicsim: to be prompted about panic simulator options.", "neutralText")

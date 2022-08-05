@@ -59,7 +59,7 @@ Module TextWriterColor
         End If
         Exit Sub
 bug:
-        KernelError(CChar("C"), False, 0, "There is a serious error when printing text.")
+        KernelError("C", False, 0, "There is a serious error when printing text.")
 
     End Sub
 
@@ -101,7 +101,7 @@ bug:
         End If
         Exit Sub
 bug:
-        KernelError(CChar("C"), False, 0, "There is a serious error when printing text.")
+        KernelError("C", False, 0, "There is a serious error when printing text.")
 
     End Sub
 

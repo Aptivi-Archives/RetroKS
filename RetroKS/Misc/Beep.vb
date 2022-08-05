@@ -22,17 +22,17 @@ Module Beep
 
         W("Beep Frequency in Hz that has the limit of 37-32767 Hz: ", "input")
         answerbeep = Console.ReadLine()
-        If CDbl(answerbeep) > Int32.MaxValue Then
+        If answerbeep > Integer.MaxValue Then
             Wln("Integer overflow on frequency.", "neutralText")
         ElseIf answerbeep = "q" Then
             Wln("Computer beeping has been cancelled.", "neutralText")
         Else
             If Integer.TryParse(answerbeep, CInt(key)) Then
-                If CDbl(answerbeep) <= 36 Or CDbl(answerbeep) >= 32768 Then
+                If answerbeep <= 36 Or answerbeep >= 32768 Then
                     Wln("Invalid value for beep frequency.", "neutralText")
-                ElseIf CDbl(answerbeep) > 2048 Then
-                    W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + 
-                      "and more importantly, your motherboard speaker might deafen, or malfunction." + NewLine + 
+                ElseIf answerbeep > 2048 Then
+                    W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " +
+                      "and more importantly, your motherboard speaker might deafen, or malfunction." + NewLine +
                       "Are you sure that you want to beep at this frequency, {0}? (y/N) ", "input", answerbeep)
                     Dim answerrape = Console.ReadKey.KeyChar
                     If answerrape = "n" Or answerrape = "N" Or answerrape = "" Or answerrape = "q" Then
@@ -54,12 +54,12 @@ Module Beep
         W("Beep Time in seconds that has the limit of 1-3600: ", "input")
         answerbeepms = Console.ReadLine()
         If Double.TryParse(answerbeepms, key) Then
-            If CDbl(answerbeepms) <= 0 Or CDbl(answerbeepms) >= 3601 Then
+            If answerbeepms <= 0 Or answerbeepms >= 3601 Then
                 Wln("Invalid value for beep time.", "neutralText")
             ElseIf answerbeepms = "q" Then
                 Wln("Computer beeping has been cancelled.", "neutralText")
             Else
-                Beep(CInt(answerbeep), CDbl(answerbeepms))
+                Beep(answerbeep, answerbeepms)
             End If
         End If
 
@@ -70,20 +70,20 @@ Module Beep
         If freq <= 36 Or freq >= 32768 Then
             Wln("Invalid value for beep frequency.", "neutralText")
         ElseIf freq > 2048 Then
-            W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " + 
-              "and more importantly, your motherboard speaker might deafen, or malfunction." + NewLine + 
+            W("WARNING: Beep may be loud, depending on speaker. Setting values higher than 2048 might cause your ears to damage, " +
+              "and more importantly, your motherboard speaker might deafen, or malfunction." + NewLine +
               "Are you sure that you want to beep at this frequency, {0}? (y/N) ", "input", answerbeep)
             Dim answerrape = Console.ReadKey.KeyChar
             If answerrape = "n" Or answerrape = "N" Or answerrape = "" Or answerrape = "q" Then
                 Wln(NewLine + "High frequency. Please read documentation for more info why high frequency shouldn't be used.", "neutralText")
             ElseIf answerrape = "y" Or answerrape = "Y" Then
                 Wln(NewLine + "Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq)
-                Console.Beep(freq, CInt(s * 1000))
+                Console.Beep(freq, s * 1000)
                 Wln("Beep complete.", "neutralText")
             End If
         Else
             Wln("Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq)
-            Console.Beep(freq, CInt(s * 1000))
+            Console.Beep(freq, s * 1000)
             Wln("Beep complete.", "neutralText")
         End If
 

@@ -149,7 +149,7 @@ Module Kernel
             If DebugMode = True Then
                 Wln(ex.StackTrace, "uncontError") : Wdbg(ex.StackTrace, True)
             End If
-            KernelError(CChar("U"), True, 5, "Kernel Error while booting: " + Err.Description)
+            KernelError("U", True, 5, "Kernel Error while booting: " + Err.Description)
         End Try
 
     End Sub

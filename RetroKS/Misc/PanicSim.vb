@@ -39,11 +39,11 @@ Module PanicSim
                 Dim kptime = Console.ReadLine()
                 If kptime = "" Then
                     Wln("Blank time", "neutralText")
-                ElseIf CDbl(kptime) <= 3600 And (kpet <> "C" Or kpet <> "D") Then
-                    KernelError(kpet, True, CLng(kptime), kpmsg)
-                ElseIf (CDbl(kptime) <= 3600 And kpet = "C") Or (CDbl(kptime) <= 0 And kpet = "C") Or (CDbl(kptime) <= 3600 And kpet = "D") Or (CDbl(kptime) <= 0 And kpet = "D") Then
+                ElseIf kptime <= 3600 And (kpet <> "C" Or kpet <> "D") Then
+                    KernelError(kpet, True, kptime, kpmsg)
+                ElseIf (kptime <= 3600 And kpet = "C") Or (kptime <= 0 And kpet = "C") Or (kptime <= 3600 And kpet = "D") Or (kptime <= 0 And kpet = "D") Then
                     KernelError(kpet, False, 0, kpmsg)
-                ElseIf CDbl(kptime) <= 0 And kpet <> "C" Then
+                ElseIf kptime <= 0 And kpet <> "C" Then
                     Wln("Invalid time.", "neutralText")
                 ElseIf kptime = "q" Then
                     Wln("Text printing has been cancelled.", "neutralText")

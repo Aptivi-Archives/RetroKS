@@ -54,8 +54,8 @@ Module TimeDate
 
     Sub ShowTime()
 
-        Wln("datetime: Time is {0}", FormatDateTime(CDate(strKernelTimeDate), DateFormat.LongTime))
-        Wln("datetime: Today is {0}", FormatDateTime(CDate(strKernelTimeDate), DateFormat.LongDate))
+        Wln("datetime: Time is {0}", FormatDateTime(strKernelTimeDate, DateFormat.LongTime))
+        Wln("datetime: Today is {0}", FormatDateTime(strKernelTimeDate, DateFormat.LongDate))
 
     End Sub
 
