@@ -93,8 +93,8 @@ namespace RetroKS
                             if (indexCmd == -1)
                             {
                                 indexCmd = cmd.Count();
-                                commandName = cmd.Substring(0, indexCmd);
                             }
+                            commandName = cmd.Substring(0, indexCmd);
                             if (Groups.adminList[Login.signedinusrnm] == false & strictCmds.Contains(commandName) == true)
                             {
                                 DebugWriter.Wdbg("Cmd exec {0} failed: adminList.ASSERT(signedinusrnm) = False, strictCmds.Cont({0}.Substr(0, {1})) = True", true, commandName, indexCmd);
@@ -130,8 +130,8 @@ namespace RetroKS
                         if (indexCmd == -1)
                         {
                             indexCmd = cmd.Count();
-                            commandName = cmd.Substring(0, indexCmd);
                         }
+                        commandName = cmd.Substring(0, indexCmd);
                         if (availableCommands.Contains(commandName))
                         {
                             if (string.IsNullOrEmpty(cmd) | cmd.StartsWith(" ") == true)
