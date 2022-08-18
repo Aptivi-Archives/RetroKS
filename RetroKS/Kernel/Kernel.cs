@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 // This file is part of RetroKS
 // 
 // RetroKS is free software: you can redistribute it and/or modify
@@ -15,12 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-// About this kernel: THIS KERNEL IS NEAR TO BETA BUT NOT FINAL! Final kernel will be developed through another language, ASM included, depending on system.
-
+using System;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using Microsoft.VisualBasic;
 
 namespace RetroKS
 {

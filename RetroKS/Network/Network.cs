@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-
+﻿
 // RetroKS  Copyright (C) 2022  Aptivi
 // 
 // This file is part of RetroKS
@@ -18,6 +16,8 @@ using System.Diagnostics;
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System;
+using System.Diagnostics;
 using System.Net.NetworkInformation;
 
 namespace RetroKS

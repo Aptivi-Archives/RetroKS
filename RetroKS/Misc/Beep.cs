@@ -1,25 +1,25 @@
-﻿using System;
+﻿
+// RetroKS  Copyright (C) 2022  Aptivi
+// 
+// This file is part of RetroKS
+// 
+// RetroKS is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// RetroKS is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+using System;
 
 namespace RetroKS
 {
-
-    // RetroKS  Copyright (C) 2022  Aptivi
-    // 
-    // This file is part of RetroKS
-    // 
-    // RetroKS is free software: you can redistribute it and/or modify
-    // it under the terms of the GNU General Public License as published by
-    // the Free Software Foundation, either version 3 of the License, or
-    // (at your option) any later version.
-    // 
-    // RetroKS is distributed in the hope that it will be useful,
-    // but WITHOUT ANY WARRANTY; without even the implied warranty of
-    // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    // GNU General Public License for more details.
-    // 
-    // You should have received a copy of the GNU General Public License
-    // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
     static class BeepType
     {
 
@@ -109,22 +109,22 @@ namespace RetroKS
                 else if (Convert.ToString(answerrape) == "y" | Convert.ToString(answerrape) == "Y")
                 {
                     TextWriterColor.Wln(Kernel.NewLine + "Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq);
-                    #if NETFRAMEWORK
+#if NETFRAMEWORK
                     Console.Beep(freq, (int)Math.Round(s * 1000d));
-                    #else
+#else
                     Console.Beep();
-                    #endif
+#endif
                     TextWriterColor.Wln("Beep complete.", "neutralText");
                 }
             }
             else
             {
                 TextWriterColor.Wln("Beeping in {0} seconds in {1} Hz...", "neutralText", s, freq);
-                #if NETFRAMEWORK
+#if NETFRAMEWORK
                 Console.Beep(freq, (int)Math.Round(s * 1000d));
-                #else
+#else
                 Console.Beep();
-                #endif
+#endif
                 TextWriterColor.Wln("Beep complete.", "neutralText");
             }
 

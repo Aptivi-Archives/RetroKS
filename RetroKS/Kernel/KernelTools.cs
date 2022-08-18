@@ -1,37 +1,37 @@
-﻿using System;
+﻿
+// RetroKS  Copyright (C) 2022  Aptivi
+// 
+// This file is part of RetroKS
+// 
+// RetroKS is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// RetroKS is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+using System;
 using System.Threading;
 
 namespace RetroKS
 {
-
-    // RetroKS  Copyright (C) 2022  Aptivi
-    // 
-    // This file is part of RetroKS
-    // 
-    // RetroKS is free software: you can redistribute it and/or modify
-    // it under the terms of the GNU General Public License as published by
-    // the Free Software Foundation, either version 3 of the License, or
-    // (at your option) any later version.
-    // 
-    // RetroKS is distributed in the hope that it will be useful,
-    // but WITHOUT ANY WARRANTY; without even the implied warranty of
-    // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    // GNU General Public License for more details.
-    // 
-    // You should have received a copy of the GNU General Public License
-    // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
     static class KernelTools
     {
 
         /// <summary>
-    /// Indicates that there's something wrong with the kernel.
-    /// </summary>
-    /// <param name="ErrorType">Specifies whether the error is serious, fatal, unrecoverable, or double panic. C/S/D/F/U</param>
-    /// <param name="Reboot">Optional. Specifies whether to reboot on panic or to show the message to press any key to shut down</param>
-    /// <param name="RebootTime">Optional. Specifies seconds before reboot. 0 is instant. Negative numbers not allowed.</param>
-    /// <param name="Description">Optional. Explanation of what happened when it errored.</param>
-    /// <remarks></remarks>
+        /// Indicates that there's something wrong with the kernel.
+        /// </summary>
+        /// <param name="ErrorType">Specifies whether the error is serious, fatal, unrecoverable, or double panic. C/S/D/F/U</param>
+        /// <param name="Reboot">Optional. Specifies whether to reboot on panic or to show the message to press any key to shut down</param>
+        /// <param name="RebootTime">Optional. Specifies seconds before reboot. 0 is instant. Negative numbers not allowed.</param>
+        /// <param name="Description">Optional. Explanation of what happened when it errored.</param>
+        /// <remarks></remarks>
         public static void KernelError(char ErrorType, bool Reboot = true, long RebootTime = 30L, string Description = "General kernel error.")
         {
             try

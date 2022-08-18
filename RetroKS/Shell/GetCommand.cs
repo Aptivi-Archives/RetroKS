@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 // RetroKS  Copyright (C) 2022  Aptivi
 // 
 // This file is part of RetroKS
@@ -17,6 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -886,11 +886,11 @@ namespace RetroKS
 
                     // Reboot the simulated system
                     TextWriterColor.Wln("Rebooting...", "neutralText");
-                    #if NETFRAMEWORK
+#if NETFRAMEWORK
                     Console.Beep(870, 250);
-                    #else
+#else
                     Console.Beep();
-                    #endif
+#endif
                     KernelTools.ResetEverything();
                     Console.Clear();
                     EntryPoint.Main();
@@ -1113,11 +1113,11 @@ namespace RetroKS
 
                     // Shuts down the simulated system
                     TextWriterColor.Wln("Shutting down...", "neutralText");
-                    #if NETFRAMEWORK
+#if NETFRAMEWORK
                     Console.Beep(870, 250);
-                    #else
+#else
                     Console.Beep();
-                    #endif
+#endif
                     KernelTools.ResetEverything();
                     DebugWriter.dbgWriter.Close();
                     DebugWriter.dbgWriter.Dispose();

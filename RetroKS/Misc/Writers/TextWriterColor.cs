@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 // RetroKS  Copyright (C) 2022  Aptivi
 // 
 // This file is part of RetroKS
@@ -17,6 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System;
 using static System.Console;
 
 namespace RetroKS
@@ -27,12 +27,12 @@ namespace RetroKS
     {
 
         /// <summary>
-    /// Outputs the text into the terminal prompt, and sets colors as needed.
-    /// </summary>
-    /// <param name="text">A sentence that will be written to the terminal prompt. Supports {0}, {1}, ...</param>
-    /// <param name="colorType">A type of colors that will be changed. Any of neutralText, input, contError, uncontError, hostName, userName, def, or license.</param>
-    /// <param name="vars">Endless amounts of any variables that is separated by commas.</param>
-    /// <remarks>This is used to reduce number of lines containing "System.Console.ForegroundColor = " and "System.Console.ResetColor()" text.</remarks>
+        /// Outputs the text into the terminal prompt, and sets colors as needed.
+        /// </summary>
+        /// <param name="text">A sentence that will be written to the terminal prompt. Supports {0}, {1}, ...</param>
+        /// <param name="colorType">A type of colors that will be changed. Any of neutralText, input, contError, uncontError, hostName, userName, def, or license.</param>
+        /// <param name="vars">Endless amounts of any variables that is separated by commas.</param>
+        /// <remarks>This is used to reduce number of lines containing "System.Console.ForegroundColor = " and "System.Console.ResetColor()" text.</remarks>
         public static void W(string text, string colorType, params object[] vars)
         {
             try
@@ -90,12 +90,12 @@ namespace RetroKS
         }
 
         /// <summary>
-    /// Outputs the text into the terminal prompt, sets colors as needed, and returns a new line.
-    /// </summary>
-    /// <param name="text">A sentence that will be written to the terminal prompt. Supports {0}, {1}, ...</param>
-    /// <param name="colorType">A type of colors that will be changed.  Any of neutralText, input, contError, uncontError, hostName, userName, def, or license.</param>
-    /// <param name="vars">Endless amounts of any variables that is separated by commas.</param>
-    /// <remarks>This is used to reduce number of lines containing "System.Console.ForegroundColor = " and "System.Console.ResetColor()" text.</remarks>
+        /// Outputs the text into the terminal prompt, sets colors as needed, and returns a new line.
+        /// </summary>
+        /// <param name="text">A sentence that will be written to the terminal prompt. Supports {0}, {1}, ...</param>
+        /// <param name="colorType">A type of colors that will be changed.  Any of neutralText, input, contError, uncontError, hostName, userName, def, or license.</param>
+        /// <param name="vars">Endless amounts of any variables that is separated by commas.</param>
+        /// <remarks>This is used to reduce number of lines containing "System.Console.ForegroundColor = " and "System.Console.ResetColor()" text.</remarks>
         public static void Wln(string text, string colorType, params object[] vars)
         {
             try

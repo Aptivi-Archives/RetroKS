@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 // RetroKS  Copyright (C) 2022  Aptivi
 // 
 // This file is part of RetroKS
@@ -17,6 +16,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System;
 using System.Reflection;
 
 namespace RetroKS
@@ -26,9 +26,9 @@ namespace RetroKS
     {
 
         /// <summary>
-    /// Initializes RetroKS and calls <see cref="Main()"/> to start the legacy kernel up. This can only be used on parent KS, which is 0.0.24.0
-    /// or later.
-    /// </summary>
+        /// Initializes RetroKS and calls <see cref="Main()"/> to start the legacy kernel up. This can only be used on parent KS, which is 0.0.24.0
+        /// or later.
+        /// </summary>
         public static void Main()
         {
             if (Assembly.GetCallingAssembly().GetName().Name == "Kernel Simulator" & Assembly.GetCallingAssembly().GetName().Version >= new Version(0, 0, 24, 0))

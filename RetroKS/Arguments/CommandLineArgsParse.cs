@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 // RetroKS  Copyright (C) 2022  Aptivi
 // 
 // This file is part of RetroKS
@@ -19,7 +18,7 @@
 
 using static System.Environment;
 using System.Linq;
-using Microsoft.VisualBasic;
+using System;
 
 namespace RetroKS
 {

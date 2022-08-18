@@ -1,5 +1,4 @@
 ﻿
-
 // RetroKS  Copyright (C) 2022  Aptivi
 // 
 // This file is part of RetroKS
