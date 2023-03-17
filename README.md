@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/15963131/154856234-bcbdfbb2-7c37-4e65-a6bf-43fbb8fbb949.png)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/EoflaOE/Kernel-Simulator?color=purple&label=size) [![GitHub All Releases](https://img.shields.io/github/downloads/EoflaOE/Kernel-Simulator/total?color=purple&label=d/l)](https://github.com/EoflaOE/Kernel-Simulator/releases) [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/EoflaOE/Kernel-Simulator?color=purple&include_prereleases&label=github)](https://github.com/EoflaOE/Kernel-Simulator/releases/latest) [![Chocolatey Version (including pre-releases)](https://img.shields.io/chocolatey/v/ks?color=purple&include_prereleases)](https://chocolatey.org/packages/KS/) [![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/KS?color=purple)](https://www.nuget.org/packages/KS/)
+![GitHub repo size](https://img.shields.io/github/repo-size/Aptivi/Kernel-Simulator?color=purple&label=size) [![GitHub All Releases](https://img.shields.io/github/downloads/Aptivi/Kernel-Simulator/total?color=purple&label=d/l)](https://github.com/Aptivi/Kernel-Simulator/releases) [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Aptivi/Kernel-Simulator?color=purple&include_prereleases&label=github)](https://github.com/Aptivi/Kernel-Simulator/releases/latest) [![Chocolatey Version (including pre-releases)](https://img.shields.io/chocolatey/v/ks?color=purple&include_prereleases)](https://chocolatey.org/packages/KS/) [![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/KS?color=purple)](https://www.nuget.org/packages/KS/)
 
 Kernel Simulator simulates the future of our planned kernel that's coming as soon as it's finished. It consists of the kernel, the built-in shell known as UESH, and the built-in applications.
 
@@ -18,8 +18,8 @@ Here are all the CI build status for all the active KS branches.
 
 | Branch    | AppVeyor 
 |-----------|----------
-| master    | [![Build status](https://ci.appveyor.com/api/projects/status/9anm0jc0x9raoy8x/branch/master?svg=true)](https://ci.appveyor.com/project/EoflaOE/kernel-simulator/branch/master)
-| servicing | [![Build status](https://ci.appveyor.com/api/projects/status/9anm0jc0x9raoy8x/branch/servicing?svg=true)](https://ci.appveyor.com/project/EoflaOE/kernel-simulator/branch/servicing)
+| master    | [![Build status](https://ci.appveyor.com/api/projects/status/9anm0jc0x9raoy8x/branch/master?svg=true)](https://ci.appveyor.com/project/Aptivi/kernel-simulator/branch/master)
+| servicing | [![Build status](https://ci.appveyor.com/api/projects/status/9anm0jc0x9raoy8x/branch/servicing?svg=true)](https://ci.appveyor.com/project/Aptivi/kernel-simulator/branch/servicing)
 
 ## System Requirements
 
@@ -63,7 +63,7 @@ This section covers how to install Kernel Simulator on your system. Please scrol
 
 #### Alternative method
 
-1. Download the Kernel Simulator binary files [here](https://github.com/EoflaOE/Kernel-Simulator/releases).
+1. Download the Kernel Simulator binary files [here](https://github.com/Aptivi/Kernel-Simulator/releases).
 2. Unzip the file to any directory
 3. Run it by double-clicking `Kernel Simulator.exe`
 
@@ -78,7 +78,7 @@ This section covers how to install Kernel Simulator on your system. Please scrol
 
 #### Alternative method
 
-1. Download the Kernel Simulator binary files [here](https://github.com/EoflaOE/Kernel-Simulator/releases).
+1. Download the Kernel Simulator binary files [here](https://github.com/Aptivi/Kernel-Simulator/releases).
 2. Unzip the file to any directory
 3. Install the following programs:
    - Microsoft.VisualBasic.dll 10.0 (Debian and its derivatives: `sudo apt install libmono-microsoft-visualbasic10.0-cil`)
@@ -91,7 +91,7 @@ This section covers how to install Kernel Simulator on your system. Please scrol
 
 #### Recommended method
 
-1. Download the Kernel Simulator binary files [here](https://github.com/EoflaOE/Kernel-Simulator/releases).
+1. Download the Kernel Simulator binary files [here](https://github.com/Aptivi/Kernel-Simulator/releases).
 2. Unzip the file to any directory
 3. Install the following programs:
    - [Mono Runtime](https://www.mono-project.com/download/stable/#download-mac)
@@ -106,7 +106,7 @@ This section covers how to build Kernel Simulator on your system. Please scroll 
 
 1. Open Visual Studio
 2. Press `Clone a repository`
-3. In Repository Location, enter `https://github.com/EoflaOE/Kernel-Simulator.git`
+3. In Repository Location, enter `https://github.com/Aptivi/Kernel-Simulator.git`
 4. Wait until it clones. It might take a few minutes depending on your Internet connection.
 5. Press `Solution Explorer`, then press `Switch Views`
 6. Click on `Kernel Simulator.sln`
@@ -119,7 +119,7 @@ This section covers how to build Kernel Simulator on your system. Please scroll 
 2. Install JetBrains Rider.
 3. After installation, open JetBrains Rider, and follow the configuration steps.
 4. When the main menu opens, choose `Check out from Version Control` and then `Git`.
-5. Write on the URL `https://github.com/EoflaOE/Kernel-Simulator.git` and press `Test` to verify your connectivity.
+5. Write on the URL `https://github.com/Aptivi/Kernel-Simulator.git` and press `Test` to verify your connectivity.
 6. Press Clone, and git will download the repo, then Rider will open up. It might take a few minutes depending on your Internet connection.
 7. Make sure that you're building `Kernel Simulator.sln` as `KS.DotNetSdk.sln` is not ready yet
 8. Click on the hammer button to build, the bug button (breakpoints enabled), or the Run button (breakpoints disabled - CTRL+F5 on VS). When the Edit configuration screen appears, tick the checkbox named `Use External Console`.
@@ -143,7 +143,7 @@ The packing and distribution procedures are now easier by executing this script 
 
 | Credits to           | For
 |----------------------|--------------------
-| EoflaOE              | Owner of Kernel Simulator
+| Aptivi               | Owner of Kernel Simulator
 | OpenWeatherMap       | Weather API
 | jonasjacek           | [Console color data](https://jonasjacek.github.io/colors/)
 | sindresorhus         | Word list
@@ -151,7 +151,7 @@ The packing and distribution procedures are now easier by executing this script 
 | Ethan Schoonover     | Solarized Theme
 | Fabian Neuschmidt    | [Breezy Theme](https://github.com/fneu/breezy)
 | TechRepublic         | Articles RSS feed URL
-| EoflaOE              | [Name databases](https://github.com/EoflaOE/NamesList)
+| Aptivi               | [Name databases](https://github.com/Aptivi/NamesList)
 | smashew              | [Name databases (just in case)](https://github.com/smashew/NameDatabases)
 | yavuz                | [RSS feed list by country](https://github.com/yavuz/news-feed-list-of-countries/)
 | All VIM theme makers | for VIM themes, such as [Darcula](https://github.com/doums/darcula), [Melange](https://github.com/savq/melange), [Papercolor](https://github.com/NLKNguyen/papercolor-theme), [SpaceCamp](https://github.com/jaredgorski/SpaceCamp), etc.
@@ -163,11 +163,11 @@ Below entries are the open source libraries that are used by KS and are required
 
 ### Addresstigator
 
-Source code: https://github.com/EoflaOE/Addresstigator/
+Source code: https://github.com/Aptivi/Addresstigator/
 
-Copyright (c) 2022-present EoflaOE and its companies
+Copyright (c) 2022-present Aptivi
 
-License (MIT): https://github.com/EoflaOE/Addresstigator/blob/main/LICENSE.txt
+License (MIT): https://github.com/Aptivi/Addresstigator/blob/main/LICENSE.txt
 
 ### CRC32.NET
 
@@ -179,11 +179,11 @@ License (MIT): https://github.com/force-net/Crc32.NET/blob/develop/LICENSE
 
 ### Extensification
 
-Source code: https://github.com/EoflaOE/Extensification/
+Source code: https://github.com/Aptivi/Extensification/
 
-Copyright (c) 2020-present EoflaOE and its companies
+Copyright (c) 2020-present Aptivi
 
-License (GNU GPL 3.0 or later): https://github.com/EoflaOE/Extensification/blob/master/LICENSE
+License (GNU GPL 3.0 or later): https://github.com/Aptivi/Extensification/blob/master/LICENSE
 
 ### Figgle
 
@@ -213,11 +213,11 @@ License (MIT): https://github.com/zzzprojects/html-agility-pack/blob/master/LICE
 
 ### Inxi.NET
 
-Source code: https://github.com/EoflaOE/Inxi.NET/
+Source code: https://github.com/Aptivi/Inxi.NET/
 
-Copyright (c) 2020-present EoflaOE and its companies
+Copyright (c) 2020-present Aptivi
 
-License (GNU GPL 3.0 or later): https://github.com/EoflaOE/Inxi.NET/blob/master/LICENSE
+License (GNU GPL 3.0 or later): https://github.com/Aptivi/Inxi.NET/blob/master/LICENSE
 
 ### MailKit
 
@@ -229,11 +229,11 @@ License (MIT): https://github.com/jstedfast/MailKit/blob/master/LICENSE
 
 ### ManagedWeatherMap
 
-Source code: https://github.com/EoflaOE/ManagedWeatherMap/
+Source code: https://github.com/Aptivi/ManagedWeatherMap/
 
-Copyright (c) 2021-present EoflaOE and its companies
+Copyright (c) 2021-present Aptivi
 
-License (MIT): https://github.com/EoflaOE/ManagedWeatherMap/blob/main/LICENSE.txt
+License (MIT): https://github.com/Aptivi/ManagedWeatherMap/blob/main/LICENSE.txt
 
 ### Microsoft.AspNet.WebApi.Client
 
@@ -261,13 +261,13 @@ License (Apache 2.0): https://github.com/NuGet/NuGet.Client/blob/dev/LICENSE.txt
 
 ### ReadLine.Reboot
 
-Source code: https://github.com/EoflaOE/ReadLine.Reboot/
+Source code: https://github.com/Aptivi/ReadLine.Reboot/
 
 Copyright (c) 2017 Toni Solarin-Sodara
 
-Copyright (c) 2022-present EoflaOE and its companies
+Copyright (c) 2022-present Aptivi
 
-License (MIT): https://github.com/EoflaOE/ReadLine.Reboot/blob/master/LICENSE
+License (MIT): https://github.com/Aptivi/ReadLine.Reboot/blob/master/LICENSE
 
 ### SSH.NET
 
@@ -288,7 +288,7 @@ License (MIT): https://github.com/miroiu/string-math/blob/dev/LICENSE
 ## License
 
     Kernel Simulator - Simulates our future planned Kernel
-    Copyright (C) 2018-2022  EoflaOE
+    Copyright (C) 2018-2022  Aptivi
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
