@@ -1,14 +1,20 @@
-### -+--> Description of changes
+## Description
+<!-- Describe about your pull request. Note that you need to be as more descriptive as you can so we can understand this request. -->
 
 
-
-### -+--> Type of changes
-
-- [ ] Behavioral
-- [ ] Main shell change
-- [ ] Add/remove/recode/change commands
-- [ ] Add/remove/recode/change features
+## Change type
+<!-- Specify what kind of changes you made. -->
+- [ ] Bug fixes
+- [ ] Performance improvements
+- [ ] Feature changes
+- [ ] Behavioral changes
 - [ ] Other (specify)
 
-### -+--> If other changes, please specify here
+## Tested?
+<!-- Have you tested your changes? -->
+- [ ] Yes, I have
+- [ ] No, I haven't
+- [ ] Not sure
 
+## Specify other changes
+<!-- Specify the changes that wouldn't fit into the selection. -->
