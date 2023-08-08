@@ -10,7 +10,7 @@
     <AssemblyName>RetroKS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworks>net48;net6.0</TargetFrameworks>
-    <Version>0.0.4.5</Version>
+    <Version>0.0.4.6</Version>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(ProjectDir)**\*.vb</DefaultItemExcludes>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
