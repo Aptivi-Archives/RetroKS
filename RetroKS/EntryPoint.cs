@@ -22,6 +22,9 @@ using System.Reflection;
 namespace RetroKS
 {
 
+    /// <summary>
+    /// This is the entry point class
+    /// </summary>
     public static class EntryPoint
     {
 
