@@ -1130,7 +1130,9 @@ namespace RetroKS
                 {
 
                     // Shows system information
-                    TextWriterColor.Wln("Kernel Version: {0}" + Kernel.NewLine + "Shell (uesh) version: {1}" + Kernel.NewLine + Kernel.NewLine + "Look at hardware information using 'lsdrivers'", "neutralText", Kernel.KernelVersion, Shell.ueshversion);
+                    TextWriterColor.Wln(
+                        "Kernel Version: {0}" + Kernel.NewLine +
+                        "Shell (uesh) version: {1}", "neutralText", Kernel.KernelVersion, Shell.ueshversion);
                 }
 
                 else if (requestedCommand.Substring(0, index) == "unitconv")
