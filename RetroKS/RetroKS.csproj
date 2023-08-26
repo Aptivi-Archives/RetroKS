@@ -10,7 +10,7 @@
     <AssemblyName>RetroKS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworks>net48;net6.0</TargetFrameworks>
-    <Version>0.0.4.6</Version>
+    <Version>0.0.4.7</Version>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(ProjectDir)**\*.vb</DefaultItemExcludes>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -72,5 +72,7 @@
     <None Include="COPYING" />
     <None Include="Paomedia-Small-N-Flat-Terminal.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Terminaux" Version="1.1.1" />
+  </ItemGroup>
 </Project>

@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -40,7 +41,7 @@ namespace RetroKS
             {
                 // Shows available arguments and prompts for it
                 TextWriterColor.W("Available arguments: {0}" + Kernel.NewLine + "Arguments ('help' for help): ", "input", string.Join(", ", Kernel.AvailableArgs));
-                answerargs = Console.ReadLine();
+                answerargs = TermReader.Read();
 
                 // Make a kernel check for arguments later if anything is entered
                 if (!string.IsNullOrEmpty(answerargs) & InjMode == false)

@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -28,7 +29,7 @@ namespace RetroKS
 
             // New message of the day
             TextWriterColor.W("Write a new Message Of The Day: ", "input");
-            string newmotd = Console.ReadLine();
+            string newmotd = TermReader.Read();
             if (string.IsNullOrEmpty(newmotd))
             {
                 TextWriterColor.Wln("Blank message of the day.", "neutralText");

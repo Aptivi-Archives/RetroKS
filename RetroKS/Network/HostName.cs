@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -28,7 +29,7 @@ namespace RetroKS
 
             // Change host-name to custom name
             TextWriterColor.W("Write a new host name: ", "input");
-            string newhost = Console.ReadLine();
+            string newhost = TermReader.Read();
             if (string.IsNullOrEmpty(newhost))
             {
                 TextWriterColor.Wln("Blank host name.", "neutralText");

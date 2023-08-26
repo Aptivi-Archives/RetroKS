@@ -21,6 +21,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -397,7 +398,7 @@ namespace RetroKS
                     if (requestedCommand == "choice")
                     {
                         TextWriterColor.W("Write a question: ", "input");
-                        string question = Console.ReadLine();
+                        string question = TermReader.Read();
                         if (string.IsNullOrEmpty(question))
                         {
                             TextWriterColor.Wln("Blank question. Try again.", "neutralText");
@@ -409,7 +410,7 @@ namespace RetroKS
                         else
                         {
                             TextWriterColor.W("Write choice sets, Ex. Y/N/M/D/F/...: ", "input");
-                            string sets = Console.ReadLine();
+                            string sets = TermReader.Read();
                             if (string.IsNullOrEmpty(sets))
                             {
                                 TextWriterColor.Wln("Blank choice sets. Try again.", "neutralText");
@@ -577,7 +578,7 @@ namespace RetroKS
                     if (requestedCommand == "echo")
                     {
                         TextWriterColor.W("Write any text: ", "input");
-                        answerecho = Console.ReadLine();
+                        answerecho = TermReader.Read();
                         if (answerecho == "q")
                         {
                             TextWriterColor.Wln("Text printing has been cancelled.", "neutralText");
@@ -820,7 +821,7 @@ namespace RetroKS
                     if (requestedCommand == "read")
                     {
                         TextWriterColor.W("Write a file (directories will be scanned): ", "input");
-                        string readfile = Console.ReadLine();
+                        string readfile = TermReader.Read();
                         if (string.IsNullOrEmpty(readfile))
                         {
                             TextWriterColor.Wln(string.Join(", ", ListFolders.AvailableDirs), "neutralText");

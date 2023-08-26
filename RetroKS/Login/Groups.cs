@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -192,7 +193,7 @@ namespace RetroKS
             try
             {
                 TextWriterColor.W("Username to be managed: ", "input");
-                string answermuser = Console.ReadLine();
+                string answermuser = TermReader.Read();
                 if (answermuser == "q")
                 {
                     return;
@@ -204,11 +205,11 @@ namespace RetroKS
                         if ((userPerm ?? "") == (answermuser ?? "") & answermuser != "root")
                         {
                             TextWriterColor.W("Type (Admin / Disabled): ", "input");
-                            string answermtype = Console.ReadLine();
+                            string answermtype = TermReader.Read();
                             if (answermtype == "Admin" | answermtype == "Disabled")
                             {
                                 TextWriterColor.W("Add or remove? <Add/Remove> ", "input");
-                                string answermaddremove = Console.ReadLine();
+                                string answermaddremove = TermReader.Read();
                                 if (answermaddremove == "Add" | answermaddremove == "Remove")
                                 {
                                     permission(answermtype, Convert.ToString(true), answermuser, Convert.ToBoolean(answermaddremove));
@@ -253,7 +254,7 @@ namespace RetroKS
             try
             {
                 TextWriterColor.W("Username to be managed: ", "input");
-                string answermuser = Console.ReadLine();
+                string answermuser = TermReader.Read();
                 if (answermuser == "q")
                 {
                     return;
@@ -265,11 +266,11 @@ namespace RetroKS
                         if ((userPerm ?? "") == (answermuser ?? "") & answermuser != "root")
                         {
                             TextWriterColor.W("Type (Admin / Disabled): ", "input");
-                            string answermtype = Console.ReadLine();
+                            string answermtype = TermReader.Read();
                             if (answermtype == "Admin" | answermtype == "Disabled")
                             {
                                 TextWriterColor.W("Is the user allowed? <y/n> ", "input");
-                                string answermallow = Console.ReadLine();
+                                string answermallow = TermReader.Read();
                                 if (answermallow == "y")
                                 {
                                     permission(answermtype, answermuser, "Allow");

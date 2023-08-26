@@ -18,6 +18,7 @@
 
 using System;
 using System.Linq;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -92,7 +93,7 @@ namespace RetroKS
                         {
 
                             TextWriterColor.W("Write username: ", "input");
-                            arguser = Console.ReadLine();
+                            arguser = TermReader.Read();
                             if (arguser.Contains(" "))
                             {
                                 TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -108,7 +109,7 @@ namespace RetroKS
                             else
                             {
                                 TextWriterColor.W("Write password: ", "input");
-                                argword = Console.ReadLine();
+                                argword = TermReader.Read();
                                 if (argword.Contains(" "))
                                 {
                                     TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -124,7 +125,7 @@ namespace RetroKS
                                 else
                                 {
                                     TextWriterColor.W("Confirm: ", "input");
-                                    string answerpasswordconfirm = Console.ReadLine();
+                                    string answerpasswordconfirm = TermReader.Read();
                                     if (answerpasswordconfirm.Contains(" "))
                                     {
                                         TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -207,7 +208,7 @@ namespace RetroKS
                             if (Kernel.BootArgs[i] == "cmdinject")
                             {
                                 TextWriterColor.W("Available commands: {0}" + Kernel.NewLine + "Write command: ", "input", string.Join(", ", Shell.availableCommands));
-                                argcmds = Console.ReadLine().Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                                argcmds = TermReader.Read().Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
                                 argcommands = string.Join(", ", argcmds);
                                 if (argcommands != "q")
                                 {

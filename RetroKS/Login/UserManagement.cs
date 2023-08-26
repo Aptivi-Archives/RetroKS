@@ -20,6 +20,7 @@
 
 using System;
 using System.Linq;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -139,7 +140,7 @@ namespace RetroKS
             try
             {
                 TextWriterColor.W("Username to be changed: ", "input");
-                string answernuser = Console.ReadLine();
+                string answernuser = TermReader.Read();
                 if (answernuser.Contains(" "))
                 {
                     TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -163,7 +164,7 @@ namespace RetroKS
                             DoneFlag = true;
                             TextWriterColor.W("Username to change to: ", "input");
                             Console.ForegroundColor = (ConsoleColor)Convert.ToInt32(ColorInitialize.inputColor);
-                            string answerNewUserTemp = Console.ReadLine();
+                            string answerNewUserTemp = TermReader.Read();
                             if (answerNewUserTemp.Contains(" "))
                             {
                                 TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -229,7 +230,7 @@ namespace RetroKS
                 if (Login.password != default)
                 {
                     TextWriterColor.W("Current password: ", "input");
-                    Login.answerpass = Console.ReadLine();
+                    Login.answerpass = TermReader.Read();
                     if (Login.answerpass.Contains(" "))
                     {
                         TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -270,7 +271,7 @@ namespace RetroKS
 
             // Prompts user to enter new password
             TextWriterColor.W("New password: ", "input");
-            string answernewpass = Console.ReadLine();
+            string answernewpass = TermReader.Read();
             if (answernewpass.Contains(" "))
             {
                 TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -288,7 +289,7 @@ namespace RetroKS
             else
             {
                 TextWriterColor.W("Confirm: ", "input");
-                string answernewpassconfirm = Console.ReadLine();
+                string answernewpassconfirm = TermReader.Read();
                 if (answernewpassconfirm.Contains(" "))
                 {
                     TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -321,7 +322,7 @@ namespace RetroKS
 
             // Removes user from the username and password list
             TextWriterColor.W("Username to be removed: ", "input");
-            string answerrmuser = Console.ReadLine();
+            string answerrmuser = TermReader.Read();
             removeUserFromDatabase(answerrmuser);
 
         }
@@ -429,7 +430,7 @@ namespace RetroKS
 
             // Prompt user to write username to be added
             TextWriterColor.W("Write username: ", "input");
-            GetCommand.answernewuser = Console.ReadLine();
+            GetCommand.answernewuser = TermReader.Read();
             if (GetCommand.answernewuser.Contains(" "))
             {
                 TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -453,7 +454,7 @@ namespace RetroKS
         {
 
             TextWriterColor.W("Write password: ", "input");
-            GetCommand.answerpassword = Console.ReadLine();
+            GetCommand.answerpassword = TermReader.Read();
             if (GetCommand.answerpassword.Contains(" "))
             {
                 TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -469,7 +470,7 @@ namespace RetroKS
             else
             {
                 TextWriterColor.W("Confirm: ", "input");
-                string answerpasswordconfirm = Console.ReadLine();
+                string answerpasswordconfirm = TermReader.Read();
                 if (answerpasswordconfirm.Contains(" "))
                 {
                     TextWriterColor.Wln("Spaces are not allowed.", "neutralText");

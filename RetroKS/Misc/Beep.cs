@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -27,7 +28,7 @@ namespace RetroKS
         {
 
             TextWriterColor.W("Beep Frequency in Hz that has the limit of 37-32767 Hz: ", "input");
-            GetCommand.answerbeep = Console.ReadLine();
+            GetCommand.answerbeep = TermReader.Read();
             if (Convert.ToDouble(GetCommand.answerbeep) > int.MaxValue)
             {
                 TextWriterColor.Wln("Integer overflow on frequency.", "neutralText");
@@ -72,7 +73,7 @@ namespace RetroKS
         {
 
             TextWriterColor.W("Beep Time in seconds that has the limit of 1-3600: ", "input");
-            GetCommand.answerbeepms = Console.ReadLine();
+            GetCommand.answerbeepms = TermReader.Read();
             if (double.TryParse(GetCommand.answerbeepms, out GetCommand.key))
             {
                 if (Convert.ToDouble(GetCommand.answerbeepms) <= 0d | Convert.ToDouble(GetCommand.answerbeepms) >= 3601d)

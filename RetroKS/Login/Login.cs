@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -48,7 +49,7 @@ namespace RetroKS
             {
                 TextWriterColor.W(Kernel.NewLine + Kernel.MOTD + Kernel.NewLine + Kernel.NewLine + "Username: ", "input");
             }
-            answeruser = Console.ReadLine();
+            answeruser = TermReader.Read();
             if (answeruser.Contains(" "))
             {
                 TextWriterColor.Wln("Spaces are not allowed.", "neutralText");
@@ -87,7 +88,7 @@ namespace RetroKS
                         if (password != default)
                         {
                             TextWriterColor.W("{0}'s password: ", "input", usernamerequested);
-                            answerpass = Console.ReadLine();
+                            answerpass = TermReader.Read();
                             if (answerpass.Contains(" "))
                             {
                                 TextWriterColor.Wln("Spaces are not allowed.", "neutralText");

@@ -17,6 +17,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -27,7 +28,7 @@ namespace RetroKS
         {
 
             TextWriterColor.W("Write a message: ", "input");
-            string kpmsg = Console.ReadLine();
+            string kpmsg = TermReader.Read();
             if (string.IsNullOrEmpty(kpmsg))
             {
                 TextWriterColor.Wln("Blank message.", "neutralText");
@@ -52,7 +53,7 @@ namespace RetroKS
                 else if (Convert.ToString(kpet) == "S" | Convert.ToString(kpet) == "U" | Convert.ToString(kpet) == "D" | Convert.ToString(kpet) == "F" | Convert.ToString(kpet) == "C")
                 {
                     TextWriterColor.W("Restart time in seconds: ", "input");
-                    string kptime = Console.ReadLine();
+                    string kptime = TermReader.Read();
                     if (string.IsNullOrEmpty(kptime))
                     {
                         TextWriterColor.Wln("Blank time", "neutralText");

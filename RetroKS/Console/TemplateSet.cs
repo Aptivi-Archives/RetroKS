@@ -18,6 +18,7 @@
 
 using System;
 using System.Linq;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -28,7 +29,7 @@ namespace RetroKS
         {
 
             TextWriterColor.W("Available templates: {0}" + Kernel.NewLine + "Template: ", "input", string.Join(", ", Templates.colorTemplates));
-            string answertemplate = Console.ReadLine();
+            string answertemplate = TermReader.Read();
             templateSet(answertemplate);
 
         }

@@ -18,6 +18,7 @@
 
 using System;
 using System.Linq;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -97,7 +98,7 @@ namespace RetroKS
 
                 // Write current step message
                 TextWriterColor.W(currentStepMessage, "input");
-                answerColor = Console.ReadLine();
+                answerColor = TermReader.Read();
 
                 // Checks the user input if colors exist, and then try to put it into a temporary array.
                 if (i != 8)

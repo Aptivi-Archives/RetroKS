@@ -19,6 +19,7 @@
 using System;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -32,7 +33,7 @@ namespace RetroKS
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 TextWriterColor.W("net: Network available." + Kernel.NewLine + "net: Checking for connectivity..." + Kernel.NewLine + "net: Write address, or URL: ", "input");
-                string AnswerPing = Console.ReadLine();
+                string AnswerPing = TermReader.Read();
                 if (AnswerPing != "q")
                 {
                     PingTargetKernel(AnswerPing);
@@ -55,7 +56,7 @@ namespace RetroKS
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 TextWriterColor.W("net: Write address, or URL: ", "input");
-                string AnswerPing = Console.ReadLine();
+                string AnswerPing = TermReader.Read();
                 if (AnswerPing != "q")
                 {
                     PingTarget(AnswerPing);

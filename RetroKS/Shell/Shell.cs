@@ -18,6 +18,7 @@
 
 using System;
 using System.Linq;
+using Terminaux.Reader;
 
 namespace RetroKS
 {
@@ -43,7 +44,7 @@ namespace RetroKS
             commandPromptWrite();
             DisposeExit.DisposeAll();
             Console.ForegroundColor = (ConsoleColor)Convert.ToInt32(ColorInitialize.inputColor);
-            strcommand = Console.ReadLine();
+            strcommand = TermReader.Read();
             getLine();
 
         }
