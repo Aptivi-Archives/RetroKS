@@ -9,8 +9,8 @@
     <RootNamespace>RetroKS</RootNamespace>
     <AssemblyName>RetroKS</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworks>net48;net6.0</TargetFrameworks>
-    <Version>0.0.4.8</Version>
+    <TargetFrameworks>net48;net6.0;net7.0</TargetFrameworks>
+    <Version>0.0.4.9</Version>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(ProjectDir)**\*.vb</DefaultItemExcludes>
     <LangVersion>latest</LangVersion>
     <SignAssembly>True</SignAssembly>
