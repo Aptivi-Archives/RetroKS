@@ -34,10 +34,10 @@ namespace RetroKS
         /// </summary>
         public static void Main()
         {
-            if ((Assembly.GetCallingAssembly().GetName().Name == "Kernel Simulator" &&
-                 Assembly.GetCallingAssembly().GetName().Version >= new Version(0, 0, 24, 0)) ||
-                (Assembly.GetCallingAssembly().GetName().Name == "Nitrocid" &&
-                 Assembly.GetCallingAssembly().GetName().Version >= new Version(0, 1, 0, 0)))
+            var asmName = Assembly.GetCallingAssembly().GetName();
+            if ((asmName.Name == "Kernel Simulator" && asmName.Version >= new Version(0, 0, 24, 0)) ||
+                (asmName.Name == "Nitrocid" && asmName.Version >= new Version(0, 1, 0, 0)) ||
+                (asmName.Name == "Nitrocid.Extras.RetroKS" && asmName.Version >= new Version(0, 1, 0, 0)))
                 Kernel.KernelMain();
             else
                 TextWriterColor.Wln("RetroKS should be run from Kernel Simulator 0.0.24.0 or later.", "uncontError");
