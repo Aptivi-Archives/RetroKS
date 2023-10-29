@@ -34,6 +34,8 @@ fi
 # Pack binary
 echo Packing binary...
 cd "../RetroKS/bin/$ksreleaseconf/net6.0/" && "$zippath" -r /tmp/$ksversion-bin.zip . && cd -
+cd "../RetroKS/bin/$ksreleaseconf/net7.0/" && "$zippath" -r /tmp/$ksversion-bin7.zip . && cd -
+cd "../RetroKS/bin/$ksreleaseconf/net48/" && "$zippath" -r /tmp/$ksversion-bin48.zip . && cd -
 if [ ! $? == 0 ]; then
 	echo Packing failed.
 	exit 1
@@ -41,6 +43,5 @@ fi
 
 # Inform success
 mv /tmp/$ksversion-bin.zip .
-cp "../RetroKS/bin/$ksreleaseconf/net6.0/RetroKS.pdb" ./$ksversion.pdb
 echo Build and pack successful.
 exit 0
