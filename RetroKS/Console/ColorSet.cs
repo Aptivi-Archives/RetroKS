@@ -29,12 +29,11 @@ namespace RetroKS
         private static string answerColor;
         private static string currentStepMessage = "Color for input: ";
         private static int stepCurrent = 0;
-        private static int i;
 
         // Variables
         public static string[] answersColor = new string[8];
 
-        public static void UseDefaults()
+        public static void UseDefaults(int i)
         {
             // Use default settings in current step.
             if (i == 0)
@@ -145,19 +144,19 @@ namespace RetroKS
                     else if (ColorInitialize.availableColors.Contains(answerColor))
                     {
                         answersColor[i] = answerColor;
-                        advanceStep();
+                        AdvanceStep();
                     }
                     else if (string.IsNullOrEmpty(answerColor))
                     {
                         // Nothing written, use defaults.
-                        UseDefaults();
-                        advanceStep();
+                        UseDefaults(i);
+                        AdvanceStep();
                     }
                     else
                     {
                         TextWriterColor.Wln("The {0} color is not found. Your answers is case-sensitive.", "neutralText", answerColor);
-                        UseDefaults();
-                        advanceStep();
+                        UseDefaults(i);
+                        AdvanceStep();
                     }
                 }
                 else if (i == 8)
@@ -196,11 +195,11 @@ namespace RetroKS
 
         }
 
-        public static void advanceStep()
+        public static void AdvanceStep()
         {
 
             // Advance a step
-            stepCurrent = stepCurrent + 1;
+            stepCurrent++;
             if (stepCurrent == 1)
             {
                 currentStepMessage = "Color for license: ";

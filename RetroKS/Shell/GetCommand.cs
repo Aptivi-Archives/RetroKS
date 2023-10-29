@@ -665,7 +665,7 @@ namespace RetroKS
                 else if (requestedCommand == "netinfo")
                 {
 
-                    NetworkTools.getProperties();
+                    NetworkTools.GetProperties();
                 }
 
                 else if (requestedCommand.Substring(0, index) == "mkdir" | requestedCommand.Substring(0, index) == "md")

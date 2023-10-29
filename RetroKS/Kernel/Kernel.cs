@@ -25,25 +25,16 @@ namespace RetroKS
     {
 
         // Variables
-        public static string Hddsize;                                                            // The size of simulated Hard Drive
-        public static string Dsize;                                                              // Same as above, but in bytes
-        public static string Hddmodel;                                                           // Model of hard drive
-        public static string Cpuname;                                                            // CPU name
-        public static string Cpuspeed;                                                           // CPU Clock Speed
-        public static string SysMem;                                                             // Memory of simulated system
-        public static string BIOSCaption;                                                        // BIOS Caption
-        public static string BIOSMan;                                                            // BIOS Manufacturer
-        public static string BIOSSMBIOSVersion;                                                  // BIOS Version from SMBIOS
-        public static string BIOSVersion;                                                        // BIOS Version (some AMI BIOSes output "AMIINT - 10") 
         public static string KernelVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-        public static string[] BootArgs;                                                         // Array for boot arguments
-        public static string[] AvailableArgs = new string[] { "motd", "nohwprobe", "chkn=1", "preadduser", "hostname", "quiet", "gpuprobe", "cmdinject", "debug", "help" };
-        public static string[] availableCMDLineArgs = new string[] { "createConf", "promptArgs" };              // Array for available command-line arguments
-        public static string slotsUsedName;                                                      // Lists slots by names
-        public static int slotsUsedNum;                                                      // Lists slots by numbers
-        public static string[] Capacities;                                                       // Capacity (in MB)
-        public static int totalSlots;                                                        // Total slots
-        public static StreamReader configReader;                                                 // Configuration file
+        public static string[] BootArgs;
+        public static string[] AvailableArgs =
+            new string[] { "motd", "nohwprobe", "chkn=1", "preadduser", "hostname", "quiet", "gpuprobe", "cmdinject", "debug", "help" };
+        public static string[] availableCMDLineArgs =
+            new string[] { "createConf", "promptArgs" };
+        public static string slotsUsedName;
+        public static int slotsUsedNum;
+        public static int totalSlots;
+        public static StreamReader configReader;
         public static string Host;
         public static string MOTD;
         public readonly static string NewLine = Environment.NewLine;

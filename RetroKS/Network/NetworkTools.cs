@@ -26,27 +26,22 @@ namespace RetroKS
 
         public static long adapterNumber;
 
-        public static void getProperties()
+        public static void GetProperties()
         {
 
-            var proper = IPGlobalProperties.GetIPGlobalProperties();
             var adapters = NetworkInterface.GetAllNetworkInterfaces();
             foreach (NetworkInterface adapter in adapters)
             {
-                adapterNumber = adapterNumber + 1L;
+                adapterNumber++;
                 if (adapter.Supports(NetworkInterfaceComponent.IPv4) == false)
                 {
                     if (Flags.DebugMode == true)
                     {
                         DebugWriter.Wdbg("{0} doesn't support IPv4 because ASSERT(adapter.Supp(IPv4) = True) = False.", true, adapter.Description);
                     }
-                    goto Cont;
+                    continue;
                 }
                 else if (adapter.NetworkInterfaceType == NetworkInterfaceType.Ethernet | adapter.NetworkInterfaceType == NetworkInterfaceType.Ethernet3Megabit | adapter.NetworkInterfaceType == NetworkInterfaceType.FastEthernetFx | adapter.NetworkInterfaceType == NetworkInterfaceType.FastEthernetT | adapter.NetworkInterfaceType == NetworkInterfaceType.GigabitEthernet | adapter.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
-
-
-
-
                 {
                     var adapterProperties = adapter.GetIPProperties();
                     var p = adapterProperties.GetIPv4Properties();
@@ -59,14 +54,7 @@ namespace RetroKS
                     {
                         TextWriterColor.Wln("Failed to get statistics for adapter {0}", "neutralText", adapter.Description);
                     }
-                    TextWriterColor.Wln("Adapter Number: {0}" + Kernel.NewLine + "Adapter Name: {1}" + Kernel.NewLine + "Maximum Transmission Unit: {2} Units" + Kernel.NewLine + "DHCP Enabled: {3}" + Kernel.NewLine + "Non-unicast packets: {4}/{5}" + Kernel.NewLine + "Unicast packets: {6}/{7}" + Kernel.NewLine + "Error incoming/outgoing packets: {8}/{9}", "neutralText", adapterNumber, adapter.Description, p.Mtu, p.IsDhcpEnabled, s.NonUnicastPacketsSent, s.NonUnicastPacketsReceived, s.UnicastPacketsSent, s.UnicastPacketsReceived, s.IncomingPacketsWithErrors, s.OutgoingPacketsWithErrors);
-
-
-
-
-
-
-
+                    TextWriterColor.Wln("Adapter Number: {0}" + Kernel.NewLine + "Adapter Name: {1}" + Kernel.NewLine + "Maximum Transmission Unit: {2} Units" + Kernel.NewLine + "Non-unicast packets: {3}/{4}" + Kernel.NewLine + "Unicast packets: {5}/{6}" + Kernel.NewLine + "Error incoming/outgoing packets: {7}/{8}", "neutralText", adapterNumber, adapter.Description, p.Mtu, s.NonUnicastPacketsSent, s.NonUnicastPacketsReceived, s.UnicastPacketsSent, s.UnicastPacketsReceived, s.IncomingPacketsWithErrors, s.OutgoingPacketsWithErrors);
                 }
                 else
                 {
@@ -74,12 +62,8 @@ namespace RetroKS
                     {
                         DebugWriter.Wdbg("Adapter {0} doesn't belong in netinfo because the type is {1}", true, adapter.Description, adapter.NetworkInterfaceType);
                     }
-                    goto Cont;
+                    continue;
                 }
-
-                Cont:
-                ;
-
             }
 
         }
