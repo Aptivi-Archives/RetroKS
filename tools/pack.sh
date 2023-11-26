@@ -33,7 +33,7 @@ fi
 
 # Pack binary
 echo Packing binary...
-cd "../RetroKS/bin/$ksreleaseconf/net6.0/" && "$zippath" -r /tmp/$ksversion-bin.zip . && cd -
+cd "../RetroKS/bin/$ksreleaseconf/net8.0/" && "$zippath" -r /tmp/$ksversion-bin.zip . && cd -
 cd "../RetroKS/bin/$ksreleaseconf/net7.0/" && "$zippath" -r /tmp/$ksversion-bin7.zip . && cd -
 cd "../RetroKS/bin/$ksreleaseconf/net48/" && "$zippath" -r /tmp/$ksversion-bin48.zip . && cd -
 if [ ! $? == 0 ]; then

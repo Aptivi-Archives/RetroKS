@@ -23,7 +23,7 @@ if "%releaseconfig%" == "" set releaseconfig=Release
 
 :packbin
 echo Packing binary...
-"%ProgramFiles%\7-Zip\7z.exe" a -tzip %temp%/%ksversion%-bin.zip "..\RetroKS\bin\%releaseconfig%\net6.0\*"
+"%ProgramFiles%\7-Zip\7z.exe" a -tzip %temp%/%ksversion%-bin.zip "..\RetroKS\bin\%releaseconfig%\net8.0\*"
 "%ProgramFiles%\7-Zip\7z.exe" a -tzip %temp%/%ksversion%-bin7.zip "..\RetroKS\bin\%releaseconfig%\net7.0\*"
 "%ProgramFiles%\7-Zip\7z.exe" a -tzip %temp%/%ksversion%-bin48.zip "..\RetroKS\bin\%releaseconfig%\net48\*"
 if %errorlevel% == 0 goto :complete
