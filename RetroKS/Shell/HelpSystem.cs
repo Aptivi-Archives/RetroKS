@@ -30,7 +30,46 @@ namespace RetroKS
 
                 if (Flags.simHelp == false)
                 {
-                    TextWriterColor.Wln("Help commands:" + Kernel.NewLine + Kernel.NewLine + "adduser: Adds users (Only admins can access this command)" + Kernel.NewLine + "annoying-sound (Alias: beep): Console will beep in Hz and time in milliseconds" + Kernel.NewLine + "arginj: Injects arguments to the kernel (reboot required, admins only)" + Kernel.NewLine + "calc: Simple calculator (No prompt)" + Kernel.NewLine + "cdir (Alias: currentdir): Shows current directory" + Kernel.NewLine + "changedir (Aliases: chdir, cd): Changes directory" + Kernel.NewLine + "chhostname: Changes host name (Admins only)" + Kernel.NewLine + "chmotd: Changes MOTD, the Message Of The Day (Admins only)" + Kernel.NewLine + "choice: Makes user choices" + Kernel.NewLine + "chpwd: Changes password for current user" + Kernel.NewLine + "chusrname: Changes user name (Admins Only)" + Kernel.NewLine + "cls: Clears the screen" + Kernel.NewLine + "debuglog: Shows debug logs (Admins Only)" + Kernel.NewLine + "disco: A disco effect! (press ENTER to quit)" + Kernel.NewLine + "echo: Writes a text into a console" + Kernel.NewLine + "future-eyes-destroyer (Alias: fed): Like disco, but black/white version." + Kernel.NewLine + "help: Help page" + Kernel.NewLine + "hwprobe: Probe hardware manually (One time in 'nohwprobe' kernel)" + Kernel.NewLine + "list (Alias: ls): List file/folder contents in current folder" + Kernel.NewLine + "logout: Logs you out." + Kernel.NewLine + "lsdrivers: Lists drivers that is recognized by the kernel." + Kernel.NewLine + "md (Alias: mkdir): Creates a directory (No prompt)" + Kernel.NewLine + "netinfo: Lists information about all available interfaces" + Kernel.NewLine + "panicsim: Kernel Panic Simulator (real)" + Kernel.NewLine + "perm: Manage permissions for users (Only admins can access this command)" + Kernel.NewLine + "ping: Check to see if specified address is available" + Kernel.NewLine + "read: Writes file contents to the console" + Kernel.NewLine + "reboot: Restarts your computer (WARNING: No syncing, because it is not a final kernel)" + Kernel.NewLine + "reloadconfig: Reloads configuration file that is edited." + Kernel.NewLine + "rd (Alias: rmdir): Removes a directory (No prompt)" + Kernel.NewLine + "rmuser: Removes a user from the list (Admins Only)" + Kernel.NewLine + "scical: Scientific calculator. The unit converter is separated to another command (No prompt)" + Kernel.NewLine + "setcolors: Sets up kernel colors" + Kernel.NewLine + "setthemes: Sets up kernel themes" + Kernel.NewLine + "showmotd: Shows message of the day set by user or kernel" + Kernel.NewLine + "showtd: Shows date and time" + Kernel.NewLine + "shutdown: The kernel will be shut down" + Kernel.NewLine + "sysinfo: System information" + Kernel.NewLine + "unitconv: Unit converter that is separated from scicalc." + Kernel.NewLine + "version: Shows kernel version", "neutralText");
+                    TextWriterColor.Wln(
+                        "Help commands:" + Kernel.NewLine + Kernel.NewLine +
+                        "adduser: Adds users (Only admins can access this command)" + Kernel.NewLine +
+                        "annoying-sound (Alias: beep): Console will beep in Hz and time in milliseconds" + Kernel.NewLine +
+                        "arginj: Injects arguments to the kernel (reboot required, admins only)" + Kernel.NewLine +
+                        "calc: Simple calculator (No prompt)" + Kernel.NewLine +
+                        "cdir (Alias: currentdir): Shows current directory" + Kernel.NewLine +
+                        "changedir (Aliases: chdir, cd): Changes directory" + Kernel.NewLine +
+                        "chhostname: Changes host name (Admins only)" + Kernel.NewLine +
+                        "chmotd: Changes MOTD, the Message Of The Day (Admins only)" + Kernel.NewLine +
+                        "choice: Makes user choices" + Kernel.NewLine +
+                        "chpwd: Changes password for current user" + Kernel.NewLine +
+                        "chusrname: Changes user name (Admins Only)" + Kernel.NewLine +
+                        "cls: Clears the screen" + Kernel.NewLine +
+                        "debuglog: Shows debug logs (Admins Only)" + Kernel.NewLine +
+                        "disco: A disco effect! (press ENTER to quit)" + Kernel.NewLine +
+                        "echo: Writes a text into a console" + Kernel.NewLine +
+                        "future-eyes-destroyer (Alias: fed): Like disco, but black/white version." + Kernel.NewLine +
+                        "help: Help page" + Kernel.NewLine +
+                        "list (Alias: ls): List file/folder contents in current folder" + Kernel.NewLine +
+                        "logout: Logs you out." + Kernel.NewLine +
+                        "md (Alias: mkdir): Creates a directory (No prompt)" + Kernel.NewLine +
+                        "netinfo: Lists information about all available interfaces" + Kernel.NewLine +
+                        "panicsim: Kernel Panic Simulator (real)" + Kernel.NewLine +
+                        "perm: Manage permissions for users (Only admins can access this command)" + Kernel.NewLine +
+                        "ping: Check to see if specified address is available" + Kernel.NewLine +
+                        "read: Writes file contents to the console" + Kernel.NewLine +
+                        "reboot: Restarts your computer (WARNING: No syncing, because it is not a final kernel)" + Kernel.NewLine +
+                        "reloadconfig: Reloads configuration file that is edited." + Kernel.NewLine +
+                        "rd (Alias: rmdir): Removes a directory (No prompt)" + Kernel.NewLine +
+                        "rmuser: Removes a user from the list (Admins Only)" + Kernel.NewLine +
+                        "scical: Scientific calculator. The unit converter is separated to another command (No prompt)" + Kernel.NewLine +
+                        "setcolors: Sets up kernel colors" + Kernel.NewLine +
+                        "setthemes: Sets up kernel themes" + Kernel.NewLine +
+                        "showmotd: Shows message of the day set by user or kernel" + Kernel.NewLine +
+                        "showtd: Shows date and time" + Kernel.NewLine +
+                        "shutdown: The kernel will be shut down" + Kernel.NewLine +
+                        "sysinfo: System information" + Kernel.NewLine +
+                        "unitconv: Unit converter that is separated from scical." + Kernel.NewLine +
+                        "version: Shows kernel version", "neutralText");
                 }
                 else
                 {
